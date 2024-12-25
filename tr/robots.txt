@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gmodebate.github.io/cosmos/tr/sitemap.xml

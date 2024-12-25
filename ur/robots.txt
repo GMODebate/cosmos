@@ -1,0 +1,8 @@
+<br />
+<b>Warning</b>:  Undefined array key "ur" in <b>/home/cosmicphilosophy.org/httpdocs_local/translation.inc.php</b> on line <b>2119</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type null in <b>/home/cosmicphilosophy.org/httpdocs_local/translation.inc.php</b> on line <b>2119</b><br />
+User-agent: *
+Allow: /
+
+Sitemap: https://gmodebate.github.io/cosmos/ur/sitemap.xml
