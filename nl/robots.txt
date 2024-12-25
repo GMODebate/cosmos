@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nl.cosmicphilosophy.org/sitemap.xml
+Sitemap: https://gmodebate.github.io/cosmos/nl/sitemap.xml
