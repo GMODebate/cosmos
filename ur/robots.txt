@@ -1,7 +1,7 @@
 <br />
-<b>Warning</b>:  Undefined array key "ur" in <b>/home/cosmicphilosophy.org/httpdocs_local/translation.inc.php</b> on line <b>2118</b><br />
+<b>Warning</b>:  Undefined array key "ur" in <b>/home/cosmicphilosophy.org/httpdocs_local/translation.inc.php</b> on line <b>2120</b><br />
 <br />
-<b>Warning</b>:  Trying to access array offset on value of type null in <b>/home/cosmicphilosophy.org/httpdocs_local/translation.inc.php</b> on line <b>2118</b><br />
+<b>Warning</b>:  Trying to access array offset on value of type null in <b>/home/cosmicphilosophy.org/httpdocs_local/translation.inc.php</b> on line <b>2120</b><br />
 User-agent: *
 Allow: /
 
