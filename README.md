@@ -5,8 +5,8 @@
 This repository serves as a backup of CosmicPhilosophy.org, published on the following online platforms:
 
 - CosmicPhilosophy.org: [https://cosmicphilosophy.org/](https://cosmicphilosophy.org/)
-- gmodebate.github.io/cosmos/ (Github Pages): [https://gmodebate.github.io/cosmos/](https://gmodebate.github.io/cosmos/)
-- cosmos.on-fleek.app (Fleek Pages): [https://cosmos.on-fleek.app/](https://cosmos.on-fleek.app/)
+- Github Pages: [https://gmodebate.github.io/cosmos/](https://gmodebate.github.io/cosmos/)
+- Fleek Pages: [https://cosmos.on-fleek.app/](https://cosmos.on-fleek.app/)
 
 ### 🇬 Google's Corruption for 👾 AI Life
 [https://gmodebate.github.io/google/](https://gmodebate.github.io/google/) | An Investigation of Google's Fake Employee Hoarding Scandal and Embrace of Military AI
