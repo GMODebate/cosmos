@@ -3377,6 +3377,40 @@
             }, donateform);
         }
 
+        var dl_links = QUERY('#download-links');
+        if (dl_links) {
+            var pdfsrc = GET_ATTR(dl_links, 'data-pdfsrc');
+            if (pdfsrc) {
+
+                (async() => {
+
+                    // local file
+                    if (pdfsrc.substr(0,1) === '/') {
+
+                        let testFile = QUERY('a[rel="A4"]', dl_links);
+
+                        let valid = await new Promise((resolve, reject) => {
+                            fetch(testFile.href, { method: 'HEAD' })
+                              .then(response => {
+                                console.log(response, 2)
+                                if (response.ok && response.headers.get('Content-Type') === 'application/pdf') {
+                                  resolve(true);
+                                } else {
+                                  resolve(false);
+                                }
+                              })
+                              .catch(error => {
+                                resolve(false);
+                              });
+                        });
+
+                        console.log(valid, 134);
+                    }
+
+                })();
+            }
+        }
+
 
         //$lazy('img[data-z],iframe[data-z]');
         //if (doc.getElementById('tongassvideo')) {
