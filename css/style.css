@@ -1777,6 +1777,91 @@ pre,code,tt {
 }
 
 
+.backups {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: .5em;
+  }
+  .backups > a {
+    font-size: 10px;
+    line-height: 14px;
+    font-family: Montserrat,sans-serif;
+    opacity: .4;
+  }
+  .backups > ul,
+  .backups > div {
+    display: none;
+    max-width: 400px;
+  }
+  .backups:hover > ul,
+  .backups.open > ul {
+    display: unset;
+    text-align: left;
+    margin-bottom: 0;
+  }
+
+  .backups a strong,
+  .backups div.repo a {
+    text-decoration: underline!important;
+    text-underline-offset: 4px!important;
+    text-decoration-color: #007934!important;
+    text-decoration-style: dotted!important;
+  }
+  html.dark .backups a strong,
+  html.dark .backups div.repo a {
+    text-decoration-color: #fff!important;
+  }
+
+  .backups a span {
+    font-style: italic;
+    color:black;
+  }
+  .backups a span > span.e {
+    font-style: normal;
+  }
+  html.dark .backups a span {
+    color:white;
+  }
+
+  .backups:hover > div,
+  .backups.open > div {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 18px;
+    font-family: Montserrat,sans-serif;
+  }
+  .backups > div.repo > .h {
+    opacity: .5;
+  }
+  .backups > div.repo > div {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .backups:hover > a,
+  .backups.open > a {
+    font-size: 24px;
+    line-height: 32px;
+    opacity: 1;
+    margin-bottom: 5px;
+    font-family: Merriweather,serif;
+    font-weight: bold;
+  }
+
+  .backups.open > ul > li > a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
 /* Lists */
 
 li ul, li ol {margin-left: 1.5em;}
