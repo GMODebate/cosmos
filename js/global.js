@@ -8,6 +8,9 @@
     var BODY;
     var NAV_SCROLL;
 
+    var SITE_PREFIX_ROOT = (win.siteprefix) ? win.siteprefix : '';
+    console.log(SITE_PREFIX_ROOT);
+
     var CURRENT = {
         chapter: false,
         subchapter: false,
@@ -1415,7 +1418,7 @@
                 "backgroundOptions": {
                     "color": "#ffffff"
                 },
-                "image": "/images/plant.png",
+                "image": SITE_PREFIX_ROOT + "/images/plant.png",
                 "dotsOptionsHelper": {
                     "colorType": {
                         "single": true,
@@ -1950,13 +1953,13 @@
                 "height": 1
             });
             starbg = new Image();
-            starbg.src = WEBP_REWRITE('/images/stars.png', starbg, function() {
+            starbg.src = WEBP_REWRITE(SITE_PREFIX_ROOT + '/images/stars.png', starbg, function() {
                 SET_STYLE(BODY, {
                     "background-image": 'url(' + starbg.src + ')'
                 });
             });
             SET_ATTRS(DARK_MOON, {
-                "src": WEBP_REWRITE('/images/moon.png', DARK_MOON)
+                "src": WEBP_REWRITE(SITE_PREFIX_ROOT + '/images/moon.png', DARK_MOON)
             })
             APPEND_CHILD(BODY, DARK_MOON);
             SHOW_MOON(10);
