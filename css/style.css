@@ -1795,11 +1795,13 @@ pre,code,tt {
     display: none;
     max-width: 400px;
   }
-  .backups:hover > ul,
   .backups.open > ul {
     display: unset;
     text-align: left;
     margin-bottom: 0;
+  }
+  .backups.footer.open {
+    margin-top: 1em;
   }
 
   .backups a strong,
@@ -1825,7 +1827,6 @@ pre,code,tt {
     color:white;
   }
 
-  .backups:hover > div,
   .backups.open > div {
     display: block;
     text-align: center;
@@ -1846,13 +1847,18 @@ pre,code,tt {
     font-size: 18px;
     line-height: 22px;
   }
-  .backups:hover > a,
+
   .backups.open > a {
     font-size: 24px;
     line-height: 32px;
     opacity: 1;
     margin-bottom: 5px;
     font-family: Merriweather,serif;
+    font-weight: normal;
+    color:black;
+  }
+  html.dark .backups.open > a {
+    color:white;
     font-weight: bold;
   }
 
@@ -1862,6 +1868,59 @@ pre,code,tt {
     text-overflow: ellipsis;
   }
 
+.backups.mirrors > a {
+    font-size: 16px;line-height: 20px;opacity: .7;
+}
+.backups .status .e.loading {
+  display: inline-block;
+  animation: rotateSand 5s linear infinite;
+}
+  .backups.mirrors.open > a {
+    font-size: 24px;
+    line-height: 32px;
+    opacity: 1;
+    margin-bottom: 5px;
+    font-family: Merriweather,serif;
+    font-weight: normal;
+    margin-bottom: 10px;
+    text-decoration: none;
+  }
+html.dark .backups.mirrors.open > a {
+    font-weight: bold;
+  }
+
+
+.backups.mirrors a strong {
+    text-decoration: none;
+    margin-right: 5px;
+}
+.backups.mirrors a strong span.e {
+    font-style: normal;
+}
+    .backups.mirrors ul li {
+        display: flex;gap: 5px;text-decoration: none;align-items: center;
+    }
+    .backups.mirrors ul li span.epub,
+    .backups.mirrors ul li span.pdf {
+        font-size: 10px;line-height: 16px;padding: 0px 4px;
+        border-radius: 2px;
+    }
+.backups.mirrors ul li a.link {
+    font-style: normal;font-size: 10px;line-height: 14px;
+    white-space: nowrap;
+    overflow: hidden;text-overflow: ellipsis;oration-thickness: ;text-underline-offset: 2px;text-decoration: underline;
+    color: #000;
+    text-decoration-style: dotted;
+}
+html.dark .backups.mirrors ul li a.link {
+    color: #fff;
+}
+.backups.mirrors ul li span.epub {
+    font-weight: normal;
+}
+html.dark .backups.mirrors ul li span.epub {
+    font-weight: bold;
+}
 /* Lists */
 
 li ul, li ol {margin-left: 1.5em;}
@@ -5230,7 +5289,10 @@ font-size: 23px;
 
 }
 
-
+@keyframes rotateSand {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 @keyframes moveMoon {
     0% {width: 600px;width: 66vh;height: 600px;height: 66vh;right: -600px;right: -66vh;top: 0;}
     60% {width: 100px;width: 11vh;height: 100px;height: 11vh;animation-timing-function: ease-in;}

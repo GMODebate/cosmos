@@ -1967,6 +1967,18 @@ img.index-cola {
   line-height: 30px;
   margin-left: 10px
 }
+
+.backups > ul,
+  .backups > div {
+    display: none;
+  }
+  .backups.open > ul {
+    display: unset;
+  }
+
+#sub-nav.isSticky li.hide-sticky {
+    display: none!important;
+  }
 #sub-nav.isSticky ul.tabbed {
   flex-wrap: nowrap;
   align-items: center;

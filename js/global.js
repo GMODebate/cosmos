@@ -3232,6 +3232,82 @@
             });
     }
 
+    function MIRROR_UP(base) {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = `${base}up.js`;
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        script.onerror = () => {
+          resolve(false);
+        };
+        script.onload = () => {
+          if (window.pdfUp && window.pdfUp.includes(base)) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        };
+        document.body.appendChild(script);
+      });
+    }
+
+    var MIRROR_CHECK_COMPLETED;
+    var mirrorStatus = [];
+    async function CHECK_MIRRORS() {
+        if (MIRROR_CHECK_COMPLETED) {
+            return mirrorStatus;
+        }
+
+        var mirrors = QUERY('.backups li[data-pdfsrc]', false, true);
+        
+        var updates = [];
+        LOOP_OBJECT(mirrors, (i, el) => {
+            updates.push((async () => {
+                var src = GET_ATTR(el, 'data-pdfsrc');
+                if (!src) {
+                    return;
+                }
+                src = JSON.parse(src);
+
+                mirrorStatus[i] = {
+                    src: src,
+                    loading: true
+                };
+                let up;
+                try {
+                    up = await MIRROR_UP(src[0]);
+                } catch(err) {
+                    up = -1;
+                }
+                let status; // '⏳';
+                mirrorStatus[i].up = up;
+                mirrorStatus[i].loading = false;
+
+                if (up === -1) {
+                    status = '🟡';
+                    statsCode = 'unknown';
+                } else if (up) {
+                    status = '🟢';
+                    statsCode = 'up';
+                } else {
+                    status = '🔴';
+                    statsCode = 'down';
+                }
+
+                var icon = QUERY('.status .e', el);
+                icon.innerHTML = status;
+                SET_CLASS(icon, 'loading', true);
+            })());
+        });
+
+        await Promise.all(updates);
+
+        MIRROR_CHECK_COMPLETED = true;
+
+        return mirrorStatus;
+    }
+
     win.commentSubmit = function(token) {
         QUERY("#comment-form").submit();
     }
@@ -3381,35 +3457,97 @@
         if (dl_links) {
             var pdfsrc = GET_ATTR(dl_links, 'data-pdfsrc');
             if (pdfsrc) {
+                pdfsrc = JSON.parse(pdfsrc);
 
                 (async() => {
 
+                    let checks = [];
+
                     // local file
-                    if (pdfsrc.substr(0,1) === '/') {
+                    if (pdfsrc[1].substr(0,1) === '/') {
 
                         let testFile = QUERY('a[rel="A4"]', dl_links);
-
-                        let valid = await new Promise((resolve, reject) => {
+                        let localUp = await new Promise((resolve, reject) => {
                             fetch(testFile.href, { method: 'HEAD' })
                               .then(response => {
-                                console.log(response, 2)
-                                if (response.ok && response.headers.get('Content-Type') === 'application/pdf') {
-                                  resolve(true);
+                                if (response.ok && 
+                                    (
+                                        response.headers.get('Content-Type') === 'application/pdf' ||
+                                        (response.headers.get('Content-Type') === 'application/octet-stream' && parseInt(response.headers.get('Content-Length')) > 1024)
+                                    )
+                                ) {
+                                    resolve(true);
                                 } else {
-                                  resolve(false);
+                                    console.warn('Local PDF source down', response.status, response);
+                                    resolve(false);
                                 }
                               })
                               .catch(error => {
+                                console.warn('Local PDF source down', error);
                                 resolve(false);
                               });
                         });
 
-                        console.log(valid, 134);
-                    }
+                        if (localUp) {
 
+                        } else {
+
+                            let _mirrors = await CHECK_MIRRORS();
+                            let mirrorset;
+                            LOOP_OBJECT(_mirrors, function(i, mirror) {
+                                if (mirror.up && !mirrorset) {
+                                    mirrorset = true;
+
+                                    console.info('PDF mirror', mirror.src[0]);
+
+                                    var dl_buttons = QUERY('a[data-file]', dl_links, true);
+                                    LOOP_OBJECT(dl_buttons, function(_i, dlbtn) {
+                                        SET_ATTRS(dlbtn, {
+                                            "href": mirror.src[1] + GET_ATTR(dlbtn, 'data-file'),
+                                            "target": "_blank",
+                                            "rel": "noopener"
+                                        });
+                                    });
+                                }
+                            });
+                            if (!mirrorset) {
+                                console.warn('No PDF mirror available', _mirrors);
+                            }
+                        }
+                    }
                 })();
             }
+
+            // get mirrors
+            ONCE('mirrors', function() {
+                CHECK_MIRRORS();
+            });
         }
+
+        var backups = QUERY('.backups', false, true);
+        if (backups.length) {
+            LOOP_OBJECT(backups, function(i, backup) {
+                //  onclick="this.parentNode.classList.add('open');this.parentNode.scrollIntoView();" onmouseover="this.parentNode.classList.add('open');requestAnimationFrame(() => { this.parentNode.scrollIntoView(); });"
+                // requestAnimationFrame(() => { this.parentNode.scrollIntoView(); });
+                var toggle = QUERY('a.toggle', backup);
+                var footer = HAS_CLASS(backup, 'footer');
+                if (toggle) {
+                    ADD_EVENT((footer) ? ['click', 'mouseover'] : 'click', function(e) {
+                        e.preventDefault();
+                        SET_CLASS(backup, 'open');
+
+                        if (footer) {
+                            requestAnimationFrame(function() {
+                                backup.scrollIntoView();
+                            });
+                        } else {
+                            EMIT('mirrors');
+                        }
+                    }, toggle);
+                }
+            });
+        }
+
 
 
         //$lazy('img[data-z],iframe[data-z]');
