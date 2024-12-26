@@ -9,7 +9,6 @@
     var NAV_SCROLL;
 
     var SITE_PREFIX_ROOT = (win.siteprefix) ? win.siteprefix : '';
-    console.log(SITE_PREFIX_ROOT);
 
     var CURRENT = {
         chapter: false,
@@ -3245,11 +3244,23 @@
           resolve(false);
         };
         script.onload = () => {
-          if (window.pdfUp && window.pdfUp.includes(base)) {
-            resolve(true);
-          } else {
-            resolve(false);
-          }
+
+            var url = new URL(base);
+            var host = url.hostname;
+
+            if (/gmodebate\.net/.test(host)) {
+                host = 'gmodebate.net';
+            }
+
+            var hostRegex = new RegExp(host);
+            if (window.pdfUp) {
+                for (let up of window.pdfUp) {
+                    if (hostRegex.test(up)) {
+                        return resolve(true);
+                    }
+                }
+            }
+            return resolve(false);
         };
         document.body.appendChild(script);
       });
