@@ -3266,6 +3266,54 @@
       });
     }
 
+    var LOCAL_UP;
+    async function CHECK_LOCAL_MIRROR(method) {
+        if (typeof LOCAL_UP !== 'undefined') {
+            return LOCAL_UP;
+        }
+
+        if (!method) {
+            method = 'HEAD';
+        }
+
+        var dl_links = QUERY('#download-links');
+        let testFile = QUERY('a[rel="A4"]', dl_links);
+        LOCAL_UP = await new Promise((resolve, reject) => {
+            fetch(testFile.href, { method: method })
+              .then(async (response) => {
+                if (response.ok && 
+                    (
+                        response.headers.get('Content-Type') === 'application/pdf' ||
+                        (response.headers.get('Content-Type') === 'application/octet-stream' && parseInt(response.headers.get('Content-Length')) > 1024)
+                    )
+                ) {
+                    if (method === 'GET') {
+                        try {
+                            response.body.cancel();
+                        } catch(err) {
+                            
+                        }
+                    }
+                    resolve(true);
+                } else {
+
+                    if (response.status === 405 && method === 'HEAD' && response.headers.get('Allow') && response.headers.get('Allow').includes('GET')) {
+                        return await CHECK_LOCAL_MIRROR('GET');
+                    }
+
+                    console.warn('Local PDF source down', response.status, response);
+                    resolve(false);
+                }
+              })
+              .catch(error => {
+                console.warn('Local PDF source down', error);
+                resolve(false);
+              });
+        });
+
+        return LOCAL_UP;
+    }
+
     var MIRROR_CHECK_COMPLETED;
     var mirrorStatus = [];
     async function CHECK_MIRRORS() {
@@ -3290,7 +3338,11 @@
                 };
                 let up;
                 try {
-                    up = await MIRROR_UP(src[0]);
+                    if (src[0] === false) {
+                        up = await CHECK_LOCAL_MIRROR();
+                    } else {
+                        up = await MIRROR_UP(src[0]);
+                    }
                 } catch(err) {
                     up = -1;
                 }
@@ -3312,6 +3364,10 @@
                 var icon = QUERY('.status .e', el);
                 icon.innerHTML = status;
                 SET_CLASS(icon, 'loading', true);
+
+                if (src[0] === false && !up) {
+                    HIDE(el);
+                }
             })());
         });
 
@@ -3478,33 +3534,11 @@
                     let checks = [];
 
                     // local file
-                    if (pdfsrc[1].substr(0,1) === '/') {
+                    if (pdfsrc[0] === false || pdfsrc[1].substr(0,1) === '/') {
 
-                        let testFile = QUERY('a[rel="A4"]', dl_links);
-                        let localUp = await new Promise((resolve, reject) => {
-                            fetch(testFile.href, { method: 'HEAD' })
-                              .then(response => {
-                                if (response.ok && 
-                                    (
-                                        response.headers.get('Content-Type') === 'application/pdf' ||
-                                        (response.headers.get('Content-Type') === 'application/octet-stream' && parseInt(response.headers.get('Content-Length')) > 1024)
-                                    )
-                                ) {
-                                    resolve(true);
-                                } else {
-                                    console.warn('Local PDF source down', response.status, response);
-                                    resolve(false);
-                                }
-                              })
-                              .catch(error => {
-                                console.warn('Local PDF source down', error);
-                                resolve(false);
-                              });
-                        });
+                        let localUp = await CHECK_LOCAL_MIRROR();
 
-                        if (localUp) {
-
-                        } else {
+                        if (!localUp) {
 
                             let _mirrors = await CHECK_MIRRORS();
                             let mirrorset;
