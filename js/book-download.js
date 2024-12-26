@@ -208,7 +208,7 @@
                 "backgroundOptions": {
                     "color": "#ffffff"
                 },
-                "image": dlcontainer.getAttribute('data-qr-src'),
+                "image": dlcontainer.getAttribute('data-qr'),
                 "dotsOptionsHelper": {
                     "colorType": {
                         "single": true,
