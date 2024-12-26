@@ -208,7 +208,7 @@
                 "backgroundOptions": {
                     "color": "#ffffff"
                 },
-                "image": "/images/book-qr-download.png",
+                "image": dlcontainer.getAttribute('data-qr-src'),
                 "dotsOptionsHelper": {
                     "colorType": {
                         "single": true,
