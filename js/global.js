@@ -3580,7 +3580,7 @@
                 var toggle = QUERY('a.toggle', backup);
                 var footer = HAS_CLASS(backup, 'footer');
                 if (toggle) {
-                    ADD_EVENT((footer) ? ['click', 'mouseover'] : 'click', function(e) {
+                    ADD_EVENT('click', function(e) {
                         e.preventDefault();
                         SET_CLASS(backup, 'open');
 
