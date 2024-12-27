@@ -20,7 +20,7 @@
         if (dark !== null) {
             dark = !!parseInt(dark);
         } else {
-            dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            dark = true;
         }
     } catch (e) {}
 
