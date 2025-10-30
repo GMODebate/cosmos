@@ -8,6 +8,6 @@ This repository serves as a backup of CosmicPhilosophy.org, published on the fol
 - Github Pages: [https://gmodebate.github.io/cosmos/](https://gmodebate.github.io/cosmos/)
 
 ### 🇬 Google's Corruption for 👾 AI Life
-[https://gmodebate.github.io/google/](https://gmodebate.github.io/google/) | An Investigation of Google's Fake Employee Hoarding Scandal and Embrace of Military AI
+[https://mh17truth.org/google/](https://mh17truth.org/google/) | An Investigation of Google's Fake Employee Hoarding Scandal and Embrace of Military AI
 
 > Employee: "_They were just kind of like hoarding us like Pokémon cards._"
