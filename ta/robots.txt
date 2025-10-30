@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://gmodebate.github.io/cosmos/ta/sitemap.xml
+Sitemap: https://gmodebate.github.io/cosmos/ta/llms.txt

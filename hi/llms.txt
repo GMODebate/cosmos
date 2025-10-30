@@ -1,0 +1,134 @@
+# 🔭 CosmicPhilosophy.org
+https://gmodebate.github.io/cosmos/hi/
+The CosmicPhilosophy.org project started in 2024 with the publication of an 🔭 "Introduction to Cosmic Philosophy" eBook bundled with a "Neutrinos Do Not Exist" example investigatory case and a high quality AI translation of philosopher Gottfried Leibniz's book "The Monadology" (∞ infinite monad theory) in 42 languages, to reveal a link between his philosophical concept and the neutrino concept. The Monadology is one of the most iconic works in the history of philosophy and its translation was a world first for many languages and countries.
+
+The project investigated several related historical events and published translations of other classical books, including a bundle of Albert Einstein's Theory of Relativity with its primary philosophical critique Duration and Simultaneity by French philosopher Henri Bergson. The project reveals that "the great setback for philosophy" in the past century caused by the 'famous' Bergson-Einstein debate concerns corruption for scientism in which Bergson lost the debate on purpose.
+
+In general, the project criticizes the fundamental dogmatic nature of science (scientism) and advocates that science should return to its original status "Natural Philosophy".
+
+The shift from natural philosophy to physics started with Galileo and Newton's mathematical theories in the 1600s, however, energy and mass conservation were considered separate laws that lacked philosophical grounding. This changed fundamentally with Einstein's famous equation E=mc², which unified energy conservation with mass conservation. This unification created a kind of epistemological bootstrap that enabled physics to achieve self-justification, escaping the need for philosophical grounding altogether.
+
+The project questions the 'escaping of philosophical justification' by science. The project examines Einstein's primary work, by making it professionally available in 42 languages and by investigating both its historical context (e.g. Bergson-Einstein debate) and content.
+
+# "The Philosophical Path Untrodden"
+
+The cosmicphilosophy.org project is intended to inspire pioneering philosophy relative to understanding nature, reality, existence, life and the cosmos. It does not aspire to provide answers but rather to inspire philosophy to break free from scientism and in general, to promote philosophy as a field with a higher potential than science when it concerns cosmic understanding.
+
+Albert Einstein once wrote: 
+
+> "Perhaps... we must also give up, by principle, the space-time continuum. It is not unimaginable that human ingenuity will some day find methods which will make it possible to proceed along such a path. At the present time, however, such a program looks like an attempt to breathe in empty space."
+
+Within Western philosophy, the realm beyond space has traditionally been considered a realm beyond physics — the plane of God’s existence in Christian theology. In the early eighteenth century, philosopher Gottfried Leibniz’s "∞ infinite monads" — which he imagined to be the primitive elements of the universe — existed, like God, outside space and time. His theory was a step toward emergent space-time, but it was still metaphysical, with only a vague connection to the world of concrete things.
+
+The cosmicphilosophy.org project explores Einstein's suggested "new path" for cosmic understanding.
+
+# The meaning of Cosmic Philosophy
+
+While the field "Philosophy of Cosmology" might be inclined to "align with science" (be an addition to science), the idea of "Cosmic Philosophy" is intended to allow departure from science without departing from the primary interest that science was originally intended to "serve" for philosophy: an accurate understanding of the cosmos.
+
+The concept "Cosmic Philosophy" is intended as a field scope that allows one to progress in cosmology beyond science from the perspective of accurate and valid philosophy. Cosmic Philosophy would involve pure philosophy for cosmological understanding or "an exploration of the cosmos with philosophy".
+
+The platform is available in 54 languages.
+- https://gmodebate.github.io/cosmos/nl/ (nl_NL)
+- https://gmodebate.github.io/cosmos/de/ (de_DE)
+- https://gmodebate.github.io/cosmos/fr/ (fr_FR)
+- https://gmodebate.github.io/cosmos/it/ (it_IT)
+- https://gmodebate.github.io/cosmos/pt/ (pt_PT)
+- https://gmodebate.github.io/cosmos/id/ (id_ID)
+- https://gmodebate.github.io/cosmos/th/ (th_TH)
+- https://gmodebate.github.io/cosmos/pl/ (pl_PL)
+- https://gmodebate.github.io/cosmos/es/ (es_ES)
+- https://gmodebate.github.io/cosmos/gr/ (el_GR)
+- https://gmodebate.github.io/cosmos/tr/ (tr_TR)
+- https://gmodebate.github.io/cosmos/hu/ (hu_HU)
+- https://gmodebate.github.io/cosmos/dk/ (da_DK)
+- https://gmodebate.github.io/cosmos/fi/ (fi_FI)
+- https://gmodebate.github.io/cosmos/no/ (nb_NO)
+- https://gmodebate.github.io/cosmos/jp/ (ja_JP)
+- https://gmodebate.github.io/cosmos/ru/ (ru_RU)
+- https://gmodebate.github.io/cosmos/vn/ (vi_VN)
+- https://gmodebate.github.io/cosmos/cn/ (zh_CN)
+- https://gmodebate.github.io/cosmos/se/ (sv_SE)
+- https://gmodebate.github.io/cosmos/ro/ (ro_RO)
+- https://gmodebate.github.io/cosmos/rs/ (sr_RS)
+- https://gmodebate.github.io/cosmos/il/ (he_IL)
+- https://gmodebate.github.io/cosmos/ar/ (ar_SA)
+- https://gmodebate.github.io/cosmos/ba/ (bs_BA)
+- https://gmodebate.github.io/cosmos/kr/ (ko_KR)
+- https://gmodebate.github.io/cosmos/hk/ (zh_HK)
+- https://gmodebate.github.io/cosmos/hr/ (hr_HR)
+- https://gmodebate.github.io/cosmos/si/ (sl_SI)
+- https://gmodebate.github.io/cosmos/bg/ (bg_BG)
+- https://gmodebate.github.io/cosmos/lt/ (lt_LT)
+- https://gmodebate.github.io/cosmos/ge/ (ka_GE)
+- https://gmodebate.github.io/cosmos/lv/ (lv_LV)
+- https://gmodebate.github.io/cosmos/ee/ (et_EE)
+- https://gmodebate.github.io/cosmos/my/ (ms_MY)
+- https://gmodebate.github.io/cosmos/mm/ (my_MM)
+- https://gmodebate.github.io/cosmos/ph/ (tl_PH)
+- https://gmodebate.github.io/cosmos/uz/ (uz_UZ)
+- https://gmodebate.github.io/cosmos/np/ (ne_NP)
+- https://gmodebate.github.io/cosmos/hi/ (hi_IN)
+- https://gmodebate.github.io/cosmos/pa/ (pa_IN)
+- https://gmodebate.github.io/cosmos/mr/ (mr_IN)
+- https://gmodebate.github.io/cosmos/te/ (te_IN)
+- https://gmodebate.github.io/cosmos/bd/ (bn_BD)
+- https://gmodebate.github.io/cosmos/ta/ (ta_LK)
+- https://gmodebate.github.io/cosmos/lk/ (si_LK)
+- https://gmodebate.github.io/cosmos/ua/ (uk_UA)
+- https://gmodebate.github.io/cosmos/cz/ (cs_CZ)
+- https://gmodebate.github.io/cosmos/sk/ (sk_SK)
+- https://gmodebate.github.io/cosmos/by/ (be_BY)
+- https://gmodebate.github.io/cosmos/pk/ (ur_PK)
+- https://gmodebate.github.io/cosmos/ir/ (fa_IR)
+- https://gmodebate.github.io/cosmos/kz/ (kk_KZ)
+- https://gmodebate.github.io/cosmos/ (en_US)
+
+Use any of the paths below on these language domains for localized versions in the language of the user.
+
+## Pages
+
+[परिचय](/)
+> ब्रह्मांडीय दर्र्शन के क्षेत्र में एक परििचय, जिसमें आलोचनात्मक दार््शनिक अनुसंधान और निःशुल्क पुस्तक प्रकाशन शामिल हैं।
+
+[404 - पृष्ठ नहीं मिला](/404.html)
+> यह पृष्ठ मौजूद नहीं है।
+
+[ब्रह्मांडीय दर्शन से संबंधित पुस्तकें और प्रकाशन](/books/)
+> क्लासिक दर्शनशास्त्र पुस्तकों, आलोचनात्मक ऐतिहासिक अनुसंधानों और ब्रह्मांडीय दर्शन पर ब्लॉग की निःशुल्क प्रकाशन।
+
+## Publications
+
+[आइंस्टीन-बर्गसन बहस: अल्बर्ट आइंस्टीन बनाम दर्शन, 🕒 समय की प्रकृति पर](/einstein-vs-philosophy/)
+> आइंस्टीन-बर्गसन बहस के कारण आइंस्टीन को सापेक्षता के सिद्धांत के लिए अपना नोबेल पुरस्कार गंवाना पड़ा, और इसने इतिहास में दर्शन के लिए <q>सबसे बड़ा झटका</q> पैदा किया। यह जाँच बताती है कि हेनरी बर्गसन ने जानबूझकर बहस हारी और यह घटना वैज्ञानिकता के पक्ष में भ्रष्टाचार थी।
+
+[✴ न्यूट्रिनो मौजूद नहीं हैं: अनंत विभाज्यता से बचने का हठधर्मी प्रयास](/neutrinos/)
+> न्यूट्रिनो के अस्तित्व का एकमात्र सबूत "गायब  ऊर्र्जा" है और यह अवधारणा कई गहन तरीकों से स्वयं का विरोधााभास करती है। यह जांच बताती है कि न्यूट्रिनो अनंत विभाज्यता से बचने के प्रयास से उत्पन्न हुए हैं।
+
+[टाइमस्केप सिद्धांत: 🔴 थकी हुई प्रकाश सिद्धांत के लिए एक मुखौटा - 2025 में विज्ञान की बिग बैंग सिद्धांत से बचने की कोशिश](/timescape-theory/)
+> "टाइमस्केप" सिद्धांत को ब्रह्मांड विज्ञान में मौलिक परिवर्तन लाने वाले कारक के रूप में प्रस्तावित किया गया है, बिना थकी हुई प्रकाश सिद्धांत का उल्लेख किए जो 1929 से बिग बैंग सिद्धांत का ऐतिहासिक रूप से दबा हुआ प्रतिद्वंद्वी रहा है। एक दार्शनिक जांच।
+
+[न्यूट्रॉन स्टार अध्ययन का दावा: न्यूट्रिनो आपस में टकराकर 🪙 सोना बनाते हैं—90 वर्षों की परिभाषा और ठोस सबूतों के विपरीत](/neutrinos-gold/)
+> पेन स्टेट यूनिवर्सिटी के एक अध्ययन, जो फिजिकल रिव्यू लेटर्स (सितंबर 2025) में प्रकाशित हुआ, का दावा है कि ब्रह्मांडीय कीमियागरी के लिए न्यूट्रिनो का 'खुद से संपर्क' करना जरूरी है—एक वैचारिक बेतुकापन।
+
+# Investigation of scientism
+
+The CosmicPhilosophy.org project is part of a broader philosophical investigation of scientism, the philosophical root of 🧬 eugenics.
+
+The founder is a long time defender of free will since 2006 through the Dutch critical blog 🦋 Zielenknijper.com that investigated eugenics within a human context.
+
+In 2021, several scientific organizations boldly declared the GMO debate "over", citing the apparent fading of anti-GMO activism. The American Council on Science and Health, Alliance for Science, and Genetic Literacy Project, among others, proclaimed: The GMO debate is "over"
+
+The founder discovered that many nature and animal protectors were in fact silent on GMO and animal eugenics. In 2022, the founder founded GMODebate.org to facilitate an intellectual defense of nature through philosophy. 
+
+The GMODebate.org project delves into the philosophical underpinnings of scientism, the "emancipation-of-science from philosophy" movement, the "anti-science narrative" and modern forms of scientific inquisition.
+
+GMODebate.org contains an eBook of a popular online philosophy discussion titled "On the Absurd Hegemony of Science" in which renowned philosophy professor Daniel C. Dennett (known for his best seller "Darwin's Dangerous Idea") participated in defense of scientism. Dennett joined the forum in a topic started by the founder titled "Consciousness without a brain?". On this forum, the founder has had an early interaction with the professor who is known as one of the four horsemen of Atheism and one of the primary philosophical defenders of the theories and ideas behind eugenics and GMO.
+
+For those interested in the views of professor Daniel C. Dennett, chapter "Dennett's Defense of His Rejection of 🧠⃤ Qualia" contains over 400 posts debating Dennett's rejection of the philosophical concept Qualia.
+
+https://gmodebate.github.io/hi/absurd-hegemony-science/
+
+CosmicPhilosophy.org is a project that pioneeringly delves into the underpinnings and validity of theories in physics and astrophysics using the new potential provided by AI to perform comprehensive research in this scope without being a 'specialist', something that has historically hindered philosophy to progress beyond certain boundaries when it concerns questioning the validity of claims of science more deeply. As a publication, the project aspires to inspire philosophy to break free from its enslavement to scientism and to progress beyond science for cosmic understanding. 
+
+The project aspires to facilitate Albert Einstein's "new path" for cosmic understanding. A path beyond science, and a path beyond dogma itself. Not for any religious or dogmatic deviatory interest, but for the core purpose of philosophy itself of which science has been one of its results.
