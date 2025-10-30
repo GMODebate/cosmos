@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gmodebate.github.io/jp/cosmos/sitemap.xml
-Sitemap: https://gmodebate.github.io/jp/cosmos/llms.txt
+Sitemap: https://gmodebate.github.io/cosmos/jp/cosmos/sitemap.xml
+Sitemap: https://gmodebate.github.io/cosmos/jp/cosmos/llms.txt
