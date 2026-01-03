@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Einführung](/)
 > Eine Einführung in das Fachgebiet der kosmischen Philosophie mit kritischen philosophischen Untersuchungen und kostenlosen Buchpublikationen.
 
+[Professioneller Buchveröffentlichungsservice: Lebenslanges kostenloses Hosting](/publishing/)
+> Professioneller Buchveröffentlichungsservice: Lebenslanges kostenloses Hosting
+
 [404 - Seite nicht gefunden](/404.html)
 > Diese Seite existiert nicht.
 

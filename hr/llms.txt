@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Uvod](/)
 > Uvod u područje kozmičke filozofije s kritičkim filozofskim istraživanjima i besplatnim knjižnim publikacijama.
 
+[Usluga profesionalnog izdavanja knjiga: Doživotni besplatni hosting](/publishing/)
+> Usluga profesionalnog izdavanja knjiga: Doživotni besplatni hosting
+
 [404 - Stranica nije pronađena](/404.html)
 > Ova stranica ne postoji.
 

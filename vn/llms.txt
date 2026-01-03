@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Giới Thiệu](/)
 > Giới thiệu về lĩnh vực triết học vũ trụ với các nghiên cứu phê bình triết học và ấn phẩm sách miễn phí.
 
+[Dịch vụ Xuất bản Sách Chuyên nghiệp: Lưu trữ Trọn đời Miễn phí](/publishing/)
+> Dịch vụ Xuất bản Sách Chuyên nghiệp: Lưu trữ Trọn đời Miễn phí
+
 [404 - Không tìm thấy trang](/404.html)
 > Trang này không tồn tại.
 

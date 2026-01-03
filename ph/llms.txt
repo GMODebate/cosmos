@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Panimula](/)
 > Isang panimula sa larangan ng pilosopiyang kosmiko na may mga kritikal na pilosopikong pagsisiyasat at libreng publikasyon ng aklat.
 
+[Propesyonal na Serbisyo sa Paglilimbag ng Libro: Libreng Hosting Habangbuhay](/publishing/)
+> Propesyonal na Serbisyo sa Paglilimbag ng Libro: Libreng Hosting Habangbuhay
+
 [404 - Hindi Natagpuan ang Pahina](/404.html)
 > Hindi umiiral ang pahinang ito.
 

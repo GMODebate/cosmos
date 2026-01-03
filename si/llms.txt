@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Uvod](/)
 > Uvod v področje kozmozofije s kritičnimi filozofskimi raziskavami in brezplačnimi knjižnimi publikacijami.
 
+[Storitev profesionalne založbe knjig: Brezplačno trajno gostovanje](/publishing/)
+> Storitev profesionalne založbe knjig: Brezplačno trajno gostovanje
+
 [404 - Stran ni najdena](/404.html)
 > Te strani ni.
 

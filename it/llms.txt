@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Introduzione](/)
 > Un'introduzione al campo della filosofia cosmica con indagini filosofiche critiche e pubblicazioni gratuite di libri.
 
+[Servizio Professionale di Pubblicazione Libri: Hosting Gratuito a Vita](/publishing/)
+> Servizio Professionale di Pubblicazione Libri: Hosting Gratuito a Vita
+
 [404 - Pagina non trovata](/404.html)
 > Questa pagina non esiste.
 

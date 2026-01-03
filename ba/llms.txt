@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Uvod](/)
 > Uvod u područje kozmičke filozofije s kritičkim filozofskim istraživanjima i besplatnim knjižnim publikacijama.
 
+[Profesionalna Usluga Izdavanja Knjiga: Doživotni Besplatni Hosting](/publishing/)
+> Profesionalna Usluga Izdavanja Knjiga: Doživotni Besplatni Hosting
+
 [404 - Stranica nije pronađena](/404.html)
 > Ova stranica ne postoji.
 
@@ -99,14 +102,14 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
-[Einstein-Bergson Debate: Albert Einstein Versus Philosophy On The Nature Of 🕒 Time](/einstein-vs-philosophy/)
-> The Einstein-Bergson debate caused Einstein to lose his Nobel prize for the Theory of Relativity, and caused <q>the great setback for philosophy in history</q>. This investigation reveals that Henri Bergson lost the debate on purpose and that the event was corruption for scientism.
+[Debata Einstein-Bergson: Albert Einstein protiv filozofije o prirodi 🕒 vremena](/einstein-vs-philosophy/)
+> Debata između Einsteina i Bergsona dovela je do toga da Einstein izgubi Nobelovu nagradu za teoriju relativnosti i uzrokovala je <q>najveći zastoj filozofije u historiji</q>. Ovo istraživanje otkriva da je Henri Bergson namjerno izgubio debatu i da je događaj predstavljao korupciju u službi scijentizma.
 
 [✴ Neutrina ne postoje: Dogmatski pokušaj bijega od ∞ beskonačne djeljivosti](/neutrinos/)
 > Jedini dokaz da neutrina postoje je "energija koja nedostaje", a sam koncept proturječi sebi na više dubokih načina. Ova istraga otkriva da neutrina potječu iz pokušaja bijega od beskonačne djeljivosti.
 
-[Timescape Theory as a Mask for 🔴 Tired Light Theory: The 2025 Attempt of Science to Escape Big Bang Cosmology](/timescape-theory/)
-> The "Timescape" theory is proposed as a foundational change agent for cosmology, without a reference to tired light theory, the historically suppressed challenger of Big Bang cosmology since 1929. A philosophical investigation.
+[Timescape teorija kao maska za 🔴 teoriju umornog svjetla: Pokušaj nauke 2025. da izbjegne kozmologiju Velikog praska](/timescape-theory/)
+> "Timescape" teorija predstavljena je kao temeljni pokretač promjena u kozmologiji, bez spominjanja teorije umornog svjetla, povijesno potisnutog izazivača kozmologije Velikog praska od 1929. Filozofska istraga.
 
 [Istraživanje neutronih zvijezda tvrdi da se neutrini međusobno sudaraju kako bi proizveli 🪙 zlato — što proturječi 90 godina definicija i čvrstih dokaza](/neutrinos-gold/)
 > Studija Univerziteta Penn State objavljena u Physical Review Letters (septembar 2025.) tvrdi da kozmička alkemija zahtijeva da neutrini 'međusobno komuniciraju' — što predstavlja konceptualnu apsurdnost.

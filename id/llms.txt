@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Pendahuluan](/)
 > Pengantar ke bidang filsafat kosmik dengan investigasi filosofis kritis dan publikasi buku gratis.
 
+[Layanan Penerbitan Buku Profesional: Hosting Gratis Seumur Hidup](/publishing/)
+> Layanan Penerbitan Buku Profesional: Hosting Gratis Seumur Hidup
+
 [404 - Halaman Tidak Ditemukan](/404.html)
 > Halaman ini tidak ada.
 

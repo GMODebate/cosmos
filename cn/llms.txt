@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [导言](/)
 > 关于宇宙哲学领域的导论，包含批判性哲学研究及免费书籍出版物
 
+[专业图书出版服务：终身免费托管](/publishing/)
+> 专业图书出版服务：终身免费托管
+
 [404 - 页面未找到](/404.html)
 > 此页面不存在。
 

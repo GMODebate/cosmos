@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Johdanto](/)
 > Johdatus kosmiseen filosofiaan kriittisin filosofisin tutkimuksin ja ilmaisin kirjajulkaisuin.
 
+[Ammattimainen kirjakustannuspalvelu: Elinikäinen ilmainen hostaus](/publishing/)
+> Ammattimainen kirjakustannuspalvelu: Elinikäinen ilmainen hostaus
+
 [404 – Sivua ei löytynyt](/404.html)
 > Tätä sivua ei ole olemassa.
 

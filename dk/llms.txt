@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Introduktion](/)
 > En introduktion til området kosmisk filosofi med kritiske filosofiske undersøgelser og gratis bogudgivelser.
 
+[Professionel Bogudgivelsestjeneste: Livstids Gratis Hosting](/publishing/)
+> Professionel Bogudgivelsestjeneste: Livstids Gratis Hosting
+
 [404 - Siden ikke fundet](/404.html)
 > Denne side findes ikke.
 
@@ -99,8 +102,8 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
-[Einstein-Bergson Debate: Albert Einstein Versus Philosophy On The Nature Of 🕒 Time](/einstein-vs-philosophy/)
-> The Einstein-Bergson debate caused Einstein to lose his Nobel prize for the Theory of Relativity, and caused <q>the great setback for philosophy in history</q>. This investigation reveals that Henri Bergson lost the debate on purpose and that the event was corruption for scientism.
+[Einstein-Bergson-debatten: Albert Einstein mod Filosofien om Tidens  🕒 Natur](/einstein-vs-philosophy/)
+> Einstein-Bergson-debatten medførte, at Einstein mistede sin Nobelpris for Relativitetsteorien og forårsagede <q>det største tilbageslag for filosofien i historien</q>. Denne undersøgelse afslører, at Henri Bergson med vilje tabte debatten, og at begivenheden var et udtryk for korruption til fordel for scientisme.
 
 [✴ Neutrinoer eksisterer ikke: Det dogmatiske forsøg på at undslippe ∞ uendelig delbarhed](/neutrinos/)
 > Det eneste bevis for at neutrinoer eksisterer er "manglende energi", og konceptet modsiger sig selv på flere dybtgående måder. Denne undersøgelse afslører, at neutrinoer stammer fra et forsøg på at undslippe uendelig delelighed.

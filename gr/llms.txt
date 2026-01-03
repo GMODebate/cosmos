@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Εισαγωγή](/)
 > Μια εισαγωγή στον τομέα της κοσμικής φιλοσοφίας με κριτικές φιλοσοφικές έρευνες και δωρεάν δημοσιεύσεις βιβλίων.
 
+[Επαγγελματική Υπηρεσία Εκδόσεων Βιβλίων: Δωρεάν Φιλοξενία Δια Βίου](/publishing/)
+> Επαγγελματική Υπηρεσία Εκδόσεων Βιβλίων: Δωρεάν Φιλοξενία Δια Βίου
+
 [404 - Η σελίδα δεν βρέθηκε](/404.html)
 > Αυτή η σελίδα δεν υπάρχει.
 
@@ -99,8 +102,8 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
-[Einstein-Bergson Debate: Albert Einstein Versus Philosophy On The Nature Of 🕒 Time](/einstein-vs-philosophy/)
-> The Einstein-Bergson debate caused Einstein to lose his Nobel prize for the Theory of Relativity, and caused <q>the great setback for philosophy in history</q>. This investigation reveals that Henri Bergson lost the debate on purpose and that the event was corruption for scientism.
+[Συζήτηση Einstein-Bergson: Albert Einstein εναντίον της Φιλοσοφίας για τη Φύση του  🕒 Χρόνου](/einstein-vs-philosophy/)
+> Η συζήτηση Einstein-Bergson προκάλεσε στον Αϊνστάιν την απώλεια του βραβείου Νόμπελ για τη Θεωρία της Σχετικότητας και προκάλεσε <q>τη μεγαλύτερη οπισθοδρόμηση της φιλοσοφίας στην ιστορία</q>. Η έρευνα αποκαλύπτει ότι ο Ανρί Μπεργκσόν έχασε σκόπιμα τη συζήτηση και ότι το γεγονός ήταν διαφθορά υπέρ του επιστημονισμού.
 
 [✴ Τα Νετρίνα Δεν Υπάρχουν: Η Δογματική Προσπάθεια Διαφυγής από την ∞ Άπειρη Διαιρετότητα](/neutrinos/)
 > Το μοναδικό στοιχείο που αποδεικνύει την ύπαρξη των νετρίνων είναι η «ελλιπούς ενέργεια», ενώ η ίδια η έννοια αντιφάσκει με τον εαυτό της σε αρκετές βαθύτατες οπτικές. Αυτή η έρευνα αποκαλύπτει ότι τα νετρίνα προέκυψαν από μια προσπάθεια να αποφύγουν την άπειρη διαιρετότητα.

@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [서문](/)
 > 비판적 철학적 연구와 무료 도서 출판물을 포함한 우주 철학 분야에 대한 소개
 
+[전문 도서 출판 서비스: 평생 무료 호스팅](/publishing/)
+> 전문 도서 출판 서비스: 평생 무료 호스팅
+
 [404 - 페이지를 찾을 수 없음](/404.html)
 > 이 페이지는 존재하지 않습니다.
 

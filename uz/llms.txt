@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Kirish](/)
 > Kosmik falsafa sohasiga tanqidiy falsafiy tadqiqotlar va bepul kitob nashrlari bilan kirish.
 
+[Professional Kitob Nashriyot Xizmati: Umrbefoy Bepul Xosting](/publishing/)
+> Professional Kitob Nashriyot Xizmati: Umrbefoy Bepul Xosting
+
 [404 - Sahifa topilmadi](/404.html)
 > Bu sahifa mavjud emas.
 

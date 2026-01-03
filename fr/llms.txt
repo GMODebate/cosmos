@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Introduction](/)
 > Une introduction au domaine de la philosophie cosmique avec des investigations philosophiques critiques et des publications de livres gratuites.
 
+[Service Professionnel d'Édition de Livres : Hébergement Gratuit à Vie](/publishing/)
+> Service Professionnel d'Édition de Livres : Hébergement Gratuit à Vie
+
 [404 - Page non trouvée](/404.html)
 > Cette page n'existe pas.
 

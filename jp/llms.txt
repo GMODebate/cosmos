@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [はじめに](/)
 > 批判的な哲学的探究と無料書籍刊行物を伴う宇宙哲学分野への導入
 
+[プロフェッショナル書籍出版サービス：永久無料ホスティング](/publishing/)
+> プロフェッショナル書籍出版サービス：永久無料ホスティング
+
 [404 - ページが見つかりません](/404.html)
 > このページは存在しません。
 

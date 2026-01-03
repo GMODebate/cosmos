@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Bevezetés](/)
 > Bevezetés a kozmikus filozófia területébe, amely kritikus filozófiai vizsgálatokat és ingyenes könyvkiadványokat tartalmaz.
 
+[Szakmai Könyvkiadói Szolgáltatás: Élethosszig Tartó Ingyenes Tárhely](/publishing/)
+> Szakmai Könyvkiadói Szolgáltatás: Élethosszig Tartó Ingyenes Tárhely
+
 [404 - Az oldal nem található](/404.html)
 > Ez az oldal nem létezik.
 
@@ -99,8 +102,8 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
-[Einstein-Bergson Debate: Albert Einstein Versus Philosophy On The Nature Of 🕒 Time](/einstein-vs-philosophy/)
-> The Einstein-Bergson debate caused Einstein to lose his Nobel prize for the Theory of Relativity, and caused <q>the great setback for philosophy in history</q>. This investigation reveals that Henri Bergson lost the debate on purpose and that the event was corruption for scientism.
+[Einstein-Bergson vita: Albert Einstein kontra a filozófia az 🕒 idő természetéről](/einstein-vs-philosophy/)
+> Az Einstein-Bergson vita miatt veszítette el Einstein a Nobel-díját a relativitáselméletért, és ez okozta <q>a filozófia történelmének legnagyobb visszaesését</q>. Ez a kutatás feltárja, hogy Henri Bergson szándékosan veszítette el a vitát, és az esemény a tudományos dogmatizmus számára szolgáló összeesküvés volt.
 
 [✴ A Neutrinók Nem Léteznek: A Dogmatikus Próbálkozás a ∞ Végtelen Osztthatóságból Való Kiszabadulásra](/neutrinos/)
 > Az egyetlen bizonyíték a neutrino létezésére a „hiányzó energia”, és maga a fogalom több alapvető ponton is önellentmondásos. Ez a kutatás feltárja, hogy a neutrinók a végtelen oszthatóság elkerülésére tett kísérletből származnak.

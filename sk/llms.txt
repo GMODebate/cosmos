@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Úvod](/)
 > Úvod do odboru kozmickej filozofie s kritickými filozofickými skúmaniami a bezplatnými knižnými publikáciami.
 
+[Profesionálna služba publikovania kníh: Doživotné hosťovanie zdarma](/publishing/)
+> Profesionálna služba publikovania kníh: Doživotné hosťovanie zdarma
+
 [404 - Stránka nebola nájdená](/404.html)
 > Stránka neexistuje.
 

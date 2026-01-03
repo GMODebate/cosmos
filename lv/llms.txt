@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Ievads](/)
 > Ievads kosmiskās filozofijas jomā ar kritiskām filozofiskām izpētēm un bezmaksas grāmatu publikācijām.
 
+[Profesionāla grāmatu izdošanas pakalpojums: Mūžīgais bezmaksas mitināšana](/publishing/)
+> Profesionāla grāmatu izdošanas pakalpojums: Mūžīgais bezmaksas mitināšana
+
 [404 — Lapa nav atrasta](/404.html)
 > Šī lapa neeksistē.
 

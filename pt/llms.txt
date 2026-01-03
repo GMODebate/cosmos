@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Introdução](/)
 > Uma introdução ao campo da filosofia cósmica com investigações filosóficas críticas e publicações de livros gratuitos.
 
+[Serviço Profissional de Publicação de Livros: Hospedagem Grátis Vitalícia](/publishing/)
+> Serviço Profissional de Publicação de Livros: Hospedagem Grátis Vitalícia
+
 [404 - Página não encontrada](/404.html)
 > Esta página não existe.
 

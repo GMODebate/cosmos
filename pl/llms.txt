@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Wprowadzenie](/)
 > Wprowadzenie do dziedziny filozofii kosmicznej z krytycznymi badaniami filozoficznymi i darmowymi publikacjami książkowymi.
 
+[Profesjonalna Usługa Wydawnicza: Bezpłatny Hosting na Całe Życie](/publishing/)
+> Profesjonalna Usługa Wydawnicza: Bezpłatny Hosting na Całe Życie
+
 [404 - Strona nie znaleziona](/404.html)
 > Ta strona nie istnieje.
 

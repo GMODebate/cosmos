@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Innledning](/)
 > En innføring i feltet kosmisk filosofi med kritisk filosofiske undersøkelser og gratis bokpublikasjoner.
 
+[Profesjonell bokutgivelsestjeneste: Livstids gratis hosting](/publishing/)
+> Profesjonell bokutgivelsestjeneste: Livstids gratis hosting
+
 [404 - Side ikke funnet](/404.html)
 > Denne siden finnes ikke.
 

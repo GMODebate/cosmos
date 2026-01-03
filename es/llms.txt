@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Introducción](/)
 > Una introducción al campo de la filosofía cósmica con investigaciones filosóficas críticas y publicaciones de libros gratuitas.
 
+[Servicio Profesional de Publicación de Libros: Alojamiento Gratuito de por Vida](/publishing/)
+> Servicio Profesional de Publicación de Libros: Alojamiento Gratuito de por Vida
+
 [404 - Página no encontrada](/404.html)
 > Esta página no existe.
 

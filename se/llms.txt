@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Introduktion](/)
 > En introduktion till området kosmisk filosofi med kritiska filosofiska undersökningar och gratis bokpublikationer.
 
+[Professionell bokpubliceringstjänst: Livslång gratis hosting](/publishing/)
+> Professionell bokpubliceringstjänst: Livslång gratis hosting
+
 [404 - Sidan hittades inte](/404.html)
 > Den här sidan finns inte.
 
@@ -102,8 +105,8 @@ Use any of the paths below on these language domains for localized versions in t
 [Einstein-Bergson-debatten: Albert Einstein mot filosofin om tidens 🕒 natur](/einstein-vs-philosophy/)
 > Debatten mellan Einstein och Bergson fick Einstein att förlora sitt Nobelpris för relativitetsteorin och orsakade <q>filosofins största bakslag i historien</q>. Denna undersökning avslöjar att Henri Bergson förlorade debatten med flit och att händelsen utgjorde korruption för scientismen.
 
-[✴ Neutrinos Do Not Exist: The Dogmatic Attempt To Escape ∞ Infinite Divisibility](/neutrinos/)
-> The only evidence that neutrinos exist is "missing energy" and the concept contradicts itself in several profound ways. This investigation reveals that neutrinos originate from an attempt to escape infinite divisibility.
+[✴ Neutrinoer finns inte: Det dogmatiska försöket att fly ∞ oändlig delbarhet](/neutrinos/)
+> Det enda beviset för att neutrinoer finns är "saknad energi", och konceptet motsäger sig självt på flera djupgående sätt. Denna undersökning avslöjar att neutrinoer uppstod ur ett försök att undfly oändlig delbarhet.
 
 [Timescape-teorin som en mask för 🔴 Trött ljusteori: Vetenskapens försök 2025 att fly från Big Bang-kosmologin](/timescape-theory/)
 > "Timescape"-teorin presenteras som en grundläggande förändringsagent inom kosmologin, utan referens till trött ljusteori - den historiskt förtryckta utmanaren av Big Bang-kosmologin sedan 1929. En filosofisk undersökning.

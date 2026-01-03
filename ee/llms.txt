@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Sissejuhatus](/)
 > Sissejuhatus kosmilisse filosoofiasse koos kriitiliste filosoofiliste uuringute ja tasuta raamatupublikatsioonidega.
 
+[Professionaalne raamatute väljaandmise teenus: eluaegne tasuta hostimine](/publishing/)
+> Professionaalne raamatute väljaandmise teenus: eluaegne tasuta hostimine
+
 [404 - Lehekülge ei leitud](/404.html)
 > See leht ei eksisteeri.
 

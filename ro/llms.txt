@@ -91,6 +91,9 @@ Use any of the paths below on these language domains for localized versions in t
 [Introducere](/)
 > O introducere în domeniul filosofiei cosmice cu investigații filosofice critice și publicații de cărți gratuite.
 
+[Serviciu Profesional de Publicare Cărți: Găzduire Gratuită pe Viață](/publishing/)
+> Serviciu Profesional de Publicare Cărți: Găzduire Gratuită pe Viață
+
 [404 - Pagină negăsită](/404.html)
 > Această pagină nu există.
 
@@ -99,8 +102,8 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
-[Einstein-Bergson Debate: Albert Einstein Versus Philosophy On The Nature Of 🕒 Time](/einstein-vs-philosophy/)
-> The Einstein-Bergson debate caused Einstein to lose his Nobel prize for the Theory of Relativity, and caused <q>the great setback for philosophy in history</q>. This investigation reveals that Henri Bergson lost the debate on purpose and that the event was corruption for scientism.
+[Debatul Einstein-Bergson: Albert Einstein versus Filosofia despre Natura 🕒 Timpului](/einstein-vs-philosophy/)
+> Debatul Einstein-Bergson a făcut ca Einstein să piardă Premiul Nobel pentru Teoria Relativității și a provocat <q>cea mai mare regres în istoria filosofiei</q>. Această investigație dezvăluie că Henri Bergson a pierdut dezbaterea intenționat și că evenimentul a fost o corupție în favoarea științismului.
 
 [✴ Neutrinii nu există: Încercarea dogmatică de a evita ∞ divizibilitatea infinită](/neutrinos/)
 > Singura dovadă că neutrinii există este „energia lipsă”, iar conceptul se contrazice în mod fundamental. Această investigație arată că neutrinii provin din încercarea de a evita divizibilitatea infinită.
