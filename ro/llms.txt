@@ -91,8 +91,8 @@ Use any of the paths below on these language domains for localized versions in t
 [Introducere](/)
 > O introducere în domeniul filosofiei cosmice cu investigații filosofice critice și publicații de cărți gratuite.
 
-[Serviciu Profesional de Publicare Cărți: Găzduire Gratuită pe Viață](/publishing/)
-> Serviciu Profesional de Publicare Cărți: Găzduire Gratuită pe Viață
+[Serviciu Profesional de Publicare de Cărți: Găzduire Gratuită pe Viață](/publishing/)
+> Serviciu Profesional de Publicare de Cărți: Găzduire Gratuită pe Viață
 
 [404 - Pagină negăsită](/404.html)
 > Această pagină nu există.
@@ -102,6 +102,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
+[Împletirea Cuantică: Cascada Atomică Demască Iluzia "👻 Acțiunii Fantomești la Distanță"](/quantum-entanglement/)
+> O analiză a experimentului cascadei atomice dezvăluie că împletirea cuantică este o iluzie înrădăcinată într-o neglijare fundamentală în matematică, legată de întrebarea fundamentală a filosofiei: "?". O investigație.
+
 [Debatul Einstein-Bergson: Albert Einstein versus Filosofia despre Natura 🕒 Timpului](/einstein-vs-philosophy/)
 > Debatul Einstein-Bergson a făcut ca Einstein să piardă Premiul Nobel pentru Teoria Relativității și a provocat <q>cea mai mare regres în istoria filosofiei</q>. Această investigație dezvăluie că Henri Bergson a pierdut dezbaterea intenționat și că evenimentul a fost o corupție în favoarea științismului.
 
@@ -110,6 +113,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [Teoria Timescape ca o mască pentru 🔴 Teoria Luminii Obosite: Încercarea din 2025 a Științei de a Evada Cosmologia Big Bang](/timescape-theory/)
 > Teoria „Timescape” este propusă ca agent de schimbare fundamental pentru cosmologie, fără a face referire la teoria luminii obosite, contestatara cosmologiei Big Bang, suprimată istoric din 1929. O investigație filozofică.
+
+[De ce există Universul: CERN susține că a descoperit 'Încălcarea CP în barioni'](/cp-violation/)
+> Înrădăcinat în fizica neutrinilor, CERN comite o dublă eroare de categorie și confundă o particulă exotică iluzorie cu procesul de renormalizare al unui proton, în timp ce interpretează greșit o diferență de perspectivă matematică drept Încălcare CP. O anchetă.
 
 [Studiu privind stelele neutronice afirmă că neutrino se ciocnesc reciproc pentru a produce  🪙 aur – contrazicând 90 de ani de definiții și dovezi clare](/neutrinos-gold/)
 > Un studiu al Universității Penn State publicat în Physical Review Letters (septembrie 2025) susține că alchimia cosmică cere ca neutrino să „interacționeze unii cu alții” – o absurditate conceptuală.

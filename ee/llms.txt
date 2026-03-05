@@ -91,8 +91,8 @@ Use any of the paths below on these language domains for localized versions in t
 [Sissejuhatus](/)
 > Sissejuhatus kosmilisse filosoofiasse koos kriitiliste filosoofiliste uuringute ja tasuta raamatupublikatsioonidega.
 
-[Professionaalne raamatute väljaandmise teenus: eluaegne tasuta hostimine](/publishing/)
-> Professionaalne raamatute väljaandmise teenus: eluaegne tasuta hostimine
+[Professionaalne Raamatute Kirjastamisteenus: Tasuta Hosting Eluaegselt](/publishing/)
+> Professionaalne Raamatute Kirjastamisteenus: Tasuta Hosting Eluaegselt
 
 [404 - Lehekülge ei leitud](/404.html)
 > See leht ei eksisteeri.
@@ -102,6 +102,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
+[Kvantsedmestumine: Aatomikaskaad paljastab "👻 kummitusliku toimimise kaugusel" illusiooni](/quantum-entanglement/)
+> Aatomikaskaadi katse analüüs näitab, et kvantsedmestumine on illusioon, mis tuleneb matemaatikas tehtud fundamentaalsest tähelepanuta jätmisest, mis on seotud filosoofia põhiküsimusega "Miks". Uurimus.
+
 [Einsteini-Bergsoni debatt: Albert Einstein filosoofia vastu aja 🕒 olemuse küsimuses](/einstein-vs-philosophy/)
 > Einsteini ja Bergsoni vaidlus tõi kaasa selle, et Einstein kaotas relativiteediteooria eest Nobeli preemia ning põhjustas <q>filosoofia ajaloo suurima tagasilöögi</q>. See uurimus paljastab, et Henri Bergson kaotas debati tahtlikult ning et sündmus oli korruptsioon scientismi kasuks.
 
@@ -110,6 +113,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [Timescape'i teooria kui mask 🟥 väsinud valguse teooriale: Teaduse 2025. aasta katse pääseda Suure Paugu kosmoloogiast](/timescape-theory/)
 > "Timescape'i" teooriat esitatakse kosmoloogia põhimõttelise muutuse käivitajana, viitamata väsinud valguse teooriale – Suure Paugu kosmoloogia ajalooliselt mahasurutud vastasele alates 1929. aastast. Filosoofiline uurimus.
+
+[Miks Universum Eksisteerib: CERN väidab, et on avastanud 'CP rikkumise barüonites'](/cp-violation/)
+> Tuginedes neutriinofüüsikale, teeb CERN topeltkategooriavea ja seostab illusoorse eksootilise osakese prootoni renormaliseerimisprotsessiga, samal ajal pidades matemaatilise vaatenurga erinevust CP-rikkumiseks. Uurimus.
 
 [Neutronitärnide uuring väidab, et neutrinod põrkuvad omavahel, tootes  🪙 kulla – vastuolus 90 aasta põhisõnade ja kindlate tõenditega](/neutrinos-gold/)
 > Penn State'i Ülikooli uuring, avaldatud ajakirjas Physical Review Letters (september 2025), väidab, et kosmiline alkeemia nõuab neutrinodelt "iseendaga vastastikmõju" – mis on kontseptuaalselt absurdne.

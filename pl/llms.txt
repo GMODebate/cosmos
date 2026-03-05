@@ -91,8 +91,8 @@ Use any of the paths below on these language domains for localized versions in t
 [Wprowadzenie](/)
 > Wprowadzenie do dziedziny filozofii kosmicznej z krytycznymi badaniami filozoficznymi i darmowymi publikacjami książkowymi.
 
-[Profesjonalna Usługa Wydawnicza: Bezpłatny Hosting na Całe Życie](/publishing/)
-> Profesjonalna Usługa Wydawnicza: Bezpłatny Hosting na Całe Życie
+[Profesjonalna Usługa Wydawnicza: Dożywotni Bezpłatny Hosting](/publishing/)
+> Profesjonalna Usługa Wydawnicza: Dożywotni Bezpłatny Hosting
 
 [404 - Strona nie znaleziona](/404.html)
 > Ta strona nie istnieje.
@@ -102,6 +102,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
+[Splątanie kwantowe: Kaskada atomowa obala iluzję „👻 Upiórnego oddziaływania na odległość”](/quantum-entanglement/)
+> Analiza eksperymentu kaskady atomowej ujawnia, że splątanie kwantowe jest iluzją wynikającą z fundamentalnego zaniedbania w matematyce, związanego z filozoficznym podstawowym pytaniem "Dlaczego". Śledztwo.
+
 [Debata Einstein-Bergson: Albert Einstein kontra Filozofia o Naturze 🕒 Czasu](/einstein-vs-philosophy/)
 > Debat Einsteina i Bergsona sprawił, że Einstein stracił Nagrodę Nobla za teorię względności i spowodował <q>największą porażkę filozofii w historii</q>. Nasze śledztwo ujawnia, że Henri Bergson przegrał debatę celowo, a całe wydarzenie było korupcją na rzecz scjentyzmu.
 
@@ -110,6 +113,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [Teoria Timescape jako maska dla 🔴 teorii zmęczonego światła: Próba nauki z 2025 roku ucieczki od kosmologii Wielkiego Wybuchu](/timescape-theory/)
 > Teoria "Timescape" jest proponowana jako fundamentalny czynnik zmiany w kosmologii, bez odniesienia do teorii zmęczonego światła – historycznie tłumionego od 1929 roku konkurenta kosmologii Wielkiego Wybuchu. Badanie filozoficzne.
+
+[Dlaczego istnieje Wszechświat: CERN ogłasza odkrycie „naruszenia symetrii CP w barionach”](/cp-violation/)
+> Zakorzenione w fizyce neutrin, CERN popełnia podwójny błąd kategorialny, myląc iluzoryczną cząstkę egzotyczną z procesem renormalizacji protonu, podczas gdy błędnie uznaje różnicę w perspektywie matematycznej za Naruszenie CP. Śledztwo.
 
 [Badanie neutronowych gwiazd twierdzi, że neutrina zderzają się same ze sobą, tworząc 🪙 złoto – wbrew 90 latom definicji i twardych dowodów](/neutrinos-gold/)
 > Badanie Penn State University opublikowane w Physical Review Letters (wrzesień 2025) twierdzi, że kosmiczna alchemia wymaga, by neutrina „oddziaływały same ze sobą” – co stanowi absurdalność koncepcyjną.

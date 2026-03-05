@@ -91,8 +91,8 @@ Use any of the paths below on these language domains for localized versions in t
 [Introduction](/)
 > Une introduction au domaine de la philosophie cosmique avec des investigations philosophiques critiques et des publications de livres gratuites.
 
-[Service Professionnel d'Édition de Livres : Hébergement Gratuit à Vie](/publishing/)
-> Service Professionnel d'Édition de Livres : Hébergement Gratuit à Vie
+[Service d'Édition de Livres Professionnel : Hébergement Gratuit à Vie](/publishing/)
+> Service d'Édition de Livres Professionnel : Hébergement Gratuit à Vie
 
 [404 - Page non trouvée](/404.html)
 > Cette page n'existe pas.
@@ -102,6 +102,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
+[Intrication quantique : Une cascade atomique démontre l'illusion de "👻 Action fantôme à distance"](/quantum-entanglement/)
+> Une analyse de l'expérience de cascade atomique révèle que l'intrication quantique est une illusion enracinée dans une négligence fondamentale des mathématiques liée à la question philosophique fondamentale duquoi. Une investigation.
+
 [Débat Einstein-Bergson : Albert Einstein contre la philosophie sur la nature du 🕒 temps](/einstein-vs-philosophy/)
 > Le débat Einstein-Bergson a fait perdre à Einstein son prix Nobel pour la théorie de la relativité et a provoqué <q>le plus grand revers de la philosophie dans l'histoire</q>. Cette enquête révèle qu'Henri Bergson a perdu le débat délibérément et que l'événement représentait une corruption au profit du scientisme.
 
@@ -110,6 +113,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [La théorie Timescape comme masque pour la théorie de la lumière fatiguée 🔴 : La tentative de la science en 2025 d'échapper à la cosmologie du Big Bang](/timescape-theory/)
 > La théorie « Timescape » est proposée comme agent de changement fondamental pour la cosmologie, sans référence à la théorie de la lumière fatiguée, le rival historique supprimé de la cosmologie du Big Bang depuis 1929. Une investigation philosophique.
+
+[Pourquoi l'Univers existe : le CERN revendique la découverte de la « violation de CP dans les baryons »](/cp-violation/)
+> Enracinée dans la physique des neutrinos, cette étude du CERN commet une double erreur catégorielle : elle confond une particule exotique illusoire avec le processus de renormalisation d'un proton, tout en prenant une différence de perspective mathématique pour une violation de CP. Une enquête.
 
 [Étude sur les étoiles à neutrons : elle affirme que les neutrinos s'entrechoquent pour produire  de l'or – contredisant 90 ans de définition et de preuves solides](/neutrinos-gold/)
 > Une étude de l'université d'État de Pennsylvanie, publiée dans Physical Review Letters (septembre 2025), prétend que l'alchimie cosmique exige que les neutrinos « interagissent entre eux » – une aberration conceptuelle.

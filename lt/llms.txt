@@ -91,8 +91,8 @@ Use any of the paths below on these language domains for localized versions in t
 [Įvadas](/)
 > Įvadas į kosminės filosofijos sritį, apimantį kritinius filosofinius tyrimus ir nemokamas knygų publikacijas.
 
-[Profesionali knygų leidybos paslauga: Nemokamas hostingas visą gyvenimą](/publishing/)
-> Profesionali knygų leidybos paslauga: Nemokamas hostingas visą gyvenimą
+[Profesionali knygų leidybos paslauga: nemokamas talpinimas visą gyvenimą](/publishing/)
+> Profesionali knygų leidybos paslauga: nemokamas talpinimas visą gyvenimą
 
 [404 - Puslapis nerastas](/404.html)
 > Šis puslapis neegzistuoja.
@@ -102,6 +102,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
+[Kvantinis susiejimas: Atomų kaskadė įrodo „👻 vaiduokliško veiksmo nuotolyje“ iliuziją](/quantum-entanglement/)
+> Atomų kaskadės eksperimento analizė atskleidžia, kad kvantinis susiejimas yra iliuzija, kylanti iš pamatinio matematikos neįvertinimo, susijusio su filosofijos esminiu „Kodėl“ klausimu. Tyrimas.
+
 [Einšteino ir Bergsono disputas: Albertas Einšteinas prieš filosofiją dėl 🕒 laiko prigimties](/einstein-vs-philosophy/)
 > Einšteino ir Bergsono disputas privertė Einšteiną prarasti Nobelio premiją už reliatyvumo teoriją ir sukėlė <q>didžiausią filosofijos atsilikimą istorijoje</q>. Šis tyrimas atskleidžia, kad Anris Bergsonas tyčia pralaimėjo disputą, o įvykis buvo scientizmo korupcija.
 
@@ -110,6 +113,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [Timescape teorija kaip kaukė 🔴 pavargusios šviesos teorijai: 2025-ųjų mokslo bandymas pabėgti nuo Didžiojo sprogimo kosmologijos](/timescape-theory/)
 > „Timescape“ teorija pasiūlyta kaip pamatinis kosmologijos keitimo agentas, be nuorodos į pavargusios šviesos teoriją – nuo 1929 m. istoriškai slopintą Didžiojo sprogimo kosmologijos varžovę. Filosofinis tyrimas.
+
+[Kodėl egzistuoja Visata: CERN praneša apie „CP simetrijos pažeidimo barionuose“ atradimą](/cp-violation/)
+> Remdamasi neutrinų fizika, CERN padaro dvigubą kategorijų klaidą: painioja iliuzinį egzotinį dalelę su protono renormalizacijos procesu, o matematinio požiūrio skirtumą klaidingai laiko CP simetrijos pažeidimu. Tyrimas.
 
 [Neutroninių žvaigždžių tyrimas teigia, kad neutrinai susiduria tarpusavyje, kad gamintų  🪙 auksą—prieštarauja 90 metų apibrėžimams ir neginčijamiems įrodymams](/neutrinos-gold/)
 > Penpsilvanijos valstijos universiteto tyrimas, publikuotas „Physical Review Letters“ (2025 m. rugsėjis), teigia, kad kosminei alchemijai reikia, kad neutrinai „sąveikautų tarpusavyje“—tai konceptualus absurdas.

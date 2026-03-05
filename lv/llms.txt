@@ -91,8 +91,8 @@ Use any of the paths below on these language domains for localized versions in t
 [Ievads](/)
 > Ievads kosmiskās filozofijas jomā ar kritiskām filozofiskām izpētēm un bezmaksas grāmatu publikācijām.
 
-[Profesionāla grāmatu izdošanas pakalpojums: Mūžīgais bezmaksas mitināšana](/publishing/)
-> Profesionāla grāmatu izdošanas pakalpojums: Mūžīgais bezmaksas mitināšana
+[Profesionāla grāmatu izdošanas pakalpojums: Mūžīga bezmaksas mitināšana](/publishing/)
+> Profesionāla grāmatu izdošanas pakalpojums: Mūžīga bezmaksas mitināšana
 
 [404 — Lapa nav atrasta](/404.html)
 > Šī lapa neeksistē.
@@ -102,6 +102,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
+[Kvantu sapīšanās: Atomu kaskāde pierāda \"👻 spokainas darbības attālumā\" ilūziju](/quantum-entanglement/)
+> Atomu kaskādes eksperimenta analīze atklāj, ka kvantu sapīšanās ir ilūzija, kuras pamatā ir matemātikas fundamentāla nolaidība, kas saistīta ar filosofijas pamatjautājumu "Kāpēc?". Izpēte.
+
 [Einšteina-Bergsona debates: Alberts Einšteins pret filozofiju par 🕒 laika būtību](/einstein-vs-philosophy/)
 > Einšteina-Bergsona debates lika Einšteinam zaudēt Nobela prēmiju par Relativitātes teoriju un izraisīja <q>lielāko filozofijas mīkstinājumu vēsturē</q>. Šis pētījums atklāj, ka Anrī Bergsons ar nolūku zaudēja debati un ka šis notikums bija korupcija zinātniskuma labā.
 
@@ -110,6 +113,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [Timescape teorija kā maska 🔴 noguruma gaismas teorijai: 2025. gada zinātnes mēģinājums izvairīties no Lielā sprādziena kosmoloģijas](/timescape-theory/)
 > "Timescape" teorija tiek piedāvāta kā kosmoloģijas revolucionārs pārmaiņu aģents, bez atsauces uz noguruma gaismas teoriju – vēsturiski apspiesto Lielā sprādziena kosmoloģijas izaicinātāju kopš 1929. gada. Filosofisks izpētes darbs.
+
+[Kāpēc Visums pastāv: CERN apgalvo 'CP pārkāpuma barionos' atklāšanu](/cp-violation/)
+> Pamatojoties uz neitrino fiziku, CERN pieļauj dubultu kategorijas kļūdu, sajauktot iluzorisku eksotisku daļiņu ar protona renormalizācijas procesu, vienlaikus kļūdaini uzskatot matemātiskā skatījuma atšķirību par CP simetrijas pārkāpšanu. Izmeklējums.
 
 [Neutronu zvaigžņu pētījums apgalvo, ka neitrīno saduras savā starpā, radot 🪙 zeltu — pretrunā ar 90 gadu definīcijām un stingriem pierādījumiem](/neutrinos-gold/)
 > Pensilvānijas Universitātes pētījums, publicēts žurnālā Physical Review Letters (2025. gada septembris), apgalvo, ka kosmiskā alķīmija prasa, lai neitrīno 'mijiedarbojas ar sevi' — konceptuāla absurds.

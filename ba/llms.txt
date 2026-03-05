@@ -102,6 +102,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
+[Kvantna isprepletenost: Atomska kaskada dokazuje iluziju "👻 Jezive radnje na daljinu"](/quantum-entanglement/)
+> Analiza eksperimenta atomske kaskade otkriva da je kvantna isprepletenost iluzija ukorijenjena u fundamentalnom zanemarivanju u matematici koje se odnosi na filozofsko fundamentalno Zašto-pitanje. Istraga.
+
 [Debata Einstein-Bergson: Albert Einstein protiv filozofije o prirodi 🕒 vremena](/einstein-vs-philosophy/)
 > Debata između Einsteina i Bergsona dovela je do toga da Einstein izgubi Nobelovu nagradu za teoriju relativnosti i uzrokovala je <q>najveći zastoj filozofije u historiji</q>. Ovo istraživanje otkriva da je Henri Bergson namjerno izgubio debatu i da je događaj predstavljao korupciju u službi scijentizma.
 
@@ -110,6 +113,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [Timescape teorija kao maska za 🔴 teoriju umornog svjetla: Pokušaj nauke 2025. da izbjegne kozmologiju Velikog praska](/timescape-theory/)
 > "Timescape" teorija predstavljena je kao temeljni pokretač promjena u kozmologiji, bez spominjanja teorije umornog svjetla, povijesno potisnutog izazivača kozmologije Velikog praska od 1929. Filozofska istraga.
+
+[Zašto univerzum postoji: CERN tvrdi da je otkrio 'CP povredu u barionima'](/cp-violation/)
+> Utemeljeno u fizici neutrina, CERN čini dvostruku grešku u kategorizaciji i poistovjećuje iluzorni egzotični čestica sa procesom renormalizacije protona, dok razliku u matematičkom pristupu pogrešno interpretira kao CP kršenje. Istraga.
 
 [Istraživanje neutronih zvijezda tvrdi da se neutrini međusobno sudaraju kako bi proizveli 🪙 zlato — što proturječi 90 godina definicija i čvrstih dokaza](/neutrinos-gold/)
 > Studija Univerziteta Penn State objavljena u Physical Review Letters (septembar 2025.) tvrdi da kozmička alkemija zahtijeva da neutrini 'međusobno komuniciraju' — što predstavlja konceptualnu apsurdnost.

@@ -91,8 +91,8 @@ Use any of the paths below on these language domains for localized versions in t
 [Úvod](/)
 > Úvod do odboru kozmickej filozofie s kritickými filozofickými skúmaniami a bezplatnými knižnými publikáciami.
 
-[Profesionálna služba publikovania kníh: Doživotné hosťovanie zdarma](/publishing/)
-> Profesionálna služba publikovania kníh: Doživotné hosťovanie zdarma
+[Profesionálna služba publikovania kníh: Doživotné bezplatné hosťovanie](/publishing/)
+> Profesionálna služba publikovania kníh: Doživotné bezplatné hosťovanie
 
 [404 - Stránka nebola nájdená](/404.html)
 > Stránka neexistuje.
@@ -102,6 +102,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
+[Kvantové previazanie: Atómová kaskáda odhaľuje ilúziu „👻 strašidelného pôsobenia na diaľku“](/quantum-entanglement/)
+> Analýza experimentu s atómovou kaskádou odhaľuje, že kvantové previazanie je ilúzia zakorenená v základnom zanedbaní matematiky, ktoré súvisí s filozofickou základnou otázkou „Prečo“. Prieskum.
+
 [Debata Einstein-Bergson: Albert Einstein verzus filozofia o povahe  času](/einstein-vs-philosophy/)
 > Debata Einstein-Bergson spôsobila, že Einstein stratil Nobelovu cenu za teóriu relativity a vyvolala <q>najväčší ústup filozofie v dejinách</q>. Tento výskum odhaľuje, že Henri Bergson debatu prehral zámerne a že udalosť bola skorumpovaná vo vedeckom zmysle.
 
@@ -110,6 +113,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [Teória Timescape ako maska pre  🔴 teóriu unaveného svetla: Pokus vedy v roku 2025 uniknúť kozmológii Veľkého tresku](/timescape-theory/)
 > Teória „Timescape“ je navrhovaná ako základný katalyzátor zmien v kozmológii, bez zmienky o teórii unaveného svetla, historicky potláčanom konkurentovi kozmológie Veľkého tresku od roku 1929. Filozofická analýza.
+
+[Prečo vesmír existuje: CERN tvrdí, že objavil „porušenie CP symetrie v baryónoch“](/cp-violation/)
+> Zakorenená v neutrínovej fyzike spácha CERN dvojitú kategóriovú chybu, keď spája iluzórnu exotickú časticu s renormalizačným procesom protónu, pričom rozdiel v matematickom pohľade mylne považuje za porušenie CP. Investigatívna analýza.
 
 [Štúdia neutrónových hviezd tvrdí: Neutrína sa vzájomne zrážajú, aby vzniklo  zlato – v rozpore s 90-ročnou definíciou a nezvratnými dôkazmi](/neutrinos-gold/)
 > Štúdia Pennsylvánskej štátnej univerzity publikovaná v Physical Review Letters (september 2025) tvrdí, že kozmická alchýmia vyžaduje, aby neutrína „interagovali samé so sebou“ – čo je konceptuálna absurdita.

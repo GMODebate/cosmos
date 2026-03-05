@@ -91,8 +91,8 @@ Use any of the paths below on these language domains for localized versions in t
 [Johdanto](/)
 > Johdatus kosmiseen filosofiaan kriittisin filosofisin tutkimuksin ja ilmaisin kirjajulkaisuin.
 
-[Ammattimainen kirjakustannuspalvelu: Elinikäinen ilmainen hostaus](/publishing/)
-> Ammattimainen kirjakustannuspalvelu: Elinikäinen ilmainen hostaus
+[Ammattimainen kirjankustannuspalvelu: Elinikäinen ilmainen isännöinti](/publishing/)
+> Ammattimainen kirjankustannuspalvelu: Elinikäinen ilmainen isännöinti
 
 [404 – Sivua ei löytynyt](/404.html)
 > Tätä sivua ei ole olemassa.
@@ -102,6 +102,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
+[Kvanttilomittuminen: Atomikaskadi paljastaa "👻 kauko-vaikutuksen" illuusion](/quantum-entanglement/)
+> Atomikaskadi-kokeen analyysi paljastaa, että kvanttilomittuminen on illuusio, joka juontaa juurensa matematiikan perustavanlaatuiseen laiminlyöntiin, joka liittyy filosofian perustavaan Miksi-kysymykseen. Tutkimus.
+
 [Einstein-Bergson -väittely: Albert Einstein vastaan filosofia ajan luonteesta 🕒](/einstein-vs-philosophy/)
 > Einsteinin ja Bergsonin väittely sai Einsteinin menettämään Nobel-palkintonsa suhteellisuusteoriasta ja aiheutti <q>filosofian historian suurimman takaiskun</q>. Tämä tutkimus paljastaa, että Henri Bergson hävisi väittelyn tahallaan ja että tapahtuma oli korruptoitunut tapahtuma tieteen ihannoinnin vuoksi.
 
@@ -110,6 +113,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [Timescape-teoria verhona 🔴 Väsyneen valon teorialle: Tieteen vuoden 2025 yritys paeta alkuräjähdyskosmologiaa](/timescape-theory/)
 > "Timescape"-teoriaa esitetään kosmologian perustavanlaatuisena muutosagenttina, viittaamatta väsyneen valon teoriaan - alkuräjähdyskosmologian historiallisesti tukahdutettuun haastajaan vuodesta 1929. Filosofinen tutkimus.
+
+[Miksi maailmankaikkeus on olemassa: CERN väittää löytäneensä 'CP-symmetrian rikkoutumisen baryoneissa'](/cp-violation/)
+> Neutronifysiikkaan juurtuneena CERN tekee kaksoiskategorisointivirheen ja sekoittaa illuorisen eksoottisen hiukkasen protonin renormalisaatioprosessiin, samalla kun se luulee matemaattisen näkökulman eroa CP-symmetrian rikkoutumiseksi. Tutkimus.
 
 [Tutkimus: Neutriinot Muodostavat Kulta  🪙 Törmäilemällä Itseensä – Neutronitähtitutkimus Kiistää 90 Vuotta Määritelmiä ja Kovat Todisteet](/neutrinos-gold/)
 > Penn Staten yliopiston Physical Review Letters -tutkimus (syyskuu 2025) väittää, että kosminen alkemia edellyttää neutriinojen "vuorovaikutusta itsensä kanssa" – käsitteellinen järjettömyys.

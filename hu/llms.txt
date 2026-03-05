@@ -91,8 +91,8 @@ Use any of the paths below on these language domains for localized versions in t
 [Bevezetés](/)
 > Bevezetés a kozmikus filozófia területébe, amely kritikus filozófiai vizsgálatokat és ingyenes könyvkiadványokat tartalmaz.
 
-[Szakmai Könyvkiadói Szolgáltatás: Élethosszig Tartó Ingyenes Tárhely](/publishing/)
-> Szakmai Könyvkiadói Szolgáltatás: Élethosszig Tartó Ingyenes Tárhely
+[Professzionális Könyvkiadói Szolgáltatás: Élethosszig Tartó Ingyenes Tárhely](/publishing/)
+> Professzionális Könyvkiadói Szolgáltatás: Élethosszig Tartó Ingyenes Tárhely
 
 [404 - Az oldal nem található](/404.html)
 > Ez az oldal nem létezik.
@@ -102,6 +102,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
+[Kvantumvermetés: Atomkaskád leleplezi a „👻 kísérteties távolhatás” illúzióját](/quantum-entanglement/)
+> Az atomkaskád-kísérlet elemzése kimutatja, hogy a kvantumvermetés illúzió, mely a matematika egy filozófiai "Miért" kérdéshez kapcsolódó alapvető elhanyagolásában gyökerezik. Vizsgálat.
+
 [Einstein-Bergson vita: Albert Einstein kontra a filozófia az 🕒 idő természetéről](/einstein-vs-philosophy/)
 > Az Einstein-Bergson vita miatt veszítette el Einstein a Nobel-díját a relativitáselméletért, és ez okozta <q>a filozófia történelmének legnagyobb visszaesését</q>. Ez a kutatás feltárja, hogy Henri Bergson szándékosan veszítette el a vitát, és az esemény a tudományos dogmatizmus számára szolgáló összeesküvés volt.
 
@@ -110,6 +113,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [A Timescape-elmélet maszkja a 🔴 Fáradt Fény Elméletnek: A tudomány 2025-ös kísérlete a Nagy Bumm kozmológia elhagyására](/timescape-theory/)
 > A "Timescape" elméletet a kozmológia alapvető változását hozó tényezőként javasolják, a fáradt fény elméletére, a Nagy Bumm kozmológia 1929 óta történelmileg elnyomott kihívójára való hivatkozás nélkül. Filozófiai vizsgálódás.
+
+[Miért létezik az Univerzum: A CERN azt állítja, felfedezte a „CP-megsértést a barionokban”](/cp-violation/)
+> A neutrinófizikából kiindulva a CERN dupla kategória-hibát követ el, összekever egy illúziós egzotikus részecskét a proton renormalizációs folyamatával, miközben matematikai nézőpontbeli különbséget téveszt CP-sértéssel. Egy vizsgálat.
 
 [Neutroncsillag-kutatás: neutrínók ütközése hozza létre  🪙 az aranyt – ellentmond 90 évnyi definíciónak és kézzelfogható bizonyítékoknak](/neutrinos-gold/)
 > A Penn State University Physical Review Letters-ben (2025. szeptember) publikált kutatása szerint a kozmikus alkímia megköveteli, hogy a neutrínók "önmagukkal lépjenek kölcsönhatásba" – ami fogalmi abszurditás.

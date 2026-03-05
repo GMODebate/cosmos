@@ -91,8 +91,8 @@ Use any of the paths below on these language domains for localized versions in t
 [Uvod](/)
 > Uvod u područje kozmičke filozofije s kritičkim filozofskim istraživanjima i besplatnim knjižnim publikacijama.
 
-[Usluga profesionalnog izdavanja knjiga: Doživotni besplatni hosting](/publishing/)
-> Usluga profesionalnog izdavanja knjiga: Doživotni besplatni hosting
+[Profesionalna usluga izdavaštva knjiga: Doživotno besplatno hostiranje](/publishing/)
+> Profesionalna usluga izdavaštva knjiga: Doživotno besplatno hostiranje
 
 [404 - Stranica nije pronađena](/404.html)
 > Ova stranica ne postoji.
@@ -102,6 +102,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
+[Kvantna isprepletenost: Atomska kaskada dokazuje iluzornost "👻 jezive interakcije na daljinu"](/quantum-entanglement/)
+> Analiza eksperimenta atomske kaskade otkriva da je kvantna isprepletenost iluzija ukorijenjena u temeljnom zanemarivanju u matematici koje se odnosi na temeljno filozofsko pitanje Zašto. Istraga.
+
 [Debata Einstein-Bergson: Albert Einstein protiv filozofije o prirodi  vremena](/einstein-vs-philosophy/)
 > Debata između Einsteina i Bergsona dovela je do toga da Einstein izgubi Nobelovu nagradu za teoriju relativnosti i uzrokovala je <q>najveći zastoj filozofije u povijesti</q>. Ovo istraživanje otkriva da je Henri Bergson namjerno izgubio debatu te da je događaj predstavljao korupciju za znanstveni pokret.
 
@@ -110,6 +113,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [Timescape teorija kao maska za 🔴 teoriju umornog svjetla: Pokušaj znanosti 2025. da izbjegne kozmologiju Velikog praska](/timescape-theory/)
 > "Timescape" teorija predložena je kao fundamentalni pokretač promjena u kozmologiji, bez spominjanja teorije umornog svjetla, povijesno potisnutog izazivača kozmologije Velikog praska od 1929. godine. Filozofsko istraživanje.
+
+[Zašto svemir postoji: CERN tvrdi otkriće 'Kršenja CP simetrije u barionima'](/cp-violation/)
+> Utemeljeno u fizici neutrina, CERN čini dvostruku pogrešku kategorizacije i poistovjećuje iluzorni egzotični čestica s procesom renormalizacije protona, dok razliku u matematičkoj perspektivi pogrešno smatra kršenjem CP simetrije. Istraga.
 
 [Istraživanje neutronskih zvijezda tvrdi da se neutrini međusobno sudaraju kako bi proizveli  🪙 zlato — u suprotnosti s 90 godina definicija i čvrstih dokaza](/neutrinos-gold/)
 > Istraživanje Sveučilišta Penn State, objavljeno u Physical Review Letters (rujan 2025.), tvrdi da kozmička alkemija zahtijeva da neutrini 'međusobno reagiraju' — što predstavlja konceptualni apsurd.

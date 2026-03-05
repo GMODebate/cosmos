@@ -91,8 +91,8 @@ Use any of the paths below on these language domains for localized versions in t
 [Innledning](/)
 > En innføring i feltet kosmisk filosofi med kritisk filosofiske undersøkelser og gratis bokpublikasjoner.
 
-[Profesjonell bokutgivelsestjeneste: Livstids gratis hosting](/publishing/)
-> Profesjonell bokutgivelsestjeneste: Livstids gratis hosting
+[Profesjonell Bokutgivelsestjeneste: Livstids Fri Hosting](/publishing/)
+> Profesjonell Bokutgivelsestjeneste: Livstids Fri Hosting
 
 [404 - Side ikke funnet](/404.html)
 > Denne siden finnes ikke.
@@ -102,6 +102,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
+[Kvanteforvikling: Atomkaskade avslører illusjonen av "👻 spøkelseshandling på avstand"](/quantum-entanglement/)
+> En analyse av atomkaskade-eksperimentet avslører at kvanteforvikling er en illusjon forankret i en grunnleggende forsømmelse i matematikken som relaterer seg til filosofiens fundamentale Hvorfor-spørsmål. En undersøkelse.
+
 [Einstein-Bergson-debatten: Albert Einstein mot filosofien om tidens 🕒 natur](/einstein-vs-philosophy/)
 > Einstein-Bergson-debatten førte til at Einstein mistet sin nobelpris for relativitetsteorien, og forårsaket <q>det største tilbakeslaget for filosofien i historien</q>. Denne undersøkelsen avslører at Henri Bergson tapte debatten med vilje og at hendelsen var korrupsjon for scientismen.
 
@@ -110,6 +113,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [Timescape-teori som en maske for 🔴 slitt-lys-teori: Vitenskapens forsøk i 2025 på å unnslippe Big Bang-kosmologien](/timescape-theory/)
 > "Timescape"-teorien foreslås som en grunnleggende endringsagent for kosmologi, uten referanse til slitt-lys-teorien - den historisk undertrykte utfordreren til Big Bang-kosmologien siden 1929. En filosofisk undersøkelse.
+
+[Hvorfor universet eksisterer: CERN hevder å ha oppdaget 'CP-brudd i baryoner'](/cp-violation/)
+> Forankret i nøytrinofysikk begår CERN en dobbel kategorifeil og blander sammen en illusorisk eksotisk partikkel med renormaliseringsprosessen til et proton, mens de feilaktig tolker en forskjell i matematisk perspektiv som CP-brudd. En undersøkelse.
 
 [Studie av nøytronstjerner hevder nøytrinoer kolliderer med seg selv for å produsere 🪙 gull – i strid med 90 års definisjoner og harde bevis](/neutrinos-gold/)
 > En studie fra Penn State University, publisert i Physical Review Letters (september 2025), hevder at kosmisk alkymi krever at nøytrinoer 'samhandler med seg selv' – en konseptuell absurditet.

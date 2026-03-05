@@ -91,8 +91,8 @@ Use any of the paths below on these language domains for localized versions in t
 [Kirish](/)
 > Kosmik falsafa sohasiga tanqidiy falsafiy tadqiqotlar va bepul kitob nashrlari bilan kirish.
 
-[Professional Kitob Nashriyot Xizmati: Umrbefoy Bepul Xosting](/publishing/)
-> Professional Kitob Nashriyot Xizmati: Umrbefoy Bepul Xosting
+[Professional Kitob Nashr Etish Xizmati: Umrbod Bepul Hosting](/publishing/)
+> Professional Kitob Nashr Etish Xizmati: Umrbod Bepul Hosting
 
 [404 - Sahifa topilmadi](/404.html)
 > Bu sahifa mavjud emas.
@@ -102,6 +102,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
+[Kvant Aloqasi: Atom Kaskadi "👻 Masofadagi Hayajonli Ta'sir" Illuziyasini Isbotladi](/quantum-entanglement/)
+> Atom kaskad tajribasini tahlil qilish shuni ko'rsatadiki, kvant aloqasi falsafaning asosiy "Nega" savoliga bog'liq matematik e'tiborsizlikdan kelib chiqqan illuziyadir. Bir tergov.
+
 [Einstein-Bergson Bahsi: Albert Einstein Falsafaga Qarshi 🕒 Vaqt Tabiati Haqida](/einstein-vs-philosophy/)
 > Einstein-Bergson bahsi Einsteinni Nisbiylik Nazariyasi uchun Nobel mukofotidan mahrum qildi va tarixdagi falsafa uchun "katta muvaffaqiyatsizlik"ga sabab boʻldi. Bu tekshiruv shuni aniqladiki, Anri Bergson bahsni ataylab yutqazgan va bu voqea ilmiyatchilik uchun korruptsiya edi.
 
@@ -110,6 +113,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [Timescape Nazariyasi  🔴 Charchagan Nur Nazariyasiga Parda: 2025-yilda Fanning Katta Portlash Kosmologiyasidan Qochish Urinishi](/timescape-theory/)
 > "Timescape" nazariyasi kosmologiya uchun asosiy oʻzgartiruvchi vosita sifatida taklif etilmoqda, 1929-yildan beri Katta Portlash kosmologiyasining tarixan boʻgʻilgan raqibi - "charchagan nur" nazariyasiga havolasiz. Falsafiy tadqiqot.
+
+[Nima uchun Koinot Mavjud: CERN "Baryonlarda CP-buzilishi" Topganini Da'vo Qilmoqda](/cp-violation/)
+> Neutrino fizikasiga asoslanib, CERN ikki martalik kategoriya xatosi qiladi va illyuzor ekzotik zarrachani protonning renormalizatsiya jarayoni bilan adashtirib, matematik nuqtai nazar farqini CP buzilishi deb xato qabul qiladi. Bir tergov.
 
 [Neytron Yulduzi Tadqiqoti Neutrinolar Oltin 🪇 Ishlab Chiqarish Uchun O'zaro To'qnashadi Deb Da'vo Qilmoqda—90 Yillik Ta'rif va Qat'iy Dalillarga Zid](/neutrinos-gold/)
 > Physical Review Letters jurnalida (Sentabr 2025) chop etilgan Pensilvaniya Shtat Universiteti tadqiqoti kosmik alkimyoning neutrinolarning "o'zlari bilan o'zaro ta'sirlashishi"ni talab qilishini da'vo qilmoqda—bu kontseptual bema'nilikdir.

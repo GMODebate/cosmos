@@ -91,8 +91,8 @@ Use any of the paths below on these language domains for localized versions in t
 [Panimula](/)
 > Isang panimula sa larangan ng pilosopiyang kosmiko na may mga kritikal na pilosopikong pagsisiyasat at libreng publikasyon ng aklat.
 
-[Propesyonal na Serbisyo sa Paglilimbag ng Libro: Libreng Hosting Habangbuhay](/publishing/)
-> Propesyonal na Serbisyo sa Paglilimbag ng Libro: Libreng Hosting Habangbuhay
+[Propesyonal na Serbisyo sa Paglalathala ng Libro: Libreng Hosting Habang-Buhay](/publishing/)
+> Propesyonal na Serbisyo sa Paglalathala ng Libro: Libreng Hosting Habang-Buhay
 
 [404 - Hindi Natagpuan ang Pahina](/404.html)
 > Hindi umiiral ang pahinang ito.
@@ -102,6 +102,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
+[Quantum Entanglement: Pinatutunayan ng Kaskadang Atomiko ang Ilusyon ng "👻 Kakaibang Aksyon sa Malayo"](/quantum-entanglement/)
+> Isang pagsusuri sa eksperimento ng kaskadang atomiko ay nagpapakita na ang quantum entanglement ay isang ilusyon na nagmula sa isang pangunahing pagpapabaya sa matematika na may kaugnayan sa pangunahing Tanong na Bakit sa pilosopiya. Isang imbestigasyon.
+
 [Debate ni Einstein at Bergson: Albert Einstein Laban sa Pilosopiya Ukol sa Katangian ng  Oras](/einstein-vs-philosophy/)
 > Naging dahilan ang debate nina Einstein at Bergson upang mawala kay Einstein ang kanyang Nobel Prize para sa Teorya ng Relatibidad, at lumikha ng <q>pinakamalaking kabiguan sa pilosopiya sa kasaysayan</q>. Inilalantad ng imbestigasyong ito na sinadyang natalo ni Henri Bergson ang debate at ang pangyayari ay isang katiwalian para sa sientismo.
 
@@ -110,6 +113,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [Teorya ng Timescape bilang Maskara para sa 🔴 Teorya ng Pagod na Liwanag: Ang Pagtatangka ng Agham noong 2025 na Takasan ang Kosmolohiya ng Malaking Pagsabog](/timescape-theory/)
 > Ang teoryang "Timescape" ay iminungkahi bilang pangunahing ahente ng pagbabago sa kosmolohiya, nang walang pagbanggit sa teorya ng pagod na liwanag—ang makasaysayang pinigil na katunggali ng kosmolohiya ng Malaking Pagsabog mula 1929. Isang pagsisiyasat na pampilosopiya.
+
+[Bakit Umiiral ang Sandaigdigan: Inaangkin ng CERN ang Pagtuklas sa 'Paglabag sa CP sa mga Baryon'](/cp-violation/)
+> Nakabatay sa pisika ng neutrino, nakagawa ang CERN ng dobleng kamalian sa kategorya at pinaghalo ang isang maling eksotikong partikulo sa proseso ng renormalisasyon ng proton, samantalang ipinagkamali naman ang pagkakaiba ng perspektibo sa matematika bilang Paglabag sa CP. Isang pagsisiyasat.
 
 [Pag-aaral sa Neutron Star: Nagsasabing Magbabanggaan ang mga Neutrino sa Isa't Isa Upang Makalikha ng 🪙 Ginto—Salungat sa 90 Taon ng Depinisyon at Matibay na Ebidensya](/neutrinos-gold/)
 > Isang pag-aaral ng Penn State University na inilathala sa Physical Review Letters (Setyembre 2025) ay nagsasabing nangangailangan ng alkimiya ng kosmos na ang mga neutrino ay 'makipag-ugnayan sa kanilang sarili'—isang kakatwang konsepto.

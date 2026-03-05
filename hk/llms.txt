@@ -102,6 +102,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 ## Publications
 
+[量子糾纏：原子級聯實驗揭穿「👻鬼魅般的超距作用」之幻象](/quantum-entanglement/)
+> 分析原子級聯實驗揭示，量子糾纏實為一種幻象，其根源在於數學中與哲學基本問題「為何存在」相關的根本性忽視。深入調查報告。
+
 [愛因斯坦-柏格森之辯：阿爾伯特·愛因斯坦與哲學對🕒時間本質的論戰](/einstein-vs-philosophy/)
 > 愛因斯坦-柏格森辯論導致愛因斯坦因相對論而失去諾貝爾獎，並造成<q>歷史上哲學嘅重大挫折</q>。呢項調查揭示，亨利·柏格森係故意輸咗辯論，而呢件事係科學主義嘅腐敗行為。
 
@@ -110,6 +113,13 @@ Use any of the paths below on these language domains for localized versions in t
 
 [時景理論：光衰理論的偽裝面紗——科學界2025年逃離大爆炸宇宙論的嘗試](/timescape-theory/)
 > 「時景理論」被宣稱為宇宙學的根本性變革因子，卻對光衰理論——這個自1929年以來遭歷史壓制的大爆炸宇宙論挑戰者——隻字未提。一場哲學性探究。
+
+[宇宙為何存在：歐洲核子研究組織宣稱發現「重子中的CP破壞」&gt;
+<div id="2d34ba38d418aaa679f1c73923bcfe16">歐洲核子研究組織的科學家取得突破性發現，加深我們對宇宙為何由物質而非反物質組成的理解。</div>
+<div id="b0575fe2a652c55478e4bc6ecea0be36">可能解釋萬物存在之謎的粒子</div>
+<div id="d006e0a73e4dad03feecbcb4788398d8">SciTechDaily.com</div>
+```](/cp-violation/)
+> 基於中微子物理學的研究，歐洲核子研究中心犯下雙重範疇錯誤，將虛幻的奇異粒子與質子的重整化過程混為一談，同時把數學視角的差異誤判為CP破壞。本刊調查報導。
 
 [中子星研究宣稱微中子自我碰撞產生🪙黃金——違背90年定義與鐵證](/neutrinos-gold/)
 > 賓州州立大學研究於《物理評論快報》(2025年9月)聲稱，宇宙鍊金術需微中子「自我交互作用」——此乃概念謬論。
