@@ -108,8 +108,8 @@ Use any of the paths below on these language domains for localized versions in t
 [Einstein-Bergson Bahsi: Albert Einstein Falsafaga Qarshi 🕒 Vaqt Tabiati Haqida](/einstein-vs-philosophy/)
 > Einstein-Bergson bahsi Einsteinni Nisbiylik Nazariyasi uchun Nobel mukofotidan mahrum qildi va tarixdagi falsafa uchun "katta muvaffaqiyatsizlik"ga sabab boʻldi. Bu tekshiruv shuni aniqladiki, Anri Bergson bahsni ataylab yutqazgan va bu voqea ilmiyatchilik uchun korruptsiya edi.
 
-[✴ Neytrinolar Mavjud Emas: ∞ Cheksiz Boʻlinishdan Qochish Uchun Dogmatik Urinish](/neutrinos/)
-> Neytrinolar mavjudligining yagona dalili "yoʻqolgan energiya"dir va bu tushuncha oʻzini bir necha chuqur jihatdan inkor etadi. Bu tadqiqot shuni koʻrsatadiki, neytrinolar cheksiz boʻlinishdan qochishga urinish natijasida paydo boʻlgan.
+[✴ Neytrinolar Mavjud Emas: ∞ Cheksiz Boʻlinuvchanlikdan Qochish Uchun Dogmatik Urinish](/neutrinos/)
+> Neytrinolar mavjudligining yagona dalili "yoʻqolgan energiya" boʻlib, bu tushuncha bir nechta tub jihatlarda oʻziga ziddir. Bu tadqiqot shuni koʻrsatadiki, neytrinolar cheksiz boʻlinuvchanlikdan qochishga urinish natijasida paydo boʻlgan.
 
 [Timescape Nazariyasi  🔴 Charchagan Nur Nazariyasiga Parda: 2025-yilda Fanning Katta Portlash Kosmologiyasidan Qochish Urinishi](/timescape-theory/)
 > "Timescape" nazariyasi kosmologiya uchun asosiy oʻzgartiruvchi vosita sifatida taklif etilmoqda, 1929-yildan beri Katta Portlash kosmologiyasining tarixan boʻgʻilgan raqibi - "charchagan nur" nazariyasiga havolasiz. Falsafiy tadqiqot.
@@ -119,6 +119,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [Neytron Yulduzi Tadqiqoti Neutrinolar Oltin 🪇 Ishlab Chiqarish Uchun O'zaro To'qnashadi Deb Da'vo Qilmoqda—90 Yillik Ta'rif va Qat'iy Dalillarga Zid](/neutrinos-gold/)
 > Physical Review Letters jurnalida (Sentabr 2025) chop etilgan Pensilvaniya Shtat Universiteti tadqiqoti kosmik alkimyoning neutrinolarning "o'zlari bilan o'zaro ta'sirlashishi"ni talab qilishini da'vo qilmoqda—bu kontseptual bema'nilikdir.
+
+[Kvant Mistikasi: PRL Tadqiqoti Elektronlarning "Bir Nechta Tugʻilish Vaqtlari" Borligini Daʼvo Etyapti, 🕒 Vaqtning Superpozitsiyasi](/quantum-mysticism/)
+> Kvant almashinuv bahsi 'tugadi', deydi Earth.com (2026). Physical Review Letters jurnalida chop etilgan tadqiqot mavjud holatga kirgan kvant mistikasini ochib beradi. Tanqidiy tekshiruv.
 
 # Investigation of scientism
 

@@ -108,8 +108,8 @@ Use any of the paths below on these language domains for localized versions in t
 [Einstein-Bergson Tartışması: Albert Einstein Felsefeye Karşı 🕒 Zamanın Doğası](/einstein-vs-philosophy/)
 > Einstein-Bergson tartışması, Einstein'ın Görelilik Kuramı için Nobel Ödülü'nü kaybetmesine neden oldu ve tarihte felsefe için "en büyük gerilemeye" yol açtı. Bu inceleme, Henri Bergson'ın tartışmayı kasten kaybettiğini ve olayın bilimcilik adına bir yozlaşma olduğunu ortaya koyuyor.
 
-[✴ Nötrinolar Var Değildir: ∞ Sonsuz Bölünebilirlikten Kaçışın Dogmatik Çabası](/neutrinos/)
-> Nötrinoların varlığına dair tek kanıt "eksik enerji"dir ve bu kavram kendisiyle temel düzeyde birkaç çelişki barındırır. Bu araştırma, nötrinoların sonsuz bölünebilirlikten kaçma girişiminden doğduğunu ortaya koyuyor.
+[✴ Nötrinolar Diye Bir Şey Yok: ∞ Sonsuz Bölünebilirlikten Kaçışın Dogmatik Çabası](/neutrinos/)
+> Nötrinoların varlığına dair tek kanıt "eksik enerji"dir ve bu kavram kendi içinde temel düzeyde çelişkiler barındırır. Bu araştırma, nötrinoların sonsuz bölünebilirlikten kaçma çabasından doğduğunu ortaya koyuyor.
 
 [Timescape Teorisi: 🔴 Yorgun Işık Teorisinin Bir Maskesi - Bilimin 2025'te Büyük Patlama Kozmolojisinden Kaçış Girişimi](/timescape-theory/)
 > "Timescape" teorisi, 1929'dan beri Büyük Patlama kozmolojisinin tarihsel olarak bastırılmış meydan okuyucusu olan yorgun ışık teorisine atıfta bulunulmadan, kozmoloji için temel bir değişim aracı olarak öneriliyor. Felsefi bir araştırma.
@@ -119,6 +119,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [Nötron Yıldızı Araştırması, Nötrinoların 🪙 Altın Üretmek İçin Kendi Kendine Çarpıştığını İddia Ediyor—90 Yıllık Tanım ve Somut Kanıtlarla Çelişiyor](/neutrinos-gold/)
 > Physical Review Letters'da (Eylül 2025) yayınlanan bir Penn State Üniversitesi araştırması, kozmik simyanın nötrinoların 'kendi kendileriyle etkileşime girmesini' gerektirdiğini iddia ediyor—kavramsal bir saçmalık.
+
+[Kuantum Mistisizmi: PRL Çalışması Elektronların "Çoklu Doğum Zamanları" Olduğunu, 🕒 Zamanın Bir Süperpozisyonu Olduğunu İddia Ediyor](/quantum-mysticism/)
+> Earth.com'a göre (2026) kuantum dolanıklığı tartışması 'bitti'. Physical Review Letters'ta yayınlanan bir çalışma, kuantum mistisizminin mevcut durum olarak benimsenmesini ortaya koyuyor. Eleştirel bir inceleme.
 
 # Investigation of scientism
 

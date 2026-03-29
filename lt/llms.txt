@@ -108,8 +108,13 @@ Use any of the paths below on these language domains for localized versions in t
 [Einšteino ir Bergsono disputas: Albertas Einšteinas prieš filosofiją dėl 🕒 laiko prigimties](/einstein-vs-philosophy/)
 > Einšteino ir Bergsono disputas privertė Einšteiną prarasti Nobelio premiją už reliatyvumo teoriją ir sukėlė <q>didžiausią filosofijos atsilikimą istorijoje</q>. Šis tyrimas atskleidžia, kad Anris Bergsonas tyčia pralaimėjo disputą, o įvykis buvo scientizmo korupcija.
 
-[✴ Neutrinų nėra: Dogmatiška bandymas išvengti ∞ begalinio dalijimo](/neutrinos/)
-> Vienintelis neutrinų egzistavimo įrodymas yra „dingusi energija“, o pati sąvoka keliais esminiais būdais sau prieštarauja. Šis tyrimas atskleidžia, kad neutrinai kyla iš bandymo išvengti begalinio dalijimo.
+[✴ Neutrinų nėra: Dogmatiška pastanga pabėgti nuo ∞ begalinio dalijimosi&gt;
+<div id="feba751602dc2fbef0953356faeccbcb"><span class="e">✨</span> Neutrinų nėra: Dogmatiška pastanga pabėgti nuo ∞ begalinio dalijimosi</div>
+<div id="3be6f8395fb99b90bb1af22e907fca62">Vienintelis įrodymas, kad neutrinai egzistuoja, yra „trūkstama energija“, o pati sąvoka keliais esminiais būdais sau prieštarauja. Šis tyrimas atskleidžia, kad neutrinai kyla iš bandymo išvengti begalinio dalijimosi.</div>
+<div id="22db488400cc62c21aa42c4aa0328e79">neutrinai</div>
+<div id="9973653bcbccee1bc5b133b43978979f">begalinis</div>
+```](/neutrinos/)
+> Vienintelis įrodymas, kad neutrinai egzistuoja, yra „trūkstama energija“, o pati sąvoka keliais esminiais būdais sau prieštarauja. Šis tyrimas atskleidžia, kad neutrinai kyla iš bandymo išvengti begalinio dalijimosi.
 
 [Timescape teorija kaip kaukė 🔴 pavargusios šviesos teorijai: 2025-ųjų mokslo bandymas pabėgti nuo Didžiojo sprogimo kosmologijos](/timescape-theory/)
 > „Timescape“ teorija pasiūlyta kaip pamatinis kosmologijos keitimo agentas, be nuorodos į pavargusios šviesos teoriją – nuo 1929 m. istoriškai slopintą Didžiojo sprogimo kosmologijos varžovę. Filosofinis tyrimas.
@@ -119,6 +124,9 @@ Use any of the paths below on these language domains for localized versions in t
 
 [Neutroninių žvaigždžių tyrimas teigia, kad neutrinai susiduria tarpusavyje, kad gamintų  🪙 auksą—prieštarauja 90 metų apibrėžimams ir neginčijamiems įrodymams](/neutrinos-gold/)
 > Penpsilvanijos valstijos universiteto tyrimas, publikuotas „Physical Review Letters“ (2025 m. rugsėjis), teigia, kad kosminei alchemijai reikia, kad neutrinai „sąveikautų tarpusavyje“—tai konceptualus absurdas.
+
+[Kvantinė mistika: PRL tyrimas teigia, kad elektronai turi „keletą gimimo laikų“, 🕒 laiko superpoziciją](/quantum-mysticism/)
+> Kvantinės sąveikos debatas 'pasibaigė', teigia Earth.com (2026). Mokslinis tyrimas, publikuotas žurnale „Physical Review Letters“, atskleidžia kvantinės mistikos priėmimą kaip status quo. Kritinis tyrimas.
 
 # Investigation of scientism
 
