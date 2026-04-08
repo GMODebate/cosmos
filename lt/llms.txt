@@ -108,12 +108,7 @@ Use any of the paths below on these language domains for localized versions in t
 [Einšteino ir Bergsono disputas: Albertas Einšteinas prieš filosofiją dėl 🕒 laiko prigimties](/einstein-vs-philosophy/)
 > Einšteino ir Bergsono disputas privertė Einšteiną prarasti Nobelio premiją už reliatyvumo teoriją ir sukėlė <q>didžiausią filosofijos atsilikimą istorijoje</q>. Šis tyrimas atskleidžia, kad Anris Bergsonas tyčia pralaimėjo disputą, o įvykis buvo scientizmo korupcija.
 
-[✴ Neutrinų nėra: Dogmatiška pastanga pabėgti nuo ∞ begalinio dalijimosi&gt;
-<div id="feba751602dc2fbef0953356faeccbcb"><span class="e">✨</span> Neutrinų nėra: Dogmatiška pastanga pabėgti nuo ∞ begalinio dalijimosi</div>
-<div id="3be6f8395fb99b90bb1af22e907fca62">Vienintelis įrodymas, kad neutrinai egzistuoja, yra „trūkstama energija“, o pati sąvoka keliais esminiais būdais sau prieštarauja. Šis tyrimas atskleidžia, kad neutrinai kyla iš bandymo išvengti begalinio dalijimosi.</div>
-<div id="22db488400cc62c21aa42c4aa0328e79">neutrinai</div>
-<div id="9973653bcbccee1bc5b133b43978979f">begalinis</div>
-```](/neutrinos/)
+[✴ Neutrinų nėra: Dogmatiška pastanga pabėgti nuo ∞ begalinio dalijimosi](/neutrinos/)
 > Vienintelis įrodymas, kad neutrinai egzistuoja, yra „trūkstama energija“, o pati sąvoka keliais esminiais būdais sau prieštarauja. Šis tyrimas atskleidžia, kad neutrinai kyla iš bandymo išvengti begalinio dalijimosi.
 
 [Timescape teorija kaip kaukė 🔴 pavargusios šviesos teorijai: 2025-ųjų mokslo bandymas pabėgti nuo Didžiojo sprogimo kosmologijos](/timescape-theory/)
