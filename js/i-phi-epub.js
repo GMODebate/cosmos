@@ -1,7 +1,7 @@
 /** 
   * ePub printer for InformationPhilosopher.com (browser console widget)
-  * @date 2026-04-08, 18:03
-  * @link https://cosmicphilosophy.org/information-philosopher/
+  * @date 2026-04-11, 06:10
+  * @link https://gmodebate.github.io/information-philosopher/
   */
 (async () => {
 
@@ -27,11 +27,11 @@
       mathjax:       'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
 
       // custom source: @epubkit/epub-gen-memory version v1.0.10-aplha.14
-      epubGenMemory: 'https://gmodebate.github.io/js/epub.js',
+      epubGenMemory: 'https://gmodebate.github.io/cosmos/js/epub.js',
     },
     baseUrl:         'https://www.informationphilosopher.com',
-    coverImageUrl:   'https://gmodebate.github.io/images/information-philosopher-book-cover.jpg',
-    bannerImageUrl:  'https://gmodebate.github.io/images/information-philosopher-banner.jpg',
+    coverImageUrl:   'https://gmodebate.github.io/cosmos/images/information-philosopher-book-cover.jpg',
+    bannerImageUrl:  'https://gmodebate.github.io/cosmos/images/information-philosopher-banner.jpg',
     corsProxy:       'https://api.codetabs.com/v1/proxy/?quest=',
     epubTitle:       'Information Philosopher — Complete Resource',
     epubAuthor:      'Bob Doyle',
@@ -255,7 +255,7 @@
     document.head.appendChild(s);
   });
 
-  const slugify = (str) =>
+  const slugify = (str) => 
     (str || '').toLowerCase()
       .replace(/[àáâãäå]/g,'a').replace(/[èéêë]/g,'e')
       .replace(/[ìíîï]/g,'i').replace(/[òóôõö]/g,'o')
@@ -274,19 +274,21 @@
     htmlContent: /(%3C|<).*|(%22|")?(%3E|>)/gi,
     quotes: /(%E2%80%9C|%E2%80%9D|"|'|"|')/gi,
     quotes_single: /^(%E2%80%9C|%E2%80%9D|"|'|"|')*$/i,
-    indexhtml: /\/index\.html$/i,
+    indexhtml: /\/index\.html.*$/i,
     fileext: /\.\w+$/,
     fileext_corruption: /(\.\w+)\/.*$/,
     trailingslash: /\/+$/g,
     dir_no_trailingslash: /\/[a-z0-9\-_]+$/,
-    colonCorruption: /:.*$/
+    colonCorruption: /:.*$/,
+    quoteCorruption: /".*$/,
+    plusCorruption: /\/\+.*$/
   };
 
   const normaliseUrl = (url) => {
     try {
 
       const u = new URL(url);
-      let path = u.pathname || '/';``
+      let path = (u.pathname || '/').split('?')[0];
 
       // Remove everything after a colon (malformed path corruption)
       if (normaliseUrlRegex.colonCorruption.test(path)) {
@@ -324,6 +326,16 @@
         path = path.replace(normaliseUrlRegex.indexhtml, '/');
       }
 
+      // Remove everything after a quote (malformed path corruption)
+      if (normaliseUrlRegex.quoteCorruption.test(path)) {
+        path = path.replace(normaliseUrlRegex.quoteCorruption, '');
+      }
+
+      // Remove everything after a quote (malformed path corruption)
+      if (normaliseUrlRegex.plusCorruption.test(path)) {
+        path = path.replace(normaliseUrlRegex.plusCorruption, '');
+      }
+
       // add trailing slash for directories
       if (normaliseUrlRegex.dir_no_trailingslash.test(path)) {
         path += '/';
@@ -331,6 +343,11 @@
 
       // clean up multiple consecutive slashes
       path = path.replace(normaliseUrlRegex.trailingslash, '/');
+
+      if (/(https|false)/.test(path)) {
+        console.log(url);
+        LOG.err(url)
+      }
 
       return u.origin + path + (u.search || '');
     } catch(_) { return url; }
@@ -419,15 +436,39 @@
   };
   const normaliseChar  = (ch) => accentMap[ch] || ch;
   const extractLastName = (n) => {
-    const parts = (n||'').trim().split(/\s+/);
+    let parts = (n||'').trim().split(/\s+/);
+    
+    // If no spaces found, try splitting by dots
+    if (parts.length === 1) {
+      const dotParts = parts[0].split('.');
+      if (dotParts.length > 1) {
+        parts = dotParts.filter(p => p.length > 0);
+      }
+    }
+    
     if (parts.length === 1) return parts[0];
+    
     for (let i = parts.length - 1; i >= 0; i--) {
       const p = parts[i].toLowerCase().replace(/[^a-z]/g,'');
       if (!lowerParticles.has(p) && p.length > 0) return parts[i];
     }
     return parts[parts.length - 1];
   };
-  const extractFirstName = (n) => ((n||'').trim().split(/\s+/)[0] || '');
+
+  const extractFirstName = (n) => {
+    let parts = (n||'').trim().split(/\s+/);
+    
+    // If no spaces found, try splitting by dots
+    if (parts.length === 1) {
+      const dotParts = parts[0].split('.');
+      if (dotParts.length > 1) {
+        parts = dotParts.filter(p => p.length > 0);
+      }
+    }
+    
+    return (parts[0] || '');
+  };
+
   const getSortLetter   = (lastName) => {
     const ch = (lastName||'').replace(/[^a-zA-ZÀ-ÿ]/g,'').charAt(0).toUpperCase();
     return normaliseChar(ch) || '#';
@@ -502,6 +543,9 @@
     const title =
       doc.querySelector('.chaptertitle')?.textContent?.trim() ||
       doc.querySelector('title')?.textContent?.trim() ||
+      doc.querySelector('h1')?.textContent?.trim() ||
+      doc.querySelector('h2')?.textContent?.trim() ||
+      doc.querySelector('h3')?.textContent?.trim() ||
       'Untitled';
 
     const description =
@@ -510,22 +554,50 @@
     // ── Breadcrumb ────────────────────────────────────────────
     let rawBreadcrumbText = '';
     const bodyArea = doc.querySelector('#column23') || doc.querySelector('.bodycontent');
-    if (bodyArea) {
-      for (const bc of bodyArea.querySelectorAll('div.breadcrumbs')) {
-        if (bc.closest('#citation_info')) continue;
-        const rawText = bc.textContent.trim().replace(/\s+/g,' ');
-        if (!rawText || rawText.length < 8) continue;
-        if (/^close$/i.test(rawText))       continue;
-        if (/retrieved/i.test(rawText))     continue;
-        if (/^\(\d{4}/.test(rawText))       continue;
-        rawBreadcrumbText = rawText;
-        break;
-      }
+
+    // no content
+    if (!bodyArea) {
+      return false;
     }
 
+    for (const bc of bodyArea.querySelectorAll('div.breadcrumbs')) {
+
+      // html error: content in breadcrumbs
+      let chaptertitle = bc.querySelector('.chaptertitle');
+      if (chaptertitle) {
+        let frag = document.createDocumentFragment();
+        let els = [
+          chaptertitle
+        ];
+
+        let c = chaptertitle;
+        while (c.nextSibling) {
+          c = c.nextSibling;
+          els.push(c);
+        }
+        for (let el of els) {
+          frag.appendChild(el);
+        }
+        if (bc.nextElementSibling) {
+          bc.insertBefore(frag, bc.nextElementSibling);
+        } else {
+          bc.parentNode.appendChild(frag);
+        }
+      }
+
+      if (bc.closest('#citation_info')) continue;
+      const rawText = bc.textContent.trim().replace(/\s+/g,' ');
+      if (!rawText || rawText.length < 8) continue;
+      if (/^close$/i.test(rawText))       continue;
+      if (/retrieved/i.test(rawText))     continue;
+      if (/^\(\d{4}/.test(rawText))       continue;
+      rawBreadcrumbText = rawText;
+      break;
+    }
+  
     // ── Collect outbound internal links BEFORE cloning ────────
     const outboundLinks = [];
-    doc.querySelectorAll('a[href]').forEach(a => {
+    bodyArea.querySelectorAll('a[href]').forEach(a => {
       const href = (a.getAttribute('href') || '').trim();
       if (!isAcceptableInternalUrl(href, baseOrigin)) return;
 
@@ -539,11 +611,31 @@
     });
 
     // ── Content clone ─────────────────────────────────────────
-    const contentEl = doc.querySelector('#column23') || doc.querySelector('.bodycontent');
-    if (!contentEl) {
-      return { title, description, rawBreadcrumbText, content: null, outboundLinks };
+    let content = bodyArea.cloneNode(true);
+
+    // detect empty page
+    let body = (content.querySelector('.bodycontent') || content).cloneNode(true);
+    body.querySelectorAll('a[id^=reader_level]').forEach((a) => {
+      while (a.nextSibling && a.nextSibling.nodeName === '#text') {
+        a.nextSibling.remove();
+      }
+      a.remove();
+    });
+    let skyFooter = body.querySelector('.skyFooter');
+    if (skyFooter) {
+      skyFooter.remove();
     }
-    const content = contentEl.cloneNode(true);
+    body.childNodes.forEach((n) => {
+      if (n.nodeName === '#text' && n.textContent.trim() === '') {
+        n.remove();
+      }
+      if (n.nodeName === '#comment') {
+        n.remove();
+      }
+    });
+    if (body.innerHTML.trim() === '') {
+      return false;
+    }
 
     // ── FIX: Convert <a name="..."> to <span id="..."> ───────
     // Named anchors without href cause the browser/epub-reader to
@@ -706,9 +798,13 @@
       const id    = div.getAttribute('id');
       const items = [];
       div.querySelectorAll('a.menuItem[href]').forEach(a => {
-        const href  = (a.getAttribute('href') || '').trim();
+        let href  = (a.getAttribute('href') || '').trim();
+        if (!/informationphilosopher\.com/i.test(a.hostname)) {
+          return;
+        }
         const title = a.textContent.trim().replace(/\s+/g,' ');
-        if (href && title) items.push({ title, url: href });
+
+        if (href && title) items.push({ title, url: a.pathname });
       });
       if (items.length) sections[id] = items;
     });
@@ -734,10 +830,14 @@
         if (child.nodeType === Node.ELEMENT_NODE) {
           if (child.tagName === 'A' && child.getAttribute('href')) {
             const href  = (child.getAttribute('href') || '').trim();
+            if (!/informationphilosopher\.com/i.test(child.hostname)) {
+              continue;
+            }
             const title = child.textContent.trim().replace(/\s+/g,' ');
+
             if (href && title) {
-              if (mode === 'philosophers') philosophers.push({ title, url: href });
-              if (mode === 'scientists')   scientists.push({ title, url: href });
+              if (mode === 'philosophers') philosophers.push({ title, url: child.pathname });
+              if (mode === 'scientists')   scientists.push({ title, url: child.pathname });
             }
           } else {
             walk(child);
@@ -775,13 +875,38 @@
     }
 
     const mergeLists = (presetList, liveList) => {
-      if (!liveList?.length) return presetList;
-      const presetUrls = new Set(presetList.map(p => normaliseUrl(CONFIG.baseUrl + p.url)));
-      const merged = [...presetList];
+      if (!liveList?.length) return presetList.filter((p) => {
+        return p.url;
+      });
+      const presetUrls = new Set(presetList.filter((p) => {
+        return p.url;
+      }).map(p => normaliseUrl(CONFIG.baseUrl + p.url)));
+      const merged = [...presetList.filter((p) => {
+        return p.url;
+      })];
       liveList.forEach(item => {
-        const url = item.url.startsWith('/') ? item.url : '/' + item.url;
-        if (!presetUrls.has(normaliseUrl(CONFIG.baseUrl + url)))
+        let url = item.url.startsWith('/') ? item.url : '/' + item.url;
+        let normUrl = normaliseUrl(CONFIG.baseUrl + url);
+
+        let normPath = new URL(normUrl).pathname;
+        if (typeof URL_REWRITES[normPath] !== 'undefined') {
+
+            // removed by rewrite
+            if (URL_REWRITES[normPath] === false) {
+              return;
+            }
+
+            url = new URL(normUrl);
+            url.pathname = URL_REWRITES[normPath];
+            
+            normUrl = normaliseUrl(url.href);
+            url = url.pathname;
+        }
+
+        if (!presetUrls.has(normUrl)) {
           merged.push({ title: item.title, url });
+          presetUrls.add(normUrl);
+        }
       });
       return merged;
     };
@@ -800,10 +925,30 @@
         const presetUrls = new Set(section.pages.map(p => normaliseUrl(CONFIG.baseUrl + p.url)));
         const merged     = [...section.pages];
         liveItems.forEach(item => {
-          const url = item.url.startsWith('/') ? item.url : '/' + item.url;
-          if (!presetUrls.has(normaliseUrl(CONFIG.baseUrl + url)))
+          let url = item.url.startsWith('/') ? item.url : '/' + item.url;
+          let normUrl = normaliseUrl(CONFIG.baseUrl + url);
+
+          let normPath = new URL(normUrl).pathname;
+          if (typeof URL_REWRITES[normPath] !== 'undefined') {
+
+              // removed by rewrite
+              if (URL_REWRITES[normPath] === false) {
+                return;
+              }
+
+              url = new URL(normUrl);
+              url.pathname = URL_REWRITES[normPath];
+
+              normUrl = normaliseUrl(url.href);
+              url = url.pathname;
+          }
+
+          if (!presetUrls.has(normUrl)) {
             merged.push({ title: item.title, url });
+            presetUrls.add(normUrl);
+          }
         });
+
         return { ...section, pages: merged };
       }
       if (section.title === 'Philosophers' && livePhilosophers.length)
@@ -832,6 +977,9 @@
         { title: 'The Problems',                  url: '/problems/' },
         { title: 'The Solutions',                 url: '/solutions/' },
         { title: 'The Experiments',               url: '/solutions/experiments/' },
+
+        // testing
+        { title: 'test', url: '/solutions/scientists/dirac/chapter_1.html' }
       ],
     },
     {
@@ -1082,7 +1230,7 @@
         { title: 'Rogers Albritton',              url: '/solutions/philosophers/albritton/' },
         { title: 'Alexander of Aphrodisias',      url: '/solutions/philosophers/alexander/' },
         { title: 'Samuel Alexander',              url: '/solutions/philosophers/alexanders/' },
-        { title: 'William Alston',                url: '/solutions/philosophers/alston/' },
+        { title: 'William Alston',                url: '/knowledge/philosophers/alston/' },
         { title: 'Anaximander',                   url: '/solutions/philosophers/anaximander/' },
         { title: 'G.E.M. Anscombe',               url: '/solutions/philosophers/anscombe/' },
         { title: 'Anselm',                        url: '/solutions/philosophers/anselm/' },
@@ -1105,7 +1253,7 @@
         { title: 'Isaiah Berlin',                 url: '/solutions/philosophers/berlin/' },
         { title: 'Richard J. Bernstein',          url: '/solutions/philosophers/bernstein/' },
         { title: 'Bernard Berofsky',              url: '/solutions/philosophers/berofsky/' },
-        { title: 'Robert Bishop',                 url: '/knowledge/philosophers/bishop/' },
+        { title: 'Robert Bishop',                 url: '/solutions/philosophers/bishop/' },
         { title: 'Max Black',                     url: '/solutions/philosophers/black/' },
         { title: 'Susan Blackmore',               url: '/solutions/philosophers/blackmore/' },
         { title: 'Susanne Bobzien',               url: '/solutions/philosophers/bobzien/' },
@@ -1147,7 +1295,7 @@
         { title: 'René Descartes',                url: '/solutions/philosophers/descartes/' },
         { title: 'Richard Double',                url: '/solutions/philosophers/double/' },
         { title: 'Fred Dretske',                  url: '/knowledge/philosophers/dretske/' },
-        { title: 'Curt Ducasse',                  url: '/knowledge/philosophers/ducasse/' },
+        { title: 'Curt Ducasse',                  url: '/solutions/philosophers/ducasse/' },
         { title: 'John Earman',                   url: '/solutions/philosophers/earman/' },
         { title: 'Laura Waddell Ekstrom',         url: '/solutions/philosophers/ekstrom/' },
         { title: 'Epictetus',                     url: '/solutions/philosophers/epictetus/' },
@@ -1244,6 +1392,32 @@
       pages: [
         { title: 'Scientists Overview',           url: '/solutions/scientists/' },
         { title: 'David Albert',                  url: '/solutions/scientists/albert/' },
+        { title: 'Alain Aspect',                  url: '/solutions/scientists/aspect/' },
+        { title: 'Andy Clark',                  url: '/solutions/scientists/clark/' },
+        { title: 'Anne Sophie Meincke',                  url: '/solutions/scientists/meincke/' },
+        { title: 'Brenda Milner',                  url: '/solutions/scientists/milner/' },
+        { title: 'Bruce Lindsay',                  url: '/solutions/scientists/lindsay/' },
+        { title: 'Carl Friedrich Gauss',                  url: '/solutions/scientists/gauss/' },
+        { title: 'David Hilbert',                  url: '/solutions/scientists/hilbert/' },
+        { title: 'Dennis Gabor',                  url: '/solutions/scientists/gabor/' },
+        { title: 'Donald Norman',                  url: '/solutions/scientists/norman/' },
+        { title: 'Edward Thorndike',                  url: '/solutions/scientists/thorndike/' },
+        { title: 'Erik Verlinde',                  url: '/solutions/scientists/verlinde/' },
+        { title: 'François Jacob',                  url: '/solutions/scientists/jacob/' },
+        { title: 'Frederic Bartlett',                  url: '/solutions/scientists/bartlett/' },
+        { title: 'Geoffrey Hinton',                  url: '/solutions/scientists/hinton/' },
+        { title: 'Hans Reichenbach',                  url: '/solutions/scientists/reichenbach/' },
+        { title: 'Ian Hacking',                  url: '/solutions/scientists/hacking/' },
+        { title: 'Isaac Newton',                  url: '/solutions/scientists/newton/' },
+        { title: 'James Lovelock',                  url: '/solutions/scientists/lovelock/' },
+        { title: 'L.E.J. Brouwer',                  url: '/solutions/scientists/brouwer/' },
+        { title: 'Léon Rosenfeld',                  url: '/solutions/scientists/rosenfeld/' },
+        { title: 'Noam Chomsky',                  url: '/solutions/scientists/chomsky/' },
+        { title: 'Roger H. Stuewer',                  url: '/solutions/scientists/stuewer/' },
+        { title: 'Stephen Hawking',                  url: '/solutions/scientists/hawking/' },
+        { title: 'Tim Maudlin',                  url: '/solutions/scientists/maudlin/' },
+        { title: 'Warren Weaver',                  url: '/solutions/scientists/weaver/' },
+        { title: 'Yves Decadt',                  url: '/solutions/scientists/decadt/' },
         { title: 'Philip W. Anderson',            url: '/solutions/scientists/anderson/' },
         { title: 'Michael Arbib',                 url: '/solutions/scientists/arbib/' },
         { title: 'Walter Baade',                  url: '/solutions/scientists/baade/' },
@@ -1321,6 +1495,7 @@
         { title: 'James Clerk Maxwell',           url: '/solutions/scientists/maxwell/' },
         { title: 'Ernst Mayr',                    url: '/solutions/scientists/mayr/' },
         { title: 'N. David Mermin',               url: '/solutions/scientists/mermin/' },
+        { title: 'Abraham de Moivre',             url: '/solutions/scientists/de_moivre/' },
         { title: 'Jacques Monod',                 url: '/solutions/scientists/monod/' },
         { title: 'Emmy Noether',                  url: '/solutions/scientists/noether/' },
         { title: 'Denis Noble',                   url: '/solutions/scientists/noble/' },
@@ -1382,12 +1557,15 @@
       pages: [
         { title: 'Conclusions',                   url: '/afterwords/conclusions/' },
         { title: 'Bibliography',                  url: '/afterwords/bibliography/' },
+        { title: 'I-Phi Books',                         url: '/books/' },
         { title: 'Glossary of Terms',             url: '/afterwords/glossary/' },
         { title: 'Name Index',                    url: '/afterwords/author_index/' },
         { title: 'Subject Index',                 url: '/afterwords/subject_index/' },
       ],
     },
   ];
+
+
 
   // manual broken image rewrites
   const IMG_REWRITES = {
@@ -1423,13 +1601,146 @@
     "/solutions/experiments/Geiger_avalanch.png": "/solutions/experimants/geiger_counter/Geiger_avalanch.png",
     "/solutions/experiments/Geiger.png": "/solutions/experimants/geiger_counter/Geiger.png",
     "/knowledge/entropy-expansion.gif": "/introduction/information/entropy-expansion.gif",
-    "/images/einstein_signature.png": "/solutions/scientists/einstein/Einstein.png"
+    "/images/einstein_signature.png": "/solutions/scientists/einstein/Einstein.png",
+    "/solutions/scientists/bell/EL.png": "/solutions/scientists/bell/Epistemological_Letters/EL.png"
   };
 
   // math rewrites
-  const MATH_REWRITES = {
-    "< B | { cA > = c< B | A >,": "<B|{c|A>} = c<B|A),",
-    "< B | } | A > = < A | } | B >.": "<B|A> = \overline{<A|B>}."
+  const MATH_REWRITES = [
+    {
+      "match": [
+        "< B | { cA > = c< B | A >",
+        "< B | { cA > = c< BA >,"
+      ],
+      "replace": "<B|{c|A>} = c<B|A),"
+    },
+    {
+      "match": "< B | } | A > = < A | } | B >.",
+      "replace": "<B|A> = \overline{<A|B>}."
+    }
+  ];
+
+  const INLINE_MATH_REWRITES = [
+    {
+      match: "α ≈ λ/<i>D</i>",
+      extra_p: "<i>D</i>"
+    },
+    "<i>x<sub>1</sub></i>",
+    "<i>x<sub>2</sub></i>",
+    "<i>f(E) ∝ e<sup>-E/kT</sup></i>",
+    "α ≈ λ/2<i>d</i>",
+    "α ≈ λ/<i>d</i>",
+    "<i>ψ (x,y) = <font size=\"+1&quot;\">Σ</font> a<sub>k</sub> g<sub>k</sub>(x) f<sub>k</sub>(y)</i>",
+    /hν = E<su(p|b)>[a-z0-9]+<\/su(p|b)> (-|\+) E<su(p|b)>[a-z0-9]+<\/su(p|b)>/g,
+    "<i>E<sub>m</sub> - E<sub>n</sub> = hν</i>",
+    /<i>[a-z0-9]+<su(p|b)>+<\/su(p|b)>[a-z0-9]+<su(p|b)>-<\/su(p|b)><\/i>/g,
+    /<i>t<su(p|b)>[a-z0-9]+<\/su(p|b)><\/i>/g,
+    "cos(β-α)<sup>2</sup>",
+    "&lt; <i>ψ<sub>n</sub></i> | <i>φ</i> &gt;",
+    "Z<sub>m</sub>-&gt;Z<sub>n</sub>",
+    "B<sup>m</sup><sub>n</sub> and B<sup>n</sup><sub>m</sub>",
+    /<i>[a-zA-Z0-9][^<]*=\s*[a-zA-Z0-9][^<]*<\/i>/g,
+    "<i>hν</i> = <i>E<sub>n</sub></i> - <i>E<sub>m</sub></i>",
+    /<i>t<su(p|b)>[a-zA-Z0-9]+<\/su(p|b)>\s\*\s*Δt<\/i>/g,
+    /<i>t<su(p|b)>[0-9a-zA-Z]+<\/su(p|b)><\/i>/g,
+    "|v>",
+    "[h>",
+    "|0>",
+    "|1>",
+    "| ↑> |↑>",
+    "|↑> |↑>",
+    "|←> |→>",
+    "|←>",
+    "|→>",
+    "|↑>",
+    "|↓>",
+    "|↑↓>",
+    "|↓↑>",
+    "a<sub>k</sub>",
+    /\| <i>(φ|ψ)<\/i> &gt;/g,
+    /\| <i>(φ|ψ)<su(p|b)>[a-z0-9]+<\/su(p|b)><\/i> &gt;/g,
+    /<i>[A-Z]<su(p|b)>[a-z0-9]+<\/su(p|b)><\/i>/g,
+    /\| ψ \|<su(p|b)>[a-z0-9]+<\/su(p|b)>/g,
+    /Ψ<su(p|b)>[a-z0-9]+<\/su(p|b)>/g,
+    "Ψ",
+    "1/√2",
+    "| + + >",
+    "| - - >"
+  ].map(item => {
+    if (typeof item === 'string') {
+      // Convert string to regex-escaped pattern with flexible whitespace
+      const escaped = RegExp.escape(item).replace(/\s+/g, '\\s*');
+      
+      return {
+        match: [new RegExp(escaped, 'g')],
+        extra_p: null
+      };
+    } else if (item instanceof RegExp) {
+
+      return {
+        match: [item],
+        extra_p: null
+      };
+    } else {
+      // Process object entries
+      if (!Array.isArray(item.match)) {
+        item.match = [item.match];
+      }
+
+      for (let [key,match] of item.match.entries()) {
+        if (typeof match === 'string') {
+          const escaped = RegExp.escape(match).replace(/\s+/g, '\\s*');
+          item.match[key] = new RegExp(escaped, 'g');
+        }
+      }
+
+      if (item.extra_p) {
+        if (!Array.isArray(item.extra_p)) {
+          item.extra_p = [item.extra_p];
+        }
+
+        for (let [key,match] of item.extra_p.entries()) {
+          if (typeof match === 'string') {
+            const escaped = RegExp.escape(match).replace(/\s+/g, '\\s*');
+            item.extra_p[key] = new RegExp(escaped, 'g');
+          }
+        }
+      }
+      
+      return item;
+    }
+  });;
+
+  MATH_REWRITES.forEach((rw) => {
+    if (!Array.isArray(rw.match)) {
+      rw.match = [rw.match];
+    }
+    if (!rw.regex) {
+      rw.match.forEach((match) => {
+        let regex = new RegExp(`^${RegExp.escape(match).replace(/\s+/g, '\\s+')}$`);
+        MATH_REWRITES.push(Object.assign({}, rw, {
+          match: [regex],
+          regex: true
+        }));
+      });
+    }
+  });
+
+  const MATH_REWRITE_MATCH = (str) => {
+      for (let matches of MATH_REWRITES) {
+        for (let match of matches.match) {
+          if (matches.regex) {
+            if (match.test(str)) {
+              return matches.replace
+            }
+          } else {
+            if (str.trim() === match.trim()) {
+              return matches.replace;
+            }
+          }
+        }
+      }
+      return false;
   }
 
   // manual internal link rewrites
@@ -1442,12 +1753,6 @@
     "/scientists/": "scientists-index.xhtml"
   }
 
-  // pages to exclude from TOC index
-  const EXCLUDE_FROM_TOC_INDEX = [
-    "/solutions/philosophers/",
-    "/solutions/scientists/"
-  ]
-
   // manual broken url rewrites
   const URL_REWRITES = {
     "/mind/mind_body/": "/mind/mind-body/",
@@ -1456,6 +1761,8 @@
     "/quantum/mach_zender/": "/quantum/mach-zender/",
     "/solutions/philosophers/compte/": "/solutions/philosophers/comte/",
     "/philosophers/compte/": "/solutions/philosophers/comte/",
+    "/solutions/philosophers/dretske/": "/knowledge/philosophers/dretske/",
+    "/philosophers/dretske/": "/knowledge/philosophers/dretske/",
     "/solutions/scientists/carroll/": "/solutions/scientists/Carroll/",
     "/solutions/scientists/despagmat/": "/solutions/scientists/despagnat/",
     "/solutions/scientists/gal-or/": "/solutions/scientists/gal_or/",
@@ -1465,6 +1772,7 @@
     "/value/Ergo/": "/value/ergo/",
     "/introduction/Information/": "/introduction/information/",
     "/foreword/": "/forewords/",
+    "/solutions/scientists/layzer/free_will/strong_cosmological_principle/": false,
     "/value/ergodic.html": "/value/ergodic.parc.html",
     "/solutions/experiments/stern-gerlach/": "/solutions/experiments/stern_gerlach/",
     "/solutions/experiments/stern-gerlach": "/solutions/experiments/stern_gerlach/",
@@ -1481,8 +1789,6 @@
     "/scandals/gog/": "/scandals/god/",
     "/Problems/": "/problems/",
     "/freeedom/": "/freedom/",
-    "/solutions/philosophers/cassirer/%22/": "/solutions/philosophers/cassirer/",
-    "/solutions/philosophers/cassirer/%22": "/solutions/philosophers/cassirer/",
     "/freedom/comprehensive-compatibilism.html": "/freedom/comprehensive_compatibilism.html",
     "/Freedom/responsibility.html": "/freedom/responsibility.html",
     "/Freedom/indeterminism.html": "/freedom/indeterminism.html",
@@ -1491,19 +1797,7 @@
     "/tutorials/Free_Will/": "/tutorials/free_will/",
     "/tutorials/Free_Will": "/tutorials/free_will/",
     "/freedom/hard_determinism.html": "/freedom/hard_incompatibilism.html",
-    "/freedom/responsibility.html%22/": "/freedom/responsibility.html",
-    "/freedom/responsibility.html%22": "/freedom/responsibility.html",
     "/solutions/dualism/": "/solutions/dualisms/",
-    "/freedom/two-stage_models.html%22/": "/freedom/two-stage_models.html",
-    "/freedom/two-stage_models.html%22": "/freedom/two-stage_models.html",
-    "/freedom/control.html%22/": "/freedom/control.html",
-    "/freedom/control.html%22": "/freedom/control.html",
-    "/freedom/location.html%22/": "/freedom/location.html",
-    "/freedom/location.html%22": "/freedom/location.html",
-    "/freedom/moral_responsibility.html%22/": "/freedom/moral_responsibility.html",
-    "/freedom/moral_responsibility.html%22": "/freedom/moral_responsibility.html",
-    "/freedom/luck.html%22/": "/freedom/luck.html",
-    "/freedom/luck.html%22": "/freedom/luck.html",
     "/solutions/philosophers/clarker/": "/solutions/philosophers/clarke/",
     "/freedom/same%20circumstances.html": "/freedom/same_circumstances.html",
     "/solutioms/philosophers/cicero/": "/solutions/philosophers/cicero/",
@@ -1544,28 +1838,18 @@
     "/solutions/experiments/wave-funstion_collapse/": "/solutions/experiments/wave-function_collapse/",
     "/value/free%20energy/": "/value/free_energy/",
     "/solutions/scientists/gould/": "/solutions/scientists/gold/",
-    "/solutions/scientists/pittendrigh/%22/": "/solutions/scientists/pittendrigh/",
-    "/solutions/scientists/pittendrigh/%22": "/solutions/scientists/pittendrigh/",
-    "/solutions/scientists/driesch/%22/": "/solutions/scientists/driesch/",
-    "/solutions/scientists/driesch/%22": "/solutions/scientists/driesch/",
-    "/solutions/scientists/haeckel/%22/": "/solutions/scientists/haeckel/",
-    "/solutions/scientists/haeckel/%22": "/solutions/scientists/haeckel/",
     "/freedom/iactualism.html": "/freedom/actualism.html",
     "/life/foal/": "/life/goal/",
     "/values/": "/value/",
     "/solutions/philosophers/James/": "/solutions/philosophers/james/",
     "/solutions/scientist/boltzamnn/": "/solutions/scientists/boltzmann/",
-    "/solutions/scientists/mayr/%22/": "/solutions/scientists/mayr/",
-    "/solutions/scientists/mayr/%22": "/solutions/scientists/mayr/",
-    "/solutions/scientists/monod/%22/": "/solutions/scientists/monod/",
-    "/solutions/scientists/monod/%22": "/solutions/scientists/monod/",
     "/solutions/philosopher/chalmers/": "/solutions/philosophers/chalmers/",
     "/philosopher/chalmers/": "/solutions/philosophers/chalmers/",
     "/philosophers/chalmers/": "/solutions/philosophers/chalmers/",
     "/solutions/philosophers/fouilee/": "/solutions/philosophers/fouillee/",
-    "/problems/reversibility/%22/": "/problems/reversibility/",
-    "/problems/reversibility/%22": "/problems/reversibility/",
     "/solutions/scientists/demoivre/": "/solutions/scientists/de_moivre/",
+    "/solutions/scientists/ludwig/": "/solutions/scientists/de_moivre/",
+    "/solutions/scientists/legendre/": "/solutions/scientists/de_moivre/",
     "/solutions/scientists/demoivre": "/solutions/scientists/de_moivre/",
     "/solutions/scientists/neuman/": "/solutions/scientists/neumann/",
     "/solutions/scientists/Quetelet/": "/solutions/scientists/quetelet/",
@@ -1589,10 +1873,6 @@
     "/solutions/scientist/bell/": "/solutions/scientists/bell/",
     "/solutions/scientists/Jordan/": "/solutions/scientists/jordan/",
     "/solutions/scientist/bohm/": "/solutions/scientists/bohm/",
-    "/quantum/hidden_constant/%22/": "/quantum/hidden_constant/",
-    "/quantum/hidden_constant/%22": "/quantum/hidden_constant/",
-    "/quantum/common_cause/%22/": "/quantum/common_cause/",
-    "/quantum/common_cause/%22": "/quantum/common_cause/",
     "/solutions/experiment/EPR/": "/solutions/experiments/EPR/",
     "/solutions/scientist/heisenberg/": "/solutions/scientists/heisenberg/",
     "/problems/nonlocaity/": "/problems/nonlocality/",
@@ -1604,10 +1884,14 @@
     "/freedom/imdeterminism.html": "/freedom/indeterminism.html",
     "/knowledge/EPR/": "/knowledge/ERR/",
     "/solutions/philosopher/diodorus/": "/solutions/philosophers/diodorus/",
+    "/solutions/philosophers/inwagen/": false,
+    "/solutions/philosophers/husserl/": false,
+    "/solutions/philosophers/watson/": false,
+    "/solutions/philosophers/hook/": false,
+    "/solutions/philosophers/arminius/": false,
+    "/solutions/philosophers/fodor/": false,
     "/freedom/chance.html%22/": "/freedom/chance.html",
     "/freedom/chance.html%22": "/freedom/chance.html",
-    "/freedom/adequate_determinism.html%22/": "/freedom/adequate_determinism.html",
-    "/freedom/adequate_determinism.html%22": "/freedom/adequate_determinism.html",
     "/freedom/agent_causality.html": "/freedom/agent-causality.html",
     "/freedom/determinist.html": "/freedom/determinism.html",
     "/freedom/pre_determinism.html": "/freedom/pre-determinism.html",
@@ -1624,15 +1908,12 @@
     "/freeedom/causa_sui.html": "/freedom/causa_sui.html",
     "/freedom/semi-compatibilism.html": "/freedom/semicompatibilism.html",
     "/solutions/philosophers/wittenstein/": "/solutions/philosophers/wittgenstein/",
-    "/solutions/philosophers/james/%22/": "/solutions/philosophers/james/",
-    "/solutions/philosophers/james/%22": "/solutions/philosophers/james/",
     "/freedom/comtrol.html": "/freedom/control.html",
     "/solutions/philosophers/lewid/": "/solutions/philosophers/lewis/",
+    "/solutions/philosophers/lewis/Pragmatic_a_priori.html": false,
     "/solutions/philosopher/fischer/": "/solutions/philosophers/fischer/",
     "/solutions/phiolsophers/lucretius/de_rerum_natura.html": "/solutions/philosophers/lucretius/de_rerum_natura.html",
     "/freedom/two-stage-models.html": "/freedom/two-stage_models.html",
-    "/freedom/pre-determinism.html%22/": "/freedom/pre-determinism.html",
-    "/freedom/pre-determinism.html%22": "/freedom/pre-determinism.html",
     "/solutions/philosphers/aristotle/": "/solutions/philosophers/aristotle/",
     "/solutions/scientist/mach/": "/solutions/scientists/mach/",
     "/solutions/philosphers/plato/": "/solutions/philosophers/plato/",
@@ -1651,15 +1932,16 @@
     "/solutions/philosophers/kant/Critique_of_Practical_Reason.html": "/solutions/philosophers/kant/critique_of_practical_reason.html",
     "/freedom/tertium%20quid.html": "/freedom/tertium_quid.html",
     "/solutions/philosopher/nietzsche/": "/solutions/philosophers/nietzsche/",
-    "/solutions/scientists/heisenberg/%22/": "/solutions/scientists/heisenberg/",
-    "/solutions/scientists/heisenberg/%22": "/solutions/scientists/heisenberg/",
     "/freedom/libertarianism%20.html": "/freedom/libertarianism.html",
+    "/freedom/libertarianism .html": "/freedom/libertarianism.html",
     "/freedom/tertium_Quid.html": "/freedom/tertium_quid.html",
     "/solutions/philosophers/frge/": "/solutions/philosophers/frege/",
     "/solutions/philosophers/frge": "/solutions/philosophers/frege/",
     "/solutions/scientists/rasehevsky/": "/solutions/scientists/rashevsky/",
-    "/solutions/philosophers/lewis/are_we_free_to_break_laws.pdf%22/": "/solutions/philosophers/lewis/Are_we_free_to_break_laws.pdf/",
-    "/solutions/philosophers/lewis/are_we_free_to_break_laws.pdf%22": "/solutions/philosophers/lewis/Are_we_free_to_break_laws.pdf/",
+    "/solutions/philosophers/lewis/are_we_free_to_break_laws.pdf%22/": false,
+    "/solutions/philosophers/lewis/are_we_free_to_break_laws.pdf%22": false,
+    "/knowledge/philosophers/lewis/are_we_free_to_break_laws.pdf%22/": false,
+    "/knowledge/philosophers/lewis/are_we_free_to_break_laws.pdf%22": false,
     "/freedom/indeterminism,html/": "/freedom/indeterminism.html",
     "/freedom/indeterminism,html": "/freedom/indeterminism.html",
     "/freedom/change.html": "/freedom/chance.html",
@@ -1670,6 +1952,59 @@
     "/solutions/philosophers/sedgwick/": "/solutions/philosophers/sidgwick/",
     "/freedom/standard_argument.html%22/": "/freedom/standard_argument.html",
     "/freedom/standard_argument.html%22": "/freedom/standard_argument.html",
+    "/value/ergod/%22/": "/value/ergod/",
+    "/value/ergod/%22": "/value/ergod/",
+    "/value/ergo/%22/": "/value/ergo/",
+    "/value/ergo/%22": "/value/ergo/",
+    "/solutions/scientists/layzer/Free_Will_As_A_Scientific_Problem.pdf%22/": "/solutions/scientists/layzer/free_will/",
+    "/solutions/scientists/layzer/Free_Will_As_A_Scientific_Problem.pdf%22": "/solutions/scientists/layzer/free_will/",
+    "/solutions/scientists/layzer/Naturalizing_Libertarian_Free_Will.doc%22/": "/solutions/scientists/layzer/free_will/",
+    "/solutions/scientists/layzer/Naturalizing_Libertarian_Free_Will.doc%22": "/solutions/scientists/layzer/free_will/",
+    "/solutions/scientists/layzer/free_will": "/solutions/scientists/layzer/free_will/",
+    "/books/scandal/%22/": "/books/scandal/",
+    "/books/scandal/%22": "/books/scandal/",
+    "/mind/panpsychism/%22%22/": "/mind/panpsychism/",
+    "/mind/panpsychism/%22%22": "/mind/panpsychism/",
+    "/solutions/scientists/bricmont/+https://www.amazon.com/Fashionable-Nonsense-Postmodern-Intellectuals-Science-ebook/dp/B00GVRE638%22": false,
+    "/solutions/experiments/EPR/%22%3EEPR%3C/a%3E%20thought%20experiment%20involved%20particles%20going%20in%20opposite%20directions%20from%20a%20central%20source.%20In%20that%20case%20the%20governing%20conservation%20law%20was%20for%20ordinary%20translational%20momentum.%20%3C!--%3Cdiv%20class=%22sectiontitle%22%3EAre%20Real%20Numbers%20Really%20Real": false,
+    "/solutions/philosophers/cassirer/%22/": "/solutions/philosophers/cassirer/",
+    "/solutions/philosophers/cassirer/%22": "/solutions/philosophers/cassirer/",
+    "/freedom/responsibility.html%22/": "/freedom/responsibility.html",
+    "/freedom/responsibility.html%22": "/freedom/responsibility.html",
+    "/freedom/two-stage_models.html%22/": "/freedom/two-stage_models.html",
+    "/freedom/two-stage_models.html%22": "/freedom/two-stage_models.html",
+    "/freedom/control.html%22/": "/freedom/control.html",
+    "/freedom/control.html%22": "/freedom/control.html",
+    "/freedom/location.html%22/": "/freedom/location.html",
+    "/freedom/location.html%22": "/freedom/location.html",
+    "/freedom/moral_responsibility.html%22/": "/freedom/moral_responsibility.html",
+    "/freedom/moral_responsibility.html%22": "/freedom/moral_responsibility.html",
+    "/freedom/luck.html%22/": "/freedom/luck.html",
+    "/freedom/luck.html%22": "/freedom/luck.html",
+    "/solutions/scientists/pittendrigh/%22/": "/solutions/scientists/pittendrigh/",
+    "/solutions/scientists/pittendrigh/%22": "/solutions/scientists/pittendrigh/",
+    "/solutions/scientists/driesch/%22/": "/solutions/scientists/driesch/",
+    "/solutions/scientists/driesch/%22": "/solutions/scientists/driesch/",
+    "/solutions/scientists/haeckel/%22/": "/solutions/scientists/haeckel/",
+    "/solutions/scientists/haeckel/%22": "/solutions/scientists/haeckel/",
+    "/solutions/scientists/mayr/%22/": "/solutions/scientists/mayr/",
+    "/solutions/scientists/mayr/%22": "/solutions/scientists/mayr/",
+    "/solutions/scientists/monod/%22/": "/solutions/scientists/monod/",
+    "/solutions/scientists/monod/%22": "/solutions/scientists/monod/",
+    "/problems/reversibility/%22/": "/problems/reversibility/",
+    "/problems/reversibility/%22": "/problems/reversibility/",
+    "/quantum/hidden_constant/%22/": "/quantum/hidden_constant/",
+    "/quantum/hidden_constant/%22": "/quantum/hidden_constant/",
+    "/quantum/common_cause/%22/": "/quantum/common_cause/",
+    "/quantum/common_cause/%22": "/quantum/common_cause/",
+    "/freedom/adequate_determinism.html%22/": "/freedom/adequate_determinism.html",
+    "/freedom/adequate_determinism.html%22": "/freedom/adequate_determinism.html",
+    "/solutions/philosophers/james/%22/": "/solutions/philosophers/james/",
+    "/solutions/philosophers/james/%22": "/solutions/philosophers/james/",
+    "/freedom/pre-determinism.html%22/": "/freedom/pre-determinism.html",
+    "/freedom/pre-determinism.html%22": "/freedom/pre-determinism.html",
+    "/solutions/scientists/heisenberg/%22/": "/solutions/scientists/heisenberg/",
+    "/solutions/scientists/heisenberg/%22": "/solutions/scientists/heisenberg/",
     "/freedom/free_will.html%22/": "/freedom/free_will.html",
     "/freedom/free_will.html%22": "/freedom/free_will.html",
     "/freedom/indetrminism.html": "/freedom/indeterminism.html",
@@ -1711,7 +2046,8 @@
     "/solutions/scientists/dennett/": "/solutions/scientists/bennett/",
     "/entanglement/common_causet/": "/entanglement/common_cause/",
     "/solutions/scientist/maxwell/": "/solutions/scientists/maxwell/",
-    "/freedom/temporalequence.html": false,
+    "/freedom/temporal%20equence.html": "/freedom/temporal_sequence.html",
+    "/freedom/temporal_sequance.html": "/freedom/temporal_sequence.html",
     "/scientist/maxwell/": "/solutions/scientists/maxwell/",
     "/solutions/philosopher/price/": "/solutions/philosophers/price/",
     "/solutions/scientist/loschmidt/": "/solutions/scientists/loschmidt/",
@@ -1749,12 +2085,12 @@
     "/solutions/scientists/solomomoff": "/solutions/scientists/solomonoff/",
     "/presentation/biosemiotics/": "/presentations/Biosemiotics/",
     "/knowledge/err/": "/knowledge/ERR/",
-    "/freedom/temporal_sequance.html": "/freedom/temporal_sequence.html",
     "/solutions/experiments/schodingerscat/": "/solutions/experiments/schrodingerscat/",
     "/solutions/scientists/misesL/": "/solutions/scientists/mises/",
     "/mind/err/": "/mind/ERR/",
     "/life/%22/": "/life/",
     "/life/%22": "/life/",
+    "/books/WWaF": "/books/WWaF/",
     "/problems/recurrence/%22/": "/problems/recurrence/",
     "/problems/recurrence/%22": "/problems/recurrence/",
     "/solutions/scientists/mccculloch/": "/solutions/scientists/mcculloch/",
@@ -1778,8 +2114,8 @@
     "/freedom/chance%2Bdirect_cause.html": "/freedom/chance_direct_cause.html",
     "/solutions/scientist/sperry/": "/solutions/scientists/sperry/",
     "/introduction/physics/interpetation/": "/introduction/physics/interpretation/",
-    "/solutions/scientists/wiener/Wiener_Progress_and_Entropy.pdf%22/": "/solutions/scientists/wiener/Wiener_Progress_and_Entropy.pdf/",
-    "/solutions/scientists/wiener/Wiener_Progress_and_Entropy.pdf%22": "/solutions/scientists/wiener/Wiener_Progress_and_Entropy.pdf/",
+    "/solutions/scientists/wiener/Wiener_Progress_and_Entropy.pdf%22/": false,
+    "/solutions/scientists/wiener/Wiener_Progress_and_Entropy.pdf%22": false,
     "/problem/consciousness/": "/problems/consciousness/",
     "/problem/ought_from_is/": "/problems/ought_from_is/",
     "/problem/one_or_many/": "/problems/one_or_many/",
@@ -1791,8 +2127,9 @@
     "/freedom/up+to_us.html": "/freedom/up_to_us.html",
     "/freedom/compatiblilism.html": "/freedom/compatibilism.html",
     "/freesom/same_curcumstances.html": "/freedom/same_circumstances.html",
-    "/articles/Jamesian_Free_Will.pdf%22/": "/articles/Jamesian_Free_will.pdf/",
-    "/articles/Jamesian_Free_Will.pdf%22": "/articles/Jamesian_Free_will.pdf/",
+    "/articles/Jamesian_Free_Will.pdf%22/": false,
+    "/articles/Jamesian_Free_Will.pdf%22": false,
+    "/solutions/philosophers/lewis/articles/postmodernism.html": false,
     "/presentations/video/%22/": "/presentations/video/",
     "/presentations/video/%22": "/presentations/video/",
     "/entanglement/common_cause/%22/": "/entanglement/common_cause/",
@@ -1853,28 +2190,20 @@
     "/solutions/philosophers/lewis/%22": "/solutions/philosophers/lewis/",
     "/solutions/scientists/wheeler/%22/": "/solutions/scientists/wheeler/",
     "/solutions/scientists/wheeler/%22": "/solutions/scientists/wheeler/",
-    "/freedom/ultimate_responsibiliy.html": "/freedom/ultimate_responsibility.html",
-    "/freedom/chance%20_direct_cause.html": "/freedom/chance_direct_cause.html",
-    "/solutions/philosophers/Epicurus/": "/solutions/philosophers/epicurus/",
-    "/solutions/phiosophers/epicurus/": "/solutions/philosophers/epicurus/",
     "/solutions/philosophers/locke/%22/": "/solutions/philosophers/locke/",
     "/solutions/philosophers/locke/%22": "/solutions/philosophers/locke/",
     "/solutions/philosophers/hobart/%22/": "/solutions/philosophers/hobart/",
     "/solutions/philosophers/hobart/%22": "/solutions/philosophers/hobart/",
-    "/value/ergod/%22/": "/value/ergod/",
-    "/value/ergod/%22": "/value/ergod/",
+    "/freedom/ultimate_responsibiliy.html": "/freedom/ultimate_responsibility.html",
+    "/freedom/chance%20_direct_cause.html": "/freedom/chance_direct_cause.html",
+    "/solutions/philosophers/Epicurus/": "/solutions/philosophers/epicurus/",
+    "/solutions/phiosophers/epicurus/": "/solutions/philosophers/epicurus/",
     "/solutions/scientists/Onsager/": "/solutions/scientists/onsager/index.parc.html",
     "/problems/reversibility/solutions/scientists/Onsager/": "/solutions/scientists/onsager/index.parc.html",
-    "/value/ergo/%22/": "/value/ergo/",
-    "/value/ergo/%22": "/value/ergo/",
     "/solutions/philosophers/epicurus/epistula_ad%20menoeceum.html": "/solutions/philosophers/epicurus/epistula_ad_menoeceum.html",
     "/freedom/cuasal_closure.html": "/freedom/causal_closure.html",
     "/freedom/alternative_possibilites.html": "/freedom/alternative_possibilities.html",
     "/solutions/scientists/Gold/": "/solutions/scientists/gold/",
-    "/solutions/scientists/layzer/Free_Will_As_A_Scientific_Problem.pdf%22/": "/solutions/scientists/layzer/Free_Will_As_A_Scientific_Problem.pdf/",
-    "/solutions/scientists/layzer/Free_Will_As_A_Scientific_Problem.pdf%22": "/solutions/scientists/layzer/Free_Will_As_A_Scientific_Problem.pdf/",
-    "/solutions/scientists/layzer/Naturalizing_Libertarian_Free_Will.doc%22/": "/solutions/scientists/layzer/Naturalizing_Libertarian_Free_Will.doc/",
-    "/solutions/scientists/layzer/Naturalizing_Libertarian_Free_Will.doc%22": "/solutions/scientists/layzer/Naturalizing_Libertarian_Free_Will.doc/",
     "/problem/causality.html": "/freedom/causality.html",
     "/freedom/problem/causality.html": "/freedom/causality.html",
     "/problem/responsibility.html": "/freedom/responsibility.html",
@@ -1901,8 +2230,6 @@
     "/presentations/Free__Will/err-intro.html": "/presentations/Free__Will/err_intro.html",
     "/freedom/two-stage_modes.html": "/freedom/two-stage_models.html",
     "/freedom/emergent_determinsm.html": "/freedom/emergent_determinism.html",
-    "/books/scandal/%22/": "/books/scandal/",
-    "/books/scandal/%22": "/books/scandal/",
     "/solutions/experiments/dirac_3_polarizers/": "/solutions/experiments/dirac_3-polarizers/",
     "/solutions/philosophers/nagel/": "/solutions/philosophers/nagele/",
     "/solutions/philosophers/taylor/": "/solutions/philosophers/taylorr/",
@@ -1943,7 +2270,7 @@
     "/freedom/freedom/causa_sui.html": "/freedom/causa_sui.html",
     "/freedom/problem/free%20will/": "/freedom/problem/",
     "problem/free%20will/": "/freedom/problem/",
-    "/freedom/problem/%3Efree%20will%3C/a%3E.%20I%20am%20an%20%3Ca%20href=": "/problem/free%20will",
+    "/freedom/problem/%3Efree%20will%3C/a%3E.%20I%20am%20an%20%3Ca%20href=": "/freedom/problem/",
     "/scientists/newton/": "/solutions/scientists/newton/",
     "/freedom/history/freedom/libertarianism.html": "/freedom/libertarianism.html",
     "/freedom/freedom/chance_direct_cause.html": "/freedom/chance_direct_cause.html",
@@ -2160,10 +2487,9 @@
     "/life/teleology/": "/life/teleonomy/",
     "/solutions/experiments/spooky/": "/entanglement/spooky/",
     "/solutions/philosophers/alston/": "/knowledge/philosophers/alston/",
+    "/philosophers/alston/": "/knowledge/philosophers/alston/",
     "/value/good.html": "/value/good/",
     "/solutions/philosophers/teilhard/": "/solutions/scientists/teilhard/",
-    "/mind/panpsychism/%22%22/": "/mind/panpsychism/",
-    "/mind/panpsychism/%22%22": "/mind/panpsychism/",
     "/knowledge/vitalism.html": "/life/vitalism/",
     "/quantum/entanglement/": "/entanglement/",
     "/problems/consciousness.html": "/mind/consciousness/",
@@ -2345,7 +2671,7 @@
     "/afterwords/glossary/freedom/otherwise.html": "/freedom/otherwise.html",
     "/information/creation/": "/scandals/creation/",
     "/presentations/CSC25/": "/presentations/CSC25_Talk/",
-    "/solutions/determinisms/temporal/": "/freedom/temporal%20sequence.html",
+    "/solutions/determinisms/temporal/": "/freedom/temporal_sequence.html",
     "/Philosophers/Plato.html": "/solutions/philosophers/plato/",
     "/Language/etymology.html": "/problems/epistemology/",
     "/Language/semiotics.html": "/life/biosemiotics/",
@@ -2503,7 +2829,6 @@
     "/solutions/philosophers/sidgwick/freedom/standard_objection.html": false,
     "/freedom/reactive_attitudes.html": false,
     "/solutions/scientists/bricmont/+https/": false,
-    "/solutions/scientists/bricmont/+https://www.amazon.com/Fashionable-Nonsense-Postmodern-Intellectuals-Science-ebook/dp/B00GVRE638%22": false,
     "/solutions/scientists/zeilinger/": false,
     "/solutions/scientists/Dembski/": false,
     "/solutions/scientists/Moskowitz/": false,
@@ -2524,7 +2849,6 @@
     "/solutions/scientists/kirchhoff/": false,
     "/solutions/scientists/hartley/Transmission_of_Information.pdfThe%20Transmission%20of%20Information/": false,
     "/solutions/scientists/hartley/Transmission_of_Information.pdf'%3EThe%20Transmission%20of%20Information%3C/a%3E.%20In%20it%20he%20postulates%20a%20law%20that": false,
-    "/solutions/experiments/EPR/%22%3EEPR%3C/a%3E%20thought%20experiment%20involved%20particles%20going%20in%20opposite%20directions%20from%20a%20central%20source.%20In%20that%20case%20the%20governing%20conservation%20law%20was%20for%20ordinary%20translational%20momentum.%20%3C!--%3Cdiv%20class=%22sectiontitle%22%3EAre%20Real%20Numbers%20Really%20Real": false,
     "/solutions/scientists/lashley/mind/memory/": false,
     "/solutions/scientists/lashley/mind/learning/": false,
     "/freedom/event_causation.html": false,
@@ -2614,8 +2938,31 @@
     "/solutions/scientists/kauffman/arxiv.html": false,
     "/presentations/Milan/mental_causation/transition_to_classicality.html": false,
     "/institute/TACO_007pdf/": false,
-    "/institute/TACO_007pdf": false
+    "/institute/TACO_007pdf": false,
+    "/knowledge/philosophers/lewis/are_we_free_to_break_the_laws.html": false,
+    "/knowledge/philosophers/harman/": false,
+
+    // these pages show all "Belief" as title without content
+    "/knowledge/internalism.html": false,
+    "/knowledge/a_priori.html": false,
+    "/knowledge/foundationalism.html": false,
+    "/knowledge/skepticism.html": false,
+    "/knowledge/skepticism.html": false,
+    "/knowledge/analytic_synthetic.html": false,
+    "/knowledge/verification.html": false,
+    "/knowledge/externalism.html": false,
+    "/knowledge/reliabilism.html": false,
+    "/knowledge/gettier_problem.html": false,
+    "/knowledge/circularity.html": false,
+    "/knowledge/belief/": "/knowledge/belief.html"
   };
+
+  for (let [key,value] of Object.entries(URL_REWRITES)) {
+    let keyDecoded = decodeURIComponent(key);
+    if (key !== keyDecoded) {
+      URL_REWRITES[keyDecoded] = value;
+    }
+  }
 
   // ============================================================
   // FILENAME REGISTRY
@@ -2648,6 +2995,17 @@
     );
   };
 
+  const downloadJson = (json) => {
+    const dataStr = JSON.stringify(json, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'data.json';
+    link.click();
+    URL.revokeObjectURL(url);
+  }
+
   // ============================================================
   // PAGE REGISTRY
   // Central store for every page we know about.
@@ -2679,6 +3037,20 @@
 
   const presetSections = buildPresetSections();
   const sections       = await discoverSiteStructure(presetSections);
+
+  // enhance URL_REWRITES, e.g. common broken philosopher profile url links
+  sections.forEach((section) => {
+    if (section.title === 'Philosophers' || section.title === 'Scientists') {
+      section.pages.forEach((page) => {
+        let parts = page.url.split('/');
+        let base = parts[1];
+        let altbase = (base === 'solutions') ? 'knowledge' : 'solutions';
+        parts[1] = altbase;
+        URL_REWRITES[parts.join('/')] = page.url;
+        URL_REWRITES[`/` + parts.slice(2).join('/')] = page.url;
+      });
+    }
+  });
 
   // Sort index sections by last name
   const sortedSections = sections.map(section => {
@@ -2726,6 +3098,11 @@
   sortedSections.forEach(section => {
     const sectionSlug = slugify(section.title);
     section.pages.forEach(page => {
+
+      if (/^https/.test(page.url)) {
+          LOG.err(`${page.url} `)
+      }
+
       const absUrl   = CONFIG.baseUrl + page.url;
       const normUrl  = normaliseUrl(absUrl);
       const pathSlug = slugify(
@@ -2779,6 +3156,10 @@
       if (entry.status !== 'queued') return;
       entry.status = 'fetching';
 
+      /*if (!new RegExp(`/quantum/$`).test(entry.url)) {
+        return;
+      }*/
+
       let originalUrl = entry.normUrl;
       let originalUrlRaw = entry.url;
       let originalStatus = 0;
@@ -2790,7 +3171,8 @@
           const precheckPathOrig = getPathname(url);
 
           if (typeof URL_REWRITES[precheckPath] !== 'undefined' || typeof URL_REWRITES[precheckPathOrig] !== 'undefined') {
-            let rewritePath = (typeof URL_REWRITES[precheckPath] !== 'undefined') ? URL_REWRITES[precheckPath] : URL_REWRITES[precheckPathOrig];
+            let rewriteKey = (typeof URL_REWRITES[precheckPath] !== 'undefined') ? precheckPath : precheckPathOrig;
+            let rewritePath = URL_REWRITES[rewriteKey];
             if (!rewritePath) {
               entry.status = 'skipped';
               skipped404++;
@@ -2798,12 +3180,18 @@
             } else {
               let rewriteUrl = new URL(normUrl);
               rewriteUrl.pathname = rewritePath;
+              const origUrl = entry.url;
 
               registryFixed.set(entry.url, rewriteUrl.href);
               registryFixed.set(entry.normUrl, rewriteUrl.href);
               entry.url = rewriteUrl.href;
               entry.normUrl = normaliseUrl(rewriteUrl.href);
-              entry.url_rewrite = true;
+              entry.url_rewrite = {
+                url: origUrl,
+                normUrl: normUrl,
+                new_key: rewriteKey,
+                new_path: rewritePath
+              };
 
               // Re-register filename under new URL
               setFilename(rewriteUrl.href, entry.filename);
@@ -2815,7 +3203,9 @@
 
         // url rewrites
         if (!precheck(entry.normUrl, entry.url)) {
-          return; // url removed via url rewrites
+          entry.status = 'skipped';
+          skipped404++;
+          return false; // url removed via url rewrites
         }
 
         let res = await fetchWithTimeout(entry.normUrl);
@@ -2900,7 +3290,7 @@
             return;
           }
         }
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status} ${entry.normUrl}`);
 
         // url rewrites
         if (!precheck(entry.normUrl, entry.url)) {
@@ -2911,6 +3301,12 @@
         const doc  = new DOMParser().parseFromString(html, 'text/html');
 
         const extracted = extractFromDoc(doc, entry.url, baseOrigin);
+        if (!extracted) {
+          entry.status        = 404;
+          skipped404++;
+          LOG.fetchTick(fetched, skipped404 + skippedErr, fetchQueue.length);
+          return;
+        }
         entry.status        = 200;
         entry.extracted     = extracted;
         entry.outboundLinks = extracted.outboundLinks;
@@ -2932,6 +3328,21 @@
             normLink = registryFixed.get(normLink);
             normLink = normaliseUrl(normLink);
           }
+
+          let normPath = new URL(normLink).pathname;
+          if (typeof URL_REWRITES[normPath] !== 'undefined') {
+
+              // removed by rewrite
+              if (URL_REWRITES[normPath] === false) {
+                return;
+              }
+
+              url = new URL(normLink);
+              url.pathname = URL_REWRITES[normPath];
+              
+              normLink = normaliseUrl(url.href);
+          }
+
           if (registry.has(normLink)) return;
 
           const resolvedSection = getSectionForUrl(linkUrl) || entry.sectionTitle;
@@ -2960,8 +3371,8 @@
         });
 
       } catch(e) {
-
-        LOG.err(e.message, e);
+        delete entry.content;
+        LOG.err(`${e.message} | ${JSON.stringify(entry)}`, e);
         entry.status = 'error';
         skippedErr++;
         LOG.fetchTick(fetched, skipped404 + skippedErr, fetchQueue.length);
@@ -3030,6 +3441,140 @@
   let linksRewritten = 0;
   let linksNotFound  = 0;
   let pagesProcessed = 0;
+
+  // Regex to detect math patterns in text
+  const mathPatterns = [
+    /\\(?:frac|sqrt|sum|int|partial|nabla|alpha|beta|gamma|sin|cos|tan|log|exp|left|right|cdot|times|div|pm|mp|approx|equiv|leq|geq|neq|infty|pi|theta|lambda|sigma|omega)\b/i,
+
+    // Inline math delimiters
+    /\$[^$]+\$|\\[[].*?\\[)]/,
+    
+    // Dirac notation (more specific)
+    /\|[^|⟩]*⟩|⟨[^|⟨]*\|/,
+    
+    // Fractions and exponents (avoid false positives like "e_mail")
+    /\b[a-z]\s*[_^]\s*\{[^}]+\}|\b[a-z]\s*[_^]\s*[0-9]/i,
+    
+    // Greek letters and math symbols
+    /α|β|γ|δ|ε|ζ|η|θ|ι|κ|λ|μ|ν|ξ|π|ρ|σ|τ|υ|φ|χ|ψ|ω|∑|∫|∂|∇|√|∞|±|×|÷|≈|≡|≤|≥|≠/,
+    
+    // Common math expressions
+    /(?:sin|cos|tan|log|exp|ln|det|dim|span|rank)\s*\(/i,
+    
+    // Matrix/vector notation
+    /\[\s*[a-z0-9\s,;]+\s*\]/i,
+
+    /[+-]\s*[\(0-9]/
+  ];
+
+  // Function to convert text to MathML
+  const convertToMathML = (mathText) => {
+    // Handle common HTML to LaTeX conversions
+
+    mathText = convertHTMLtoMathText(mathText);
+
+    let mathml;
+    try {
+      mathml = window.MathJax.tex2mml(mathText, { display: false });
+    } catch(error) {
+      throw new Error(`${JSON.stringify(mathText)} -> ${error.message}`);
+    }
+    // Check if the result contains an error element
+    if (mathml.includes('data-mjx-error')) {
+      const errorText = new DOMParser().parseFromString(mathml, 'text/html')
+        .body.querySelector('mtext').innerHTML;
+      throw new Error(`${JSON.stringify(mathText)} -> ${errorText}`);
+    }
+    
+    return mathml;
+  }
+
+  const isMathContent = (text) => {
+    return mathPatterns.some(pattern => pattern.test(text));
+  };
+
+  const convertMathHTMLNode = (node) => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      return node.textContent;
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      let tag = node.tagName.toLowerCase();
+      let childText = '';
+      for (let i = 0; i < node.childNodes.length; i++) {
+        childText += convertMathHTMLNode(node.childNodes[i]);
+      }
+      if (tag === 'sup') {
+        return '^{' + childText + '}';
+      } else if (tag === 'sub') {
+        return '_{' + childText + '}';
+      } else if (tag === 'i') {
+        return childText;
+        //return '\\mathit{' + childText + '}';
+      } else {
+        // For any other element, just return the concatenated children.
+        return childText;
+      }
+    } else {
+      // For other node types (like comments) return empty string.
+      return '';
+    }
+  }
+
+  const convertHTMLtoMathText = (html) => {
+    const body = new DOMParser().parseFromString(html, 'text/html').body;
+    let result = '';
+    for (let i = 0; i < body.childNodes.length; i++) {
+      result += convertMathHTMLNode(body.childNodes[i]);
+    }
+
+    return normalizeMathText(result);
+  }
+
+  const normalizeMathText = (htmlText) => {
+    return htmlText
+      .replace(/[\u0003]/g, '') // Remove U+0003 (End of Text) characters
+      .replace(/[\u00A0\u200B-\u200D\uFEFF]/g, ' ')  // Replace non-breaking spaces
+      .replace(/\s+/g, ' ')                          // Collapse multiple spaces
+      .replace(/[\u2018\u2019]/g, "'")               // Normalize quotes
+      .replace(/[\u201C\u201D]/g, '"')               // Normalize double quotes
+      .replace(/[‐‑‒–—]/g, '-')                      // Normalize hyphens
+      .replace(/α/g, '\\alpha')
+      .replace(/λ/g, '\\lambda')
+      .replace(/ν/g, '\\nu')
+      .replace(/≈/g, '\\approx')
+      .replace(/←/g, '\\leftarrow')
+      .replace(/→/g, '\\rightarrow')
+      .replace(/↑/g, '\\uparrow')
+      .trim();
+  }
+
+  // Extract equation number and spacing from HTML like "... &nbsp;&nbsp;&nbsp; (4)"
+  const extractEquationNumber = (htmlText) => {
+    const match = htmlText.match(/(&nbsp;|\s){2,}\s*\((\d+)\)\s*$/);
+    const returnText = (str) => {
+      return convertHTMLtoMathText(str);
+    }
+    if (match) {
+      return { 
+        number: match[2], 
+        spacing: htmlText.match(/(&nbsp;){2,}\s*\(\d+\)\s*$/)[0],
+        text: returnText(htmlText.replace(/(&nbsp;){2,}\s*\(\d+\)\s*$/, '').trim())
+      };
+    } else {
+      if (isMathContent(htmlText)) {
+        return { 
+          number: null, 
+          spacing: '',
+          text: returnText(htmlText.trim())
+        };
+      }
+      return null;
+    }
+  };
+
+  // Extract plain text from HTML (strips tags but keeps text)
+  const extractPlainText = (element) => {
+    return element.innerText.trim();
+  };
 
   const rewriteInternalLinks = (htmlString, sourcePageUrl) => {
     if (!htmlString) return htmlString;
@@ -3167,63 +3712,9 @@
 
   const rewriteMath = (root, doc, sourcePageUrl) => {
   
-    // Regex to detect math patterns in text
-    const mathPatterns = [
-      /\\(?:frac|sqrt|sum|int|partial|nabla|alpha|beta|gamma|sin|cos|tan|log|exp|left|right|cdot|times|div|pm|mp|approx|equiv|leq|geq|neq|infty|pi|theta|lambda|sigma|omega)\b/i,
-  
-      // Inline math delimiters
-      /\$[^$]+\$|\\[[].*?\\[)]/,
-      
-      // Dirac notation (more specific)
-      /\|[^|⟩]*⟩|⟨[^|⟨]*\|/,
-      
-      // Fractions and exponents (avoid false positives like "e_mail")
-      /\b[a-z]\s*[_^]\s*\{[^}]+\}|\b[a-z]\s*[_^]\s*[0-9]/i,
-      
-      // Greek letters and math symbols
-      /α|β|γ|δ|ε|ζ|η|θ|ι|κ|λ|μ|ν|ξ|π|ρ|σ|τ|υ|φ|χ|ψ|ω|∑|∫|∂|∇|√|∞|±|×|÷|≈|≡|≤|≥|≠/,
-      
-      // Common math expressions
-      /(?:sin|cos|tan|log|exp|ln|det|dim|span|rank)\s*\(/i,
-      
-      // Matrix/vector notation
-      /\[\s*[a-z0-9\s,;]+\s*\]/i,
-
-      /[+-]\s*[\(0-9]/
-    ];
-
-    const isMathContent = (text) => {
-      return mathPatterns.some(pattern => pattern.test(text));
-    };
-
-    // Extract equation number and spacing from HTML like "... &nbsp;&nbsp;&nbsp; (4)"
-    const extractEquationNumber = (htmlText) => {
-      const match = htmlText.match(/(&nbsp;|\s){2,}\s*\((\d+)\)\s*$/);
-      if (match) {
-        return { 
-          number: match[2], 
-          spacing: htmlText.match(/(&nbsp;){2,}\s*\(\d+\)\s*$/)[0],
-          text: new DOMParser().parseFromString(htmlText.replace(/(&nbsp;){2,}\s*\(\d+\)\s*$/, '').trim(), 'text/html').body.innerText
-        };
-      } else {
-        if (isMathContent(htmlText)) {
-          return { 
-            number: null, 
-            spacing: '',
-            text: new DOMParser().parseFromString(htmlText.trim(), 'text/html').body.innerText
-          };
-        }
-        return null;
-      }
-    };
-
-    // Extract plain text from HTML (strips tags but keeps text)
-    const extractPlainText = (element) => {
-      return element.innerText.trim();
-    };
-
     // Process math blocks in centered divs
     root.querySelectorAll('div[align="center"],blockquote[align="center"]').forEach((div) => {
+
       let pTags = Array.from(div.querySelectorAll('p')).filter(p => 
         p.textContent.trim() !== ''
       );
@@ -3253,11 +3744,13 @@
         const equationMatch = extractEquationNumber(htmlContent);
         
         if (equationMatch) {
+          let mathTextReplaced;
           try {
 
             let mathText = equationMatch.text;
-            if (MATH_REWRITES[mathText]) {
-              mathText = MATH_REWRITES[mathText];
+            mathTextReplaced = MATH_REWRITE_MATCH(mathText);
+            if (mathTextReplaced) {
+              mathText = mathTextReplaced;
             }
 
             let mathml = window.MathJax.tex2mml(mathText, { display: false });
@@ -3288,10 +3781,71 @@
             // Replace element content with MathML + equation number spacing
             pElement.innerHTML = mathml + equationMatch.spacing;
           } catch (error) {
-            LOG.err(`Math conversion failed for: ${equationMatch.text} | ${sourcePageUrl}`, error);
+            LOG.err(`Math conversion failed: ${JSON.stringify(equationMatch.text)} -> ${error.message}  | ${sourcePageUrl}`);
           }
         }
       });
+    });
+
+    // Main processing function
+    root.querySelectorAll('p').forEach((pElement) => {
+      let pText = pElement.innerHTML;
+      let modified = false;
+      
+      for (let mathConfig of INLINE_MATH_REWRITES) {
+
+        for (let mathRegex of mathConfig.match) {
+
+          if (!mathRegex) {
+            console.log(mathConfig)
+          }
+
+          // Check if primary math pattern matches
+          if (mathRegex.test(pText)) {
+
+            modified = true;
+            
+            // Reset regex lastIndex since we used test()
+            mathRegex.lastIndex = 0;
+            
+            // Replace primary math matches
+            pText = pText.replace(mathRegex, (match) => {
+              try {
+                // Convert LaTeX-like notation to proper LaTeX for MathJax
+                let latexText = match;
+
+                return convertToMathML(latexText);
+              } catch (error) {
+                LOG.err(`Math conversion failed: ${error.message} | ${sourcePageUrl}`);
+                return match; // Return original if conversion fails
+              }
+            });
+            
+            // If extra_p is configured, replace those entries too
+            if (mathConfig.extra_p) {
+              for (let extraRegex of mathConfig.extra_p) {
+                pText = pText.replace(extraRegex, (match) => {
+                  try {
+                    let latexText = match
+                      .replace(/<i>(.*?)<\/i>/g, '\\mathit{$1}')
+                      .replace(/<sub>(.*?)<\/sub>/g, '_{$1}');
+                    
+                    return convertToMathML(latexText);
+                  } catch (error) {
+                    LOG.err(`Extra math conversion failed: ${error.message} | ${sourcePageUrl}`);
+                    return match;
+                  }
+                });
+              }
+            }
+          }
+        }
+      }
+      
+      // Only update if modifications were made
+      if (modified) {
+        pElement.innerHTML = pText;
+      }
     });
 
   }
@@ -3408,7 +3962,7 @@
     });
     if (isSciPhi) {
       parts = parts.filter((part) => {
-        return !(part === 'solutions');
+        return !(part === 'solutions' || part === 'knowledge');
       });
     }
 
@@ -3464,9 +4018,9 @@
       <p>Information Philosophy (I-Phi) is a new philosophical method grounded in
       modern physics, biology, psychology, neuroscience, and the science of information.
       Created by <strong>Bob (Robert O.) Doyle</strong>, <a href="mailto:rodoyle@fas.harvard.edu">rodoyle@fas.harvard.edu</a>, Associate, Astronomy Department, Harvard University. More info at <a href="https://philpeople.org/profiles/bob-doyle">philpeople.org/profiles/bob-doyle</a>.</p>
-      <h3>Published by gmodebate.github.io</h3>
+      <h3>Published by 🔭 CosmicPhilosophy.org</h3>
       <p><strong>Not affiliated with <a href="${CONFIG.baseUrl}">InformationPhilosopher.com</a> or Bob Doyle.</strong> 
-      This EPUB is published by <a href="https://gmodebate.github.io">gmodebate.github.io</a> for reading convenience. All philosophical
+      This EPUB is published by <a href="https://gmodebate.github.io/cosmos">🔭 CosmicPhilosophy.org</a> for reading convenience. All philosophical
       content remains © Bob Doyle / InformationPhilosopher.com.</p>
       <h3>Navigation</h3>
       <p>Use your e-reader's <strong>Table of Contents</strong> to navigate by section.
@@ -3795,6 +4349,46 @@
 /* ═══════════════════════════════════════════════════════════
    Information Philosopher — EPUB Stylesheet
    ═══════════════════════════════════════════════════════════ */
+
+/* Noto Sans Regular */
+@font-face {
+    font-family: "Noto Sans";
+    font-weight: 400;
+    font-style: normal;
+    src: url(fonts/noto-sans-400.ttf) format('truetype');
+}
+
+/* Noto Sans Bold */
+@font-face {
+    font-family: "Noto Sans";
+    font-weight: 700;
+    font-style: normal;
+    src: url(fonts/noto-sans-700.ttf) format('truetype');
+}
+
+/* Noto Sans Italic */
+@font-face {
+    font-family: "Noto Sans";
+    font-weight: 400;
+    font-style: italic;
+    src: url(fonts/noto-sans-400i.ttf) format('truetype');
+}
+
+/* Noto Sans Bold Italic */
+@font-face {
+    font-family: "Noto Sans";
+    font-weight: 700;
+    font-style: italic;
+    src: url(fonts/noto-sans-700i.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Noto Sans Math";
+    font-weight: 400;
+    font-style: normal;
+    src: url(fonts/noto-sans-math.ttf);
+}
+
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family: "Noto Sans", sans-serif;
@@ -3834,7 +4428,10 @@ pre { border:1px solid #888; padding:0.8em; white-space:pre-wrap; word-wrap:brea
 .reader_level_1,.div_1 { display:block; margin-top:1.5em; padding:0.8em; border-left:4px solid #555; }
 .reader_level_2,.div_2 { display:block; margin-top:1.5em; padding:0.8em; border-left:4px solid #000; }
 .reader_level_1 .sectiontitle, .reader_level_2 .sectiontitle {margin-top:0;}
-.linksRight { float:right; clear:right; width:40%; margin:0 0 0.8em 1em; padding:0.5em 0.6em; border:1px solid #888; font-size:0.82em; font-style:italic; color:#333; }
+.linksRight { 
+  float:right; clear:right; width:40%; max-width:400px; margin:0 0 0.8em 1em; padding:0.5em 0.6em; border:1px solid #888; font-size:0.82em; font-style:italic; color:#333;
+  page-break-inside: avoid;
+}
 .center-image { text-align:center; margin:1.2em 0; }
 .glossRefs { border:1px solid #888; padding:0.7em; font-size:0.85em; margin:1em 0; }
 .clearBoth { clear:both; } .display_none { display:none !important; } .bodycontent { padding:0; }
@@ -3910,10 +4507,10 @@ ol.epub-stoc-list.depth-1 { margin:0.3em 0 0.2em 1em; padding-left:0.8em; border
 ol.epub-stoc-list.depth-2 { margin:0.2em 0 0.1em 1em; padding-left:0.6em; border-left:1px solid #eee; }
 ol.epub-stoc-list.depth-3,
 ol.epub-stoc-list.depth-4 { margin:0.1em 0 0 0.8em; padding-left:0.4em; }
-li.epub-stoc-sub > a { font-size:0.88em; color:#222; text-decoration:none; display:block; padding:0.15em 0; }
-li.epub-stoc-sub.depth-2 > a { font-size:0.82em; color:#444; }
+li.epub-stoc-sub > a {  color:#222; text-decoration:none; display:block; padding:0.15em 0; }
+li.epub-stoc-sub.depth-2 > a { }
 li.epub-stoc-sub.depth-3 > a,
-li.epub-stoc-sub.depth-4 > a { font-size:0.78em; color:#666; font-style:italic; }
+li.epub-stoc-sub.depth-4 > a { }
 
 /* ── Visual TOC improvements ─────────────────────────── */
 .epub-vtoc-more-link { font-size:0.85em; font-weight:bold; color:#000; text-decoration:underline; }
@@ -3992,93 +4589,50 @@ ol.epub-toc-names { display:block; list-style:none; margin:0 0 0.3em 1em; paddin
 li.epub-toc-name { display:block; margin-bottom:0.05em; }
 li.epub-toc-name > a { display:block; font-size:0.8em; color:#000; text-decoration:none; padding:0.04em 0.2em; line-height:1.35; }
 
-/* Style MathML blocks with STIX Math font */
+/* Style MathML blocks */
 math {
-    font-family: "MathFont", "Cambria Math", "STIX2 Math", "Asana Math", "DejaVu Math", "TeX Gyre Termes Math", serif;
+    font-family: "Noto Sans Math", "STIX2 Math", "Cambria Math", "STIX2 Math", "Asana Math", "DejaVu Math", "TeX Gyre Termes Math", sans-serif;
     font-size: 1em;
+    color: #000066;
+    font-weight: 400;
+    font-style:normal!important;
 }
 
-/* Optional: style specific MathML elements */
+/* Style specific MathML elements */
 mi, mn, mo {
-    font-family: "MathFont", "Cambria Math", "STIX2 Math", "Asana Math", "DejaVu Math", "TeX Gyre Termes Math", serif;
+    font-family: "Noto Sans Math", "STIX2 Math", "Cambria Math", "STIX2 Math", "Asana Math", "DejaVu Math", "TeX Gyre Termes Math", sans-serif;
 }
 mtext {
     font-family: "Noto Sans", sans-serif;
+    color: #000000;
 }
-
 mfrac {
-    font-family:"STIX2 Math", "Cambria Math", "Asana Math", "DejaVu Math", "TeX Gyre Termes Math", "MathFont", "Noto Sans", sans-serif;
+    font-family:"Noto Sans Math", "STIX2 Math", "Cambria Math", "Asana Math", "DejaVu Math", "TeX Gyre Termes Math", "Noto Sans", sans-serif;
 }
 
-/* Noto Sans Regular */
-@font-face {
-    font-family: "Noto Sans";
-    font-weight: 400;
-    font-style: normal;
-    src: local("Noto Sans"),
-         local("NotoSans-Regular"),
-         url(../fonts/noto-sans-400.ttf) format('truetype');
-}
-
-/* Noto Sans Bold */
-@font-face {
-    font-family: "Noto Sans";
-    font-weight: 700;
-    font-style: normal;
-    src: local("Noto Sans Bold"),
-         local("NotoSans-Bold"),
-         url(../fonts/noto-sans-700.ttf) format('truetype');
-}
-
-/* Noto Sans Italic */
-@font-face {
-    font-family: "Noto Sans";
-    font-weight: 400;
-    font-style: italic;
-    src: local("Noto Sans Italic"),
-         local("NotoSans-Italic"),
-         url(../fonts/noto-sans-400i.ttf) format('truetype');
-}
-
-/* Noto Sans Bold Italic */
-@font-face {
-    font-family: "Noto Sans";
-    font-weight: 700;
-    font-style: italic;
-    src: local("Noto Sans Bold Italic"),
-         local("NotoSans-BoldItalic"),
-         url(../fonts/noto-sans-700i.ttf) format('truetype');
-}
-
-@font-face {
-    font-family: "MathFont";
-    src: local("STIX2 Math"),
-         local("STIX2Math"),
-         url(../fonts/STIXTwoMath-Regular.otf);
-}
 `;
 
   const generateEpubFonts = () => {
     return [
       {
         "filename": "noto-sans-400.ttf",
-        "url": CONFIG.corsProxy + encodeURIComponent("https://gmodebate.github.io/fonts/noto-sans-400.ttf")
+        "url": CONFIG.corsProxy + encodeURIComponent("https://gmodebate.github.io/cosmos/fonts/noto-sans-400.ttf")
       },
       {
         "filename": "noto-sans-700.ttf",
-        "url": CONFIG.corsProxy + encodeURIComponent("https://gmodebate.github.io/fonts/noto-sans-700.ttf")
+        "url": CONFIG.corsProxy + encodeURIComponent("https://gmodebate.github.io/cosmos/fonts/noto-sans-700.ttf")
       },
       {
         "filename": "noto-sans-400i.ttf",
-        "url": CONFIG.corsProxy + encodeURIComponent("https://gmodebate.github.io/fonts/noto-sans-400i.ttf")
+        "url": CONFIG.corsProxy + encodeURIComponent("https://gmodebate.github.io/cosmos/fonts/noto-sans-400i.ttf")
       },
       {
         "filename": "noto-sans-700i.ttf",
-        "url": CONFIG.corsProxy + encodeURIComponent("https://gmodebate.github.io/fonts/noto-sans-700i.ttf")
+        "url": CONFIG.corsProxy + encodeURIComponent("https://gmodebate.github.io/cosmos/fonts/noto-sans-700i.ttf")
       },
       {
-        "filename": "STIX2Math.otf",
-        "url": CONFIG.corsProxy + encodeURIComponent("https://gmodebate.github.io/fonts/STIXTwoMath-Regular.otf")
+        "filename": "noto-sans-math.ttf",
+        "url": CONFIG.corsProxy + encodeURIComponent("https://gmodebate.github.io/cosmos/fonts/noto-sans-math.ttf")
       }
     ];
   }
@@ -4090,6 +4644,12 @@ mfrac {
 
   const chapters = [];
   const chaptersAdded = new Map();
+  const phiSciBase = [
+    "/solutions/philosophers/",
+    "/solutions/scientists/",
+    "/knowledge/philosophers/",
+    "/knowledge/scientists/"
+  ];
 
   // Front matter
   chapters.push({
@@ -4109,7 +4669,6 @@ mfrac {
     filename:'003-visual-toc.xhtml', beforeToc:false, excludeFromToc:false,
   });
 
-  // Replaces the existing nestedSubItems function entirely.
   // Uses e.children (set in the parent-assignment pass above).
   const buildTocSubItems = (entry, addedToChapters, chapterList, maxDepth = 6, depth = 0) => {
     if (!entry.children || depth > maxDepth) return [];
@@ -4119,7 +4678,12 @@ mfrac {
       .map(child => {
 
         let normUrlObj = new URL(child.normUrl);
-        if (EXCLUDE_FROM_TOC_INDEX.includes(normUrlObj.pathname)) {
+
+        let canonicalParent = child.canonicalParent;
+
+        // philosopher profile or one of its children
+        // these are now indexed by letter in a different TOC entry
+        if (phiSciBase.includes(canonicalParent)) {
           return;
         }
 
@@ -4134,6 +4698,7 @@ mfrac {
         const item = {
           title:    child.title || 'Untitled',
           filename: child.filename,
+          url: child.url
         };
 
         const grandchildren = buildTocSubItems(child, addedToChapters, chapterList, maxDepth, depth + 1);
@@ -4168,11 +4733,18 @@ mfrac {
         // Letter heading links to the anchor on the index page
         filename: `${slug}-index.xhtml#${slug}-letter-${letter}`,
         // Names are sub.subItems — only appear at level 3
-        subItems: entries.map(page => ({
-          title:    page.title || '',
-          filename: getFilename(CONFIG.baseUrl + page.url) ||
-                    `${slug}-${slugify(page.title)}.xhtml`,
-        })),
+        subItems: entries.map((p) => {
+
+          const absUrl = CONFIG.baseUrl + p.url;
+          const entry  = registry.get(normaliseUrl(absUrl));
+
+          const subItems = buildTocSubItems(entry, chaptersAdded, chapters);
+
+          const item = { title: p.title || 'Untitled', filename: entry.filename, url: entry.url };
+          if (subItems.length) item.subItems = subItems;
+
+          return item;
+        }),
       }));
 
       // Index landing page chapter (with letter subItems for TOC)
@@ -4210,11 +4782,11 @@ mfrac {
       const articleSubItems = section.pages.map(p => {
         const absUrl = CONFIG.baseUrl + p.url;
         const entry  = registry.get(normaliseUrl(absUrl));
-        if (!entry) return { title: p.title, filename: getFilename(absUrl) || `${slug}-missing.xhtml` };
+        if (!entry) return { title: p.title, filename: getFilename(entry.url) || `${slug}-missing.xhtml` };
 
         const subItems = buildTocSubItems(entry, chaptersAdded, chapters);
 
-        const item = { title: p.title || '', filename: entry.filename };
+        const item = { title: p.title || 'Untitled', filename: entry.filename, url: entry.url };
         if (subItems.length) item.subItems = subItems;
         return item;
       });
@@ -4233,6 +4805,13 @@ mfrac {
       section.pages.forEach(page => {
         const absUrl = CONFIG.baseUrl + page.url;
         const entry  = registry.get(normaliseUrl(absUrl));
+
+        // rewrite url of philosophers/scientists index
+        if (phiSciBase.includes(entry.normUrl)) {
+          let phiSciSlug = slugify(/\/philosophers\//.test(entry.normUrl) ? 'Philosophers' : 'Scientists');
+          entry.filename = `${phiSciSlug}-index.xhtml`;
+        }
+
         const ch     = buildArticleChapter(
           entry || { url: absUrl, title: page.title, status: 404 }
         );
@@ -4245,6 +4824,29 @@ mfrac {
 
   LOG.ok(`Chapters assembled — ${chapters.length} total`);
   LOG.info(`  Front matter: 4 · Sections: ${sortedSections.length} · Articles: ${chapters.length - 4 - sortedSections.length}`);
+
+  // remove content
+  /*let removeC = (chapters) => {
+    chapters.map((chapter,i) => {
+      delete chapter.content;
+      if (chapter.excludeFromToc) {
+        delete chapters[i];
+        return;
+      }
+      delete chapter.excludeFromToc;
+      if (chapter.subItems) {
+        removeC(chapter.subItems);
+        chapter.subItems = chapter.subItems.filter(Boolean);
+      }
+    });
+  }
+  removeC(chapters);
+  let c = chapters.filter(Boolean);
+
+  console.log('debug', c);
+
+  downloadJson(c);
+  return;*/
 
   // ============================================================
   // FINAL SUMMARY
