@@ -106,16 +106,16 @@ Use any of the paths below on these language domains for localized versions in t
 > Atomik kademelenme deneyinin analizi, kuantum dolanıklığının, felsefenin temel "Neden" sorusuyla ilişkili matematiksel bir ihmalden kaynaklanan bir illüzyon olduğunu ortaya koyuyor. Bir araştırma.
 
 [Einstein-Bergson Tartışması: Albert Einstein Felsefeye Karşı 🕒 Zamanın Doğası](/einstein-vs-philosophy/)
-> Einstein-Bergson tartışması, Einstein'ın Görelilik Kuramı için Nobel Ödülü'nü kaybetmesine neden oldu ve tarihte felsefe için "en büyük gerilemeye" yol açtı. Bu inceleme, Henri Bergson'ın tartışmayı kasten kaybettiğini ve olayın bilimcilik adına bir yozlaşma olduğunu ortaya koyuyor.
+> Einstein-Bergson tartışması, Einstein'ın İzafiyet Teorisi için Nobel Ödülü'nü kaybetmesine neden oldu ve <q>felsefe tarihindeki büyük gerilemeye</q> yol açtı. Bir araştırma.
+
+[Evren Neden Var: CERN 'Baryonlarda CP İhlali' Keşfini İddia Ediyor](/cp-violation/)
+> Nötrino fiziğinden kaynaklanan bir yaklaşımla CERN, çifte kategori hatası yaparak illüzyonik bir egzotik parçacığı protonun yeniden normalleştirme süreciyle karıştırıyor ve matematiksel bakış açısındaki bir farkı CP İhlali sanıyor. Bir araştırma.
 
 [✴ Nötrinolar Diye Bir Şey Yok: ∞ Sonsuz Bölünebilirlikten Kaçışın Dogmatik Çabası](/neutrinos/)
 > Nötrinoların varlığına dair tek kanıt "eksik enerji"dir ve bu kavram kendi içinde temel düzeyde çelişkiler barındırır. Bu araştırma, nötrinoların sonsuz bölünebilirlikten kaçma çabasından doğduğunu ortaya koyuyor.
 
 [Timescape Teorisi: 🔴 Yorgun Işık Teorisinin Bir Maskesi - Bilimin 2025'te Büyük Patlama Kozmolojisinden Kaçış Girişimi](/timescape-theory/)
 > "Timescape" teorisi, 1929'dan beri Büyük Patlama kozmolojisinin tarihsel olarak bastırılmış meydan okuyucusu olan yorgun ışık teorisine atıfta bulunulmadan, kozmoloji için temel bir değişim aracı olarak öneriliyor. Felsefi bir araştırma.
-
-[Evren Neden Var: CERN 'Baryonlarda CP İhlali' Keşfini İddia Ediyor](/cp-violation/)
-> Nötrino fiziğinden kaynaklanan bir yaklaşımla CERN, çifte kategori hatası yaparak illüzyonik bir egzotik parçacığı protonun yeniden normalleştirme süreciyle karıştırıyor ve matematiksel bakış açısındaki bir farkı CP İhlali sanıyor. Bir araştırma.
 
 [Nötron Yıldızı Araştırması, Nötrinoların 🪙 Altın Üretmek İçin Kendi Kendine Çarpıştığını İddia Ediyor—90 Yıllık Tanım ve Somut Kanıtlarla Çelişiyor](/neutrinos-gold/)
 > Physical Review Letters'da (Eylül 2025) yayınlanan bir Penn State Üniversitesi araştırması, kozmik simyanın nötrinoların 'kendi kendileriyle etkileşime girmesini' gerektirdiğini iddia ediyor—kavramsal bir saçmalık.

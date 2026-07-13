@@ -1,6 +1,6 @@
 /** 
   * ePub printer for InformationPhilosopher.com (browser console widget)
-  * @date 2026-04-11, 06:10
+  * @date 2026-07-13, 02:34
   * @link https://gmodebate.github.io/information-philosopher/
   */
 (async () => {
@@ -30,13 +30,14 @@
       epubGenMemory: 'https://gmodebate.github.io/cosmos/js/epub.js',
     },
     baseUrl:         'https://www.informationphilosopher.com',
-    coverImageUrl:   'https://gmodebate.github.io/cosmos/images/information-philosopher-book-cover.jpg',
+    coverImageUrl:   'https://gmodebate.github.io/cosmos/i/b/information-philosopher/cover-en_US.jpg',
     bannerImageUrl:  'https://gmodebate.github.io/cosmos/images/information-philosopher-banner.jpg',
-    corsProxy:       'https://api.codetabs.com/v1/proxy/?quest=',
+    corsProxy:       window.corsProxy || 'https://corsproxy.io/?url=',
     epubTitle:       'Information Philosopher — Complete Resource',
     epubAuthor:      'Bob Doyle',
     epubPublisher:   'InformationPhilosopher.com (epub by gmodebate.github.io)',
     epubDescription: 'A complete offline EPUB edition of InformationPhilosopher.com.',
+    epubAccessibilitySummary: 'A comprehensive philosophical reference text. Includes detailed table of contents, semantic markup for logical concepts and citations, and full support for reflowable text sizing. No images with missing alt text; all diagrams have text descriptions.',
     epubLanguage:    'en',
     epubDate:        new Date().toISOString().split('T')[0],
     fetchBatchSize:  12,
@@ -138,11 +139,11 @@
       console.log(
         '%c\n' +
         '  ╔══════════════════════════════════════════════════════════╗\n' +
-        '  ║                                                          ║\n' +
-        '  ║   📖  INFORMATION PHILOSOPHER · EPUB GENERATOR           ║\n' +
-        '  ║       informationphilosopher.com                         ║\n' +
-        '  ║       A Complete Resource in Philosophy & Science        ║\n' +
-        '  ║                                                          ║\n' +
+        '  ║                                                  \n' +
+        '  ║   📖  INFORMATION PHILOSOPHER · EPUB GENERATOR   \n' +
+        '  ║       informationphilosopher.com                 \n' +
+        '  ║       A Complete Resource in Philosophy & Science\n' +
+        '  ║                                                  \n' +
         '  ╚══════════════════════════════════════════════════════════╝\n',
         S.banner
       );
@@ -210,12 +211,12 @@
     // Final summary table
     const summary = (obj) => {
       console.log('%c\n  ┌─────────────────────────────────────────────┐', S.phase);
-      console.log('%c  │  📋  Build Summary                          │', S.phase);
+      console.log('%c  │  📋  Build Summary                         ', S.phase);
       console.log('%c  ├─────────────────────────────────────────────┤', S.phase);
       Object.entries(obj).forEach(([k, v]) => {
         const key = k.padEnd(26);
         const val = String(v).padStart(14);
-        console.log(`%c  │  ${key} ${val}  │`, S.stat);
+        console.log(`%c  │  ${key} ${val}  `, S.stat);
       });
       console.log('%c  └─────────────────────────────────────────────┘', S.phase);
     };
@@ -224,9 +225,9 @@
       console.log(
         `%c\n` +
         `  ╔══════════════════════════════════════════════════════════╗\n` +
-        `  ║  ✅  EPUB READY                                         ║\n` +
-        `  ║  ${filename.substring(0, 56).padEnd(56)}  ║\n` +
-        `  ║  Generated in ${String(elapsed + 's').padEnd(42)}  ║\n` +
+        `  ║  ✅  EPUB READY                                    \n` +
+        `  ║  ${filename.substring(0, 56).padEnd(56)} \n` +
+        `  ║  Generated in ${String(elapsed + 's').padEnd(42)} \n` +
         `  ╚══════════════════════════════════════════════════════════╝\n`,
         S.done
       );
@@ -3132,7 +3133,7 @@
     });
   });
 
-  LOG.ok(`Registry seeded — ${registry.size} pages queued`);
+  LOG.ok(`Registry seeded — ${registry.size} articles queued`);
 
   // ============================================================
   // PHASE 2 — UNIFIED FETCH QUEUE
@@ -3922,7 +3923,7 @@
   }
 
   LOG.ok(
-    `Link rewriting complete — ${pagesProcessed} pages processed · ` +
+    `Link rewriting complete — ${pagesProcessed} articles processed · ` +
     `${linksRewritten} links rewritten · ${linksNotFound} internal links without registered page`
   );
 
@@ -4861,9 +4862,9 @@ mfrac {
     'Author':                 CONFIG.epubAuthor,
     'Generated':              CONFIG.epubDate,
     '':                       '',
-    'Total pages registered': totalPages,
-    'Pages fetched (ok)':     totalOk,
-    'Pages not found (404)':  total404,
+    'Total articles registered': totalPages,
+    'Articles fetched (ok)':     totalOk,
+    'Articles not found (404)':  total404,
     'Fetch errors':           totalErr,
     ' ':                      '',
     'EPUB chapters':          chapters.length,
@@ -4882,9 +4883,56 @@ mfrac {
     author:               CONFIG.epubAuthor,
     publisher:            CONFIG.epubPublisher,
     description:          CONFIG.epubDescription,
+    accessibilitySummary: CONFIG.epubAccessibilitySummary,
     lang:                 CONFIG.epubLanguage,
     date:                 CONFIG.epubDate,
     cover:                CONFIG.coverImageUrl,
+    version:              3,
+
+    // Identifiers (NEW)
+    isbn13:               '978-0983580249',
+    isbn10:               '0983580243',
+    doi:                  false, // e.g., '10.1234/example.5678'
+    ean:                  '9780983580249',
+
+    // Author identity (NEW)
+    creatorOrcid:         false,
+    creatorViaf:          false,
+
+    // Enhanced accessibility (NEW)
+    accessibilitySummary: 'Full EPUB 3 accessibility. Includes structured TOC, semantic markup, reflowable text.',
+    certifiedBy:          null, // e.g., 'Example Accessibility Services'
+    certifierCredential:  null,
+    hazards:              [], // ['none'] | ['flashing', 'motionSimulation']
+
+    // Edition/version (NEW)
+    edition:              '1st Edition',
+    publicationStatus:    'published', // 'draft' | 'revised' | 'published' | 'deprecated'
+    issuedDate:           '2026-04-08T00:00:00Z', // Original publication
+    
+    // Rendering preferences (NEW)
+    spreadMode:           'auto', // 'auto' | 'landscape' | 'portrait' | 'both' | 'none'
+    direction:            'ltr', // 'default' | 'ltr' | 'rtl'
+    paginationRenderMode: 'reflowable',
+
+    // Subjects/Categories
+    subjects: [
+      { value: 'Philosophy - General', bisac: 'PHI000000' },
+      { value: 'Information Science', bisac: 'COM000000' },
+      { value: 'History - General', bisac: 'HIS000000' },
+    ],
+
+    // Series
+    series: {
+      name: 'Philosophical Resources',
+      position: 1,
+    },
+
+    // Contributors
+    contributors: [
+      { name: 'CosmicPhilosophy.org', role: 'edt', fileAs: 'CosmicPhilosophy.org' },
+    ],
+
     tocTitle:             'Table of Contents',
     tocInTOC:             false,
     numberChaptersInTOC:  false,
@@ -4892,7 +4940,6 @@ mfrac {
     ignoreFailedDownloads:true,
     css:                  generateEpubCss(),
     fonts:                generateEpubFonts(),
-    version:              3,
     tocNCX:               customTocNCX,
     tocXHTML:             customTocXHTML,
     verbose:              false,
